@@ -57,7 +57,7 @@
 			<div class="person_items">
 				<ul class="mui-table-view mui-table-view-chevron">
 					<li class="mui-table-view-cell mui-media">
-						<a class="mui-navigate-right">
+						<a class="mui-navigate-right" id="my_order">
 							<img class="mui-media-object mui-pull-left" src="../img/oder_icon.png">
 							<div class="mui-media-body" style="line-height: 45px;">
 								我的订单
@@ -148,6 +148,15 @@
 				}
 			});
 		});
+		document.getElementById("my_order").addEventListener("tap", function() {
+			mui.openWindow({
+				id: "my_order",
+				url: "my_order.html",
+				show: {
+					aniShow: 'slide-in-right', //页面显示动画
+					duration: 300 //动画持续的时间
+				}
+			});
+		});
 	</script>
-
 </html>

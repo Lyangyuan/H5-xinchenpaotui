@@ -303,7 +303,8 @@
 					"html/set_main.html",
 					"html/address_manager.html",
 					"html/my_info.html",
-					"html/my_collect.html"
+					"html/my_collect.html",
+					"html/my_order.html"
 				],
 				"priority": 0
 			},
@@ -362,7 +363,8 @@
 					"html/suggest.html",
 					"html/update.html",
 					"html/new_file.html",
-					"html/barcode_scan.html"
+					"html/barcode_scan.html",
+					"html/about_this_softwarea.html"
 				],
 				"priority": 0
 			},
@@ -459,7 +461,8 @@
 			},
 			"html/barcode_scan.html": {
 				"resources": [
-					"js/common.js"
+					"js/common.js",
+					"css/common.css"
 				],
 				"refer": [],
 				"priority": 0
@@ -538,7 +541,27 @@
 				"resources": [
 					"js/mui.min.js",
 					"fonts/mui.ttf",
+					"css/mui.min.css",
+					"js/mui.pullToRefresh.js",
+					"js/mui.pullToRefresh.material.js",
+					"img/item1.png"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"html/about_this_softwarea.html": {
+				"resources": [
+					"js/mui.min.js",
+					"fonts/mui.ttf",
+					"img/about_icon.png",
 					"css/mui.min.css"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"html/my_order.html": {
+				"resources": [
+					"img/item1.png"
 				],
 				"refer": [],
 				"priority": 0

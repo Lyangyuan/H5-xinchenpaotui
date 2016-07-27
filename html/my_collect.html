@@ -7,17 +7,223 @@
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<link href="../css/mui.min.css" rel="stylesheet" />
 		<script src="../js/mui.min.js"></script>
+		<script src="../js/mui.pullToRefresh.js"></script>
+		<script src="../js/mui.pullToRefresh.material.js"></script>
 		<script type="text/javascript">
 			mui.init()
 		</script>
+		<style type="text/css">
+			.mui-content .mui-fullscreen {
+				top: 44px;
+				height: auto;
+			}
+			
+			.mui-pull-top-tips {
+				position: absolute;
+				top: -20px;
+				left: 50%;
+				margin-left: -25px;
+				width: 40px;
+				height: 40px;
+				border-radius: 100%;
+				z-index: 1;
+			}
+			
+			.mui-bar~.mui-pull-top-tips {
+				top: 24px;
+			}
+			
+			.mui-pull-top-wrapper {
+				width: 42px;
+				height: 42px;
+				display: block;
+				text-align: center;
+				background-color: #efeff4;
+				border: 1px solid #ddd;
+				border-radius: 25px;
+				background-clip: padding-box;
+				box-shadow: 0 4px 10px #bbb;
+				overflow: hidden;
+			}
+			
+			.mui-pull-top-tips.mui-transitioning {
+				-webkit-transition-duration: 200ms;
+				transition-duration: 200ms;
+			}
+			
+			.mui-pull-top-tips .mui-pull-loading {
+				/*-webkit-backface-visibility: hidden;
+				-webkit-transition-duration: 400ms;
+				transition-duration: 400ms;*/
+				margin: 0;
+			}
+			
+			.mui-pull-top-wrapper .mui-icon,
+			.mui-pull-top-wrapper .mui-spinner {
+				margin-top: 7px;
+			}
+			
+			.mui-pull-top-wrapper .mui-icon.mui-reverse {
+				/*-webkit-transform: rotate(180deg) translateZ(0);*/
+			}
+			
+			.mui-pull-bottom-tips {
+				text-align: center;
+				background-color: #efeff4;
+				font-size: 15px;
+				line-height: 40px;
+				color: #777;
+			}
+			
+			.mui-pull-top-canvas {
+				overflow: hidden;
+				background-color: #fafafa;
+				border-radius: 40px;
+				box-shadow: 0 4px 10px #bbb;
+				width: 40px;
+				height: 40px;
+				margin: 0 auto;
+			}
+			
+			.mui-pull-top-canvas canvas {
+				width: 40px;
+			}
+			
+			.mui-slider-indicator.mui-segmented-control {
+				background-color: #efeff4;
+			}
+		</style>
 	</head>
 
 	<body>
 		<header class="mui-bar mui-bar-nav">
-		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
-		    <h1 class="mui-title">我的收藏</h1>
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">我的收藏</h1>
 		</header>
-		
+		<div class="mui-content">
+			<div id="slider" class="mui-slider mui-fullscreen">
+				<div id="sliderSegmentedControl" class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
+					<div class="mui-scroll">
+						<a class="mui-control-item mui-active" href="#collect_shops">
+							商家
+						</a>
+						<a class="mui-control-item" href="#collect_goods">
+							宝贝
+						</a>
+						<a class="mui-control-item" href="#collect_services">
+							服务
+						</a>
+					</div>
+				</div>
+				<div class="mui-slider-group">
+					<div id="collect_shops" class="mui-slider-item mui-control-content mui-active">
+						<div id="scroll" class="mui-scroll-wrapper">
+							<div class="mui-scroll">
+								<ul class="mui-table-view mui-table-view-chevron">
+									<li class="mui-table-view-cell mui-media">
+										<a class="mui-navigate-right">
+											<img class="mui-media-object mui-pull-left" src="../img/item1.png">
+											<div class="mui-media-body">
+												商家1
+												<p class='mui-ellipsis'>商家1的特色</p>
+											</div>
+										</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div id="collect_goods" class="mui-slider-item mui-control-content">
+						<div class="mui-scroll-wrapper">
+							<div class="mui-scroll">
+								<ul class="mui-table-view mui-table-view-chevron">
+									<li class="mui-table-view-cell mui-media">
+										<a class="mui-navigate-right">
+											<img class="mui-media-object mui-pull-left" src="../img/item1.png">
+											<div class="mui-media-body">
+												宝贝1
+												<p class='mui-ellipsis'>宝贝1的特色</p>
+											</div>
+										</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div id="collect_services" class="mui-slider-item mui-control-content">
+						<div class="mui-scroll-wrapper">
+							<div class="mui-scroll">
+								<ul class="mui-table-view mui-table-view-chevron">
+									<li class="mui-table-view-cell mui-media">
+										<a class="mui-navigate-right">
+											<img class="mui-media-object mui-pull-left" src="../img/item1.png">
+											<div class="mui-media-body">
+												服务1
+												<p class='mui-ellipsis'>服务1的特色</p>
+											</div>
+										</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 	</body>
+	<script>
+		mui.init();
+		(function($) {
+			//阻尼系数
+			var deceleration = mui.os.ios ? 0.003 : 0.0009;
+			$('.mui-scroll-wrapper').scroll({
+				bounce: false,
+				indicators: true, //是否显示滚动条
+				deceleration: deceleration
+			});
+			$.ready(function() {
+				//循环初始化所有下拉刷新，上拉加载。
+				$.each(document.querySelectorAll('.mui-slider-group .mui-scroll'), function(index, pullRefreshEl) {
+					$(pullRefreshEl).pullToRefresh({
+						down: {
+							callback: function() {
+								var self = this;
+								setTimeout(function() {
+									var ul = self.element.querySelector('.mui-table-view');
+									ul.insertBefore(createFragment(ul, index, 5, true), ul.firstChild);
+									self.endPullDownToRefresh();
+								}, 1000);
+							}
+						},
+						up: {
+							callback: function() {
+								var self = this;
+								setTimeout(function() {
+									var ul = self.element.querySelector('.mui-table-view');
+									ul.appendChild(createFragment(ul, index, 5));
+									self.endPullUpToRefresh();
+								}, 1000);
+							}
+						}
+					});
+				});
+				var createFragment = function(ul, index, count, reverse) {
+					var length = ul.querySelectorAll('li').length;
+					var fragment = document.createDocumentFragment();
+					var li;
+					for(var i = 0; i < count; i++) {
+						li = document.createElement('li');
+						li.className = 'mui-table-view-cell';
+						li.innerHTML = "<a class='mui-navigate-right'>"
+										+"<img class='mui-media-object mui-pull-left' src='../img/item1.png'>"
+										+"<div class='mui-media-body'>服务"+index+i
+										+"<p class='mui-ellipsis'>服务"+index+i+"的特色</p></div></a>";
+						fragment.appendChild(li);
+					}
+					return fragment;
+				};
+			});
+		})(mui);
+	</script>
 
 </html>
