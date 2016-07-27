@@ -2,18 +2,34 @@
 <html>
 
 	<head>
-		<meta charset="UTF-8">
-		<title></title>
-		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta charset="utf-8" />
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<meta name="HandheldFriendly" content="true" />
+		<meta name="MobileOptimized" content="320" />
+		<script type="text/javascript" src="../js/common.js"></script>
+		<link rel="stylesheet" href="../css/common.css" type="text/css" charset="utf-8" />
 		<link href="../css/mui.min.css" rel="stylesheet" />
 		<script src="../js/mui.min.js"></script>
-		<script type="text/javascript">
-			mui.init()
-		</script>
+		<script src="../js/mui.js"></script>
 	</head>
 
-	<body>
-		
+	<body style="margin:0;padding:0;width:100%;height:100%;text-align:center;">
+		<div class="mui-content">
+			<div class="mui-numbox" data-numbox-min='1' data-numbox-max='150' style="width: 150px;height: 50px;">
+				<button class="mui-btn mui-btn-numbox-minus" type="button">-</button>
+				<input id="box" class="mui-input-numbox" type="number" value="20" />
+				<button class="mui-btn mui-btn-numbox-plus" type="button">+</button>
+			</div>
+			<button id="btn" class="mui-btn mui-btn-blue" style="padding: 7px 12px;height: 50px;" onclick="choose_age()">确定</button>
+		</div>
+
 	</body>
+	<script type="text/javascript">
+		mui.plusReady();
+		function choose_age() {
+			var age = document.getElementById("box").value;
+			back();
+		}
+	</script>
 
 </html>
