@@ -84,7 +84,7 @@
 						</a>
 					</li>
 					<li class="mui-table-view-cell mui-media">
-						<a class="mui-navigate-right">
+						<a class="mui-navigate-right" id="my_collect">
 							<img class="mui-media-object mui-pull-left" src="../img/shoucang_icon.png">
 							<div class="mui-media-body" style="line-height: 45px;">
 								我的收藏
@@ -132,6 +132,16 @@
 			mui.openWindow({
 				id: "myinfo",
 				url: "my_info.html",
+				show: {
+					aniShow: 'slide-in-right', //页面显示动画
+					duration: 300 //动画持续的时间
+				}
+			});
+		});
+		document.getElementById("my_collect").addEventListener("tap", function() {
+			mui.openWindow({
+				id: "my_collect",
+				url: "my_collect.html",
 				show: {
 					aniShow: 'slide-in-right', //页面显示动画
 					duration: 300 //动画持续的时间

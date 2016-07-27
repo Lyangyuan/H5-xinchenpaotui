@@ -302,7 +302,8 @@
 				"refer": [
 					"html/set_main.html",
 					"html/address_manager.html",
-					"html/my_info.html"
+					"html/my_info.html",
+					"html/my_collect.html"
 				],
 				"priority": 0
 			},
@@ -478,7 +479,10 @@
 					"js/city.data-3.js"
 				],
 				"refer": [
-					"html/choose_sex.html"
+					"html/choose_sex.html",
+					"html/choose_age.html",
+					"html/id_classify.html",
+					"html/change_touxiang.html"
 				],
 				"priority": 0
 			},
@@ -490,6 +494,51 @@
 					"fonts/mui.ttf",
 					"js/mui.min.js",
 					"js/mui.js"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"html/choose_age.html": {
+				"resources": [
+					"js/mui.min.js",
+					"css/mui.min.css",
+					"js/mui.js",
+					"js/common.js",
+					"css/common.css"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"html/id_classify.html": {
+				"resources": [
+					"js/mui.min.js",
+					"css/mui.min.css",
+					"img/qq.jpg",
+					"img/weixin.jpg",
+					"img/weibo.jpg",
+					"js/mui.js",
+					"js/common.js"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"html/change_touxiang.html": {
+				"resources": [
+					"js/common.js",
+					"js/mui.min.js",
+					"img/qq.jpg",
+					"css/mui.min.css",
+					"img/weixin.jpg",
+					"js/immersed.js"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"html/my_collect.html": {
+				"resources": [
+					"js/mui.min.js",
+					"fonts/mui.ttf",
+					"css/mui.min.css"
 				],
 				"refer": [],
 				"priority": 0

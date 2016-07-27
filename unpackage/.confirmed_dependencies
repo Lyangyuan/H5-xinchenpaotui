@@ -120,7 +120,8 @@
 			"html/main_frame.html",
 			"html/set_main.html",
 			"html/address_manager.html",
-			"html/my_info.html"
+			"html/my_info.html",
+			"html/my_collect.html"
 		]
 	},
 	"html/buycar.html": {
@@ -276,7 +277,10 @@
 			"js/city.data-3.js"
 		],
 		"refer": [
-			"html/choose_sex.html"
+			"html/choose_sex.html",
+			"html/choose_age.html",
+			"html/id_classify.html",
+			"html/change_touxiang.html"
 		]
 	},
 	"html/choose_sex.html": {
@@ -287,6 +291,43 @@
 			"fonts/mui.ttf",
 			"js/mui.min.js",
 			"js/mui.js"
+		]
+	},
+	"html/choose_age.html": {
+		"resources": [
+			"js/mui.min.js",
+			"css/mui.min.css",
+			"js/mui.js",
+			"js/common.js",
+			"css/common.css"
+		]
+	},
+	"html/id_classify.html": {
+		"resources": [
+			"js/mui.min.js",
+			"css/mui.min.css",
+			"img/qq.jpg",
+			"img/weixin.jpg",
+			"img/weibo.jpg",
+			"js/mui.js",
+			"js/common.js"
+		]
+	},
+	"html/change_touxiang.html": {
+		"resources": [
+			"js/common.js",
+			"js/mui.min.js",
+			"img/qq.jpg",
+			"css/mui.min.css",
+			"img/weixin.jpg",
+			"js/immersed.js"
+		]
+	},
+	"html/my_collect.html": {
+		"resources": [
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/mui.min.css"
 		]
 	}
 }

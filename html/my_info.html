@@ -27,8 +27,8 @@
 		</header>
 		<div class="mui-content">
 			<ul class="mui-table-view">
-				<li class="mui-table-view-cell mui-media">
-					<a>
+				<li class="mui-table-view-cell mui-media" onclick="touxiang()">
+					<a >
 						<img class="mui-media-object mui-pull-right" src="../img/qq.jpg">
 						<div class="mui-media-body" style="line-height: 45px;">
 							头像
@@ -43,7 +43,7 @@
 						程序员
 					</a>
 				</li>
-				<li class="mui-table-view-cell">
+				<li class="mui-table-view-cell" onclick="id_classify()">
 					<a class="mui-pull-left">
 						账号
 					</a>
@@ -51,27 +51,27 @@
 						QQ账号
 					</a>
 				</li>
-				<li class="mui-table-view-cell">
-					<a class=" mui-pull-left " onclick="choose_sex()">
+				<li class="mui-table-view-cell" onclick="choose_sex()">
+					<a class=" mui-pull-left " >
 						性别
 					</a>
 					<a class="mui-pull-right ">
 						男
 					</a>
 				</li>
-				<li class="mui-table-view-cell ">
-					<a class="mui-pull-left ">
+				<li class="mui-table-view-cell " onclick="choose_age()">
+					<a class="mui-pull-left " >
 						年龄
 					</a>
 					<a class="mui-pull-right ">
 						22
 					</a>
 				</li>
-				<li class="mui-table-view-cell">
-					<a class=" mui-pull-left " id="choose_city">
+				<li class="mui-table-view-cell" id="choose_city">
+					<a class=" mui-pull-left " >
 						地区
 					</a>
-					<a class="mui-pull-right " id="choose_calue">
+					<a class="mui-pull-right " id="choose_value">
 						青海 西宁
 					</a>
 				</li>
@@ -80,6 +80,28 @@
 	</body>
 	<script>
 		mui.plusReady();
+		
+		//账号类别
+		var id_classify_float=null;
+		function id_classify(){
+			if(id_classify_float){
+				return;
+			}
+			id_classify_float = plus.webview.create("id_classify.html","id_classify.html",{
+				width: '250px',
+				height: '220px',
+				margin: "auto",
+				background: "rgba(0,0,0,0.8)",
+				scrollIndicator: 'none',
+				scalable: false,
+				popGesture: 'none'
+			});
+			id_classify_float.addEventListener("loaded",function(){
+				id_classify_float.show("fade-in",300);
+				id_classify_float = null;
+			},false);
+		}
+		
 		document.getElementById("edit_name").addEventListener('tap', function(e) {
 			var btnArray = ['确定', '取消'];
 			mui.prompt('请输入新的昵称：', '程序员', '修改昵称', btnArray, function(e) {
@@ -99,7 +121,7 @@
 				});
 				cityPicker3.setData(cityData3);
 				var showCityPickerButton = doc.getElementById('choose_city');
-				var choose_calue = doc.getElementById('choose_calue');
+				var choose_calue = doc.getElementById('choose_value');
 				showCityPickerButton.addEventListener('tap', function(event) {
 					cityPicker3.show(function(items) {
 						choose_calue.innerHTML = (items[0] || {}).text + " " + (items[1] || {}).text + " " + (items[2] || {}).text;
@@ -129,8 +151,48 @@
 				sex_float = null;
 			}, false);
 		}
-		
-		
+
+		var age_float = null;
+
+		function choose_age() {
+			if(age_float) {
+				return;
+			}
+			age_float = plus.webview.create("choose_age.html", "choose_age.html", {
+				width: '210px',
+				height: '50px',
+				margin: "auto",
+				background: "rgba(0,0,0,0.8)",
+				scrollIndicator: 'none',
+				scalable: false,
+				popGesture: 'none'
+			});
+			age_float.addEventListener("loaded", function() {
+				age_float.show("fade-in", 300);
+				age_float = null;
+			}, false);
+		}
+
+		//修改头像
+		var touxiang_float = null;
+		function touxiang() {
+			if(touxiang_float){
+				return;
+			}
+			touxiang_float = plus.webview.create("change_touxiang.html","change_touxiang.html",{
+				width: '300px',
+				height: '450px',
+				margin: "auto",
+				background: "rgba(0,0,0,0.8)",
+				scrollIndicator: 'none',
+				scalable: false,
+				popGesture: 'none'
+			});
+			touxiang_float.addEventListener("loaded",function(){
+				touxiang_float.show("fade-in",300);
+				touxiang_float = null;
+			},false);
+		}
 	</script>
 
 </html>
