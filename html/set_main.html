@@ -1,0 +1,193 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<script src="../js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init();
+		</script>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<h1 class="mui-title" id="title">设置</h1>
+			<a class="mui-icon mui-icon-back mui-pull-left mui-action-back"></a>
+		</header>
+
+		<div class="mui-content">
+			<ul class="mui-table-view mui-table-view-chevron">
+				<li class="mui-table-view-cell mui-media">
+					<a class="mui-navigate-right" id="zihao">
+						<img class="mui-media-object mui-pull-left" src="../img/zihao.png">
+						<div class="mui-media-body" style="line-height: 45px;">
+							字号
+						</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media">
+					<a class="mui-navigate-right" id="theme">
+						<img class="mui-media-object mui-pull-left" src="../img/theme.png">
+						<div class="mui-media-body" style="line-height: 45px;">
+							主题
+						</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media">
+					<a class="mui-navigate-right" id="language">
+						<img class="mui-media-object mui-pull-left" src="../img/language.png">
+						<div class="mui-media-body" style="line-height: 45px;">
+							语言
+						</div>
+					</a>
+				</li>
+			</ul>
+
+			<ul class="mui-table-view mui-table-view-chevron" style="margin-top: 5px;">
+				<li class="mui-table-view-cell mui-media">
+					<a class="mui-navigate-right" id="saoyisao">
+						<img class="mui-media-object mui-pull-left" src="../img/saoyisao.png">
+						<div class="mui-media-body" style="line-height: 45px;">
+							扫一扫
+						</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media">
+					<a class="mui-navigate-right" id="suggest">
+						<img class="mui-media-object mui-pull-left" src="../img/yijian.png">
+						<div class="mui-media-body" style="line-height: 45px;">
+							意见反馈
+						</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media">
+					<a class="mui-navigate-right" id="update">
+						<img class="mui-media-object mui-pull-left" src="../img/update.png">
+						<div class="mui-media-body" style="line-height: 45px;">
+							版本更新
+						</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media">
+					<a class="mui-navigate-right" id="about">
+						<img class="mui-media-object mui-pull-left" src="../img/about_icon.png">
+						<div class="mui-media-body" style="line-height: 45px;">
+							关于星辰跑腿网
+						</div>
+					</a>
+				</li>
+			</ul>
+
+			<button type="button" class="mui-btn mui-btn-danger mui-btn-block" style="width:80% ;margin: auto;margin-top: 5px;">
+				退出登录
+			</button>
+		</div>
+
+	</body>
+	<script type="text/javascript">
+		mui.plusReady();
+
+		document.getElementById("zihao").addEventListener("tap", function() {
+			mui.openWindow({
+				url: "zihao.html",
+				id: "zihao",
+				style: {
+					top: "45px",
+					bottom: "50px",
+				},
+				show: {
+					aniShow: 'slide-in-right', //页面显示动画
+					duration: 300 //动画持续的时间
+				}
+			})
+		});
+		document.getElementById("language").addEventListener("tap", function() {
+			mui.openWindow({
+				url: "language.html",
+				id: "language",
+				style: {
+					top: "45px",
+					bottom: "50px",
+				},
+				show: {
+					aniShow: 'slide-in-right', //页面显示动画
+					duration: 300 //动画持续的时间
+				}
+			})
+		});
+		document.getElementById("theme").addEventListener("tap", function() {
+			mui.openWindow({
+				url: "theme.html",
+				id: "theme",
+				style: {
+					top: "45px",
+					bottom: "50px",
+				},
+				show: {
+					aniShow: 'slide-in-right', //页面显示动画
+					duration: 300 //动画持续的时间
+				}
+			})
+		});
+		document.getElementById("suggest").addEventListener("tap", function() {
+			mui.openWindow({
+				url: "suggest.html",
+				id: "suggest",
+				style: {
+					top: "45px",
+					bottom: "50px",
+				},
+				show: {
+					aniShow: 'slide-in-right', //页面显示动画
+					duration: 300 //动画持续的时间
+				}
+			})
+		});
+		document.getElementById("update").addEventListener("tap", function() {
+			mui.openWindow({
+				url: "update.html",
+				id: "update",
+				style: {
+					top: "45px",
+					bottom: "50px",
+				},
+				show: {
+					aniShow: 'slide-in-right', //页面显示动画
+					duration: 300 //动画持续的时间
+				}
+			})
+		});
+		document.getElementById("about").addEventListener("tap", function() {
+			mui.openWindow({
+				url: "about_this_softwarea.html",
+				id: "about",
+				style: {
+					top: "45px",
+					bottom: "50px",
+				},
+				show: {
+					aniShow: 'slide-in-right', //页面显示动画
+					duration: 300 //动画持续的时间
+				}
+			})
+		});
+		document.getElementById("saoyisao").addEventListener("tap", function() {
+			mui.openWindow({
+				url: "barcode_scan.html",
+				id: "barcode_scan",
+				style: {
+					top: "45px",
+					bottom: "50px",
+				},
+				show: {
+					aniShow: 'slide-in-right', //页面显示动画
+					duration: 300 //动画持续的时间
+				}
+			})
+		});
+	</script>
+
+</html>

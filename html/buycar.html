@@ -1,0 +1,296 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<script src="../js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init()
+		</script>
+		<style type="text/css">
+			.shops {
+				width: 100%;
+				height: auto;
+				background-color: white;
+			}
+			
+			.shop {
+				width: 100%;
+				height: auto;
+				margin-top: 5px;
+			}
+			
+			.shop_name {
+				width: 100%;
+				height: 35px;
+				border-bottom: solid 1px #e4e4e4;
+			}
+			
+			.shop_name table {
+				width: 100%;
+			}
+			
+			.shop_name img {
+				width: 33px;
+				height: 33px;
+			}
+			
+			.items {
+				width: 100%;
+			}
+			
+			.item {
+				width: 100%;
+				height: 100px;
+				border-bottom: solid 1px #e4e4e4;
+			}
+			
+			.item table {
+				width: 100%;
+			}
+			
+			.item img {
+				width: 90px;
+				margin-top: 5px;
+			}
+			
+			.jiesuan {
+				margin-top: 10px;
+				background-color: white;
+			}
+			
+			.edit {
+				width: 100%;
+				height: 100%;
+			}
+			
+			.edit_left {
+				width: 80%;
+				height: 100px;
+				float: left;
+			}
+			
+			.number_edit {
+				width: 100%;
+				height: 40%;
+				text-align: center;
+				border-bottom: solid 1px #e4e4e4;
+			}
+			
+			.property_edit {
+				width: 100%;
+				height: 60%;
+			}
+			
+			.property_edit a {
+				color: black;
+				padding-top: 5px;
+			}
+			
+			.delete {
+				height: 100%;
+				width: 20%;
+				float: left;
+				border: solid 1px;
+			}
+			
+			.delete a {
+				display: block;
+				width: 100%;
+				height: 97px;
+				background: red;
+				text-align: center;
+				line-height: 100px;
+				color: yellow;
+			}
+			
+			.mui-popover {
+				height: 300px;
+			}
+			
+			.mui-popover-arrow {
+				left: auto;
+				right: 6px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="mui-content">
+			<div class="shops">
+				<div class="shop">
+					<div class="shop_name">
+						<table>
+							<tr>
+								<td style="width: 10%;padding-left: 5px;">
+									<input type="checkbox" />
+								</td>
+								<td style="width: 35px;">
+									<img src="../img/shop_logo.png" />
+								</td>
+								<td style="width: 60%;">
+									<h4>店铺名称</h4>
+								</td>
+								<td style="width: 20%;">
+									<a>编辑</a>
+								</td>
+							</tr>
+						</table>
+					</div>
+					<div class="items">
+						<div class="item">
+							<table>
+								<tr>
+									<td style="width: 10%;padding-left: 5px;">
+										<input type="checkbox" id="" />
+									</td>
+									<td>
+										<img src="../img/item1.png" />
+									</td>
+									<td style="width:50%;text-align: left;">
+										<h4>商品名称</h4>
+										<span>
+											<p>运费：5.0元</p>
+										</span>
+										<p>价格：20.0元</p>
+									</td>
+									<td>
+										数量
+										<h4>5</h4>
+									</td>
+								</tr>
+							</table>
+						</div>
+					</div>
+				</div>
+
+				<div class="shop">
+					<div class="shop_name">
+						<table>
+							<tr>
+								<td style="width: 10%;padding-left: 5px;">
+									<input type="checkbox" />
+								</td>
+								<td style="width: 35px;">
+									<img src="../img/shop_logo.png" />
+								</td>
+								<td style="width: 60%;">
+									<h4>店铺名称</h4>
+								</td>
+								<td style="width: 20%;">
+									<a>完成</a>
+								</td>
+							</tr>
+						</table>
+					</div>
+					<div class="items">
+						<div class="item">
+							<table>
+								<tr>
+									<td style="width: 10%;padding-left: 5px;">
+										<input type="checkbox" id="" />
+									</td>
+									<td>
+										<img src="../img/item2.png" />
+									</td>
+									<td style="width:65%">
+										<div class="edit">
+											<div class="edit_left">
+												<div class="number_edit">
+													<div class="mui-numbox" data-numbox-min='1' data-numbox-max='9'>
+														<button class="mui-btn mui-btn-numbox-minus" type="button">-</button>
+														<input id="test" class="mui-input-numbox" type="number" value="5" />
+														<button class="mui-btn mui-btn-numbox-plus" type="button">+</button>
+													</div>
+												</div>
+												<div class="property_edit">
+													<a href="#middlePopover" class="mui-icon mui-icon-arrowdown ">属性分类</a>
+													<p id="property_text">分类内容</p>
+												</div>
+											</div>
+											<div class="delete">
+												<a id="delete">删除</a>
+											</div>
+										</div>
+									</td>
+								</tr>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="jiesuan">
+				<table style="width: 100%;border-bottom: solid 1px #e4e4e4;">
+					<tr>
+						<td>
+							<div class="mui-input-row mui-checkbox mui-left">
+								<label>全选</label>
+								<input name="checkbox" type="checkbox">
+							</div>
+						</td>
+						<td style="text-align: left;">
+							<h3>合计:</h3> 20.0元
+						</td>
+						<td style="width: 20%;padding-top:8px ;">
+							<button type="button" class="mui-btn mui-btn-warning mui-btn-block">结算(0)</button>
+						</td>
+					</tr>
+				</table>
+			</div>
+
+			<div id="middlePopover" class="mui-popover">
+				<div class="mui-scroll-wrapper">
+					<div class="mui-scroll">
+						<ul class="mui-table-view">
+							<li class="mui-table-view-cell">
+								<a href="#">Item1</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a href="#">Item2</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a href="#">Item3</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a href="#">Item4</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a href="#">Item5</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a href="#">Item6</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a href="#">Item7</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a href="#">Item8</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a href="#">Item9</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a href="#">Item10</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+
+			</div>
+	</body>
+	<script>
+		mui.plusReady();
+		mui('.mui-scroll-wrapper').scroll();
+		mui('body').on('shown', '.mui-popover', function(e) {
+			//console.log('shown', e.detail.id); //detail为当前popover元素
+		});
+		mui('body').on('hidden', '.mui-popover', function(e) {
+			//console.log('hidden', e.detail.id);//detail为当前popover元素
+		});
+	</script>
+
+</html>

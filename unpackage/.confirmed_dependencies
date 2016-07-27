@@ -1,0 +1,292 @@
+{
+	"html/registe.html": {
+		"href": "html/registe.html",
+		"resources": [
+			"css/mui.min.css",
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"index.html"
+		],
+		"refer": [
+			"index.html"
+		],
+		"priority": 0
+	},
+	"html/forgetpass.html": {
+		"href": "html/forgetpass.html",
+		"resources": [
+			"css/mui.min.css",
+			"js/mui.min.js",
+			"index.html",
+			"fonts/mui.ttf"
+		],
+		"refer": [
+			"index.html"
+		],
+		"priority": 0
+	},
+	"index.html": {
+		"href": "index.html",
+		"resources": [
+			"js/mui.min.js",
+			"css/mui.min.css",
+			"img/qq.jpg",
+			"img/weixin.jpg",
+			"img/weibo.jpg",
+			"html/main.html",
+			"html/registe.html",
+			"html/forgetpass.html"
+		],
+		"refer": [
+			"html/registe.html",
+			"html/forgetpass.html",
+			"html/main.html"
+		],
+		"priority": 0
+	},
+	"html/main.html": {
+		"resources": [
+			"fonts/mui.ttf",
+			"html/main_frame.html",
+			"js/mui.js",
+			"index.html",
+			"js/mui.min.js",
+			"css/mui.min.css",
+			"img/car.png",
+			"html/main_index.html"
+		],
+		"refer": [
+			"html/main_frame.html",
+			"index.html",
+			"html/personal.html",
+			"html/buycar.html",
+			"html/main_index.html"
+		]
+	},
+	"html/main_frame.html": {
+		"resources": [
+			"img/waimai_logo.jpg",
+			"img/paotui_logo.jpg",
+			"img/lun1.jpg",
+			"css/app.css",
+			"img/lun3.jpg",
+			"img/lun2.jpg",
+			"img/yuantiao.jpg",
+			"img/lun4.jpg",
+			"img/sudi_logo.jpg",
+			"js/mui.min.js",
+			"css/mui.min.css",
+			"js/mui.js",
+			"html/personal.html",
+			"img/tui.png",
+			"img/jingying.png",
+			"img/buy.png",
+			"img/food.png",
+			"img/ping.png",
+			"img/sudi.png",
+			"fonts/mui.ttf"
+		],
+		"refer": [
+			"html/personal.html",
+			"html/paotui_index.html"
+		]
+	},
+	"html/paotui_index.html": {
+		"resources": [
+			"fonts/mui.ttf",
+			"js/mui.min.js",
+			"css/mui.min.css"
+		],
+		"refer": [
+			"html/main.html"
+		]
+	},
+	"html/personal.html": {
+		"resources": [
+			"html/main_frame.html",
+			"js/mui.min.js",
+			"css/mui.min.css",
+			"fonts/mui.ttf",
+			"img/location.png",
+			"img/set_icon.png",
+			"img/shoucang_icon.png",
+			"img/about_icon.png",
+			"img/top_back_img.png",
+			"img/personal_info_icon.png",
+			"img/oder_icon.png",
+			"img/qq.jpg"
+		],
+		"refer": [
+			"html/main_frame.html",
+			"html/set_main.html",
+			"html/address_manager.html",
+			"html/my_info.html"
+		]
+	},
+	"html/buycar.html": {
+		"resources": [
+			"js/mui.min.js",
+			"css/mui.min.css",
+			"fonts/mui.ttf",
+			"img/shop_logo.png",
+			"img/item1.png",
+			"img/item2.png"
+		]
+	},
+	"html/main_index.html": {
+		"resources": [
+			"img/lun1.jpg",
+			"img/jingying.png",
+			"fonts/mui.ttf",
+			"img/ping.png",
+			"img/tui.png",
+			"js/mui.min.js",
+			"img/lun2.jpg",
+			"img/lun3.jpg",
+			"css/mui.min.css",
+			"img/lun4.jpg",
+			"img/buy.png",
+			"img/food.png",
+			"img/sudi.png",
+			"img/search_icon.png"
+		],
+		"refer": [
+			"html/paotui_index.html"
+		]
+	},
+	"html/set_main.html": {
+		"resources": [
+			"img/update.png",
+			"img/zihao.png",
+			"img/yijian.png",
+			"img/saoyisao.png",
+			"img/language.png",
+			"img/theme.png",
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"img/about_icon.png",
+			"css/mui.min.css",
+			"html/set_list.html"
+		],
+		"refer": [
+			"html/zihao.html",
+			"html/set_list.html",
+			"html/language.html",
+			"html/theme.html",
+			"html/suggest.html",
+			"html/update.html",
+			"html/new_file.html",
+			"html/barcode_scan.html"
+		]
+	},
+	"html/set_list.html": {
+		"resources": [
+			"img/update.png",
+			"img/zihao.png",
+			"img/yijian.png",
+			"img/saoyisao.png",
+			"img/language.png",
+			"img/theme.png",
+			"img/about_icon.png"
+		],
+		"refer": [
+			"html/zihao.html"
+		]
+	},
+	"html/zihao.html": {
+		"resources": [
+			"js/mui.min.js",
+			"css/mui.min.css",
+			"fonts/mui.ttf"
+		]
+	},
+	"html/language.html": {
+		"resources": [
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/mui.min.css"
+		]
+	},
+	"html/theme.html": {
+		"resources": [
+			"img/set_page.jpg",
+			"img/main_page.png",
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/mui.min.css"
+		]
+	},
+	"html/suggest.html": {
+		"resources": [
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/mui.min.css",
+			"img/qq.jpg",
+			"img/phone_icon.png",
+			"img/email_icon.png"
+		]
+	},
+	"html/update.html": {
+		"resources": [
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/mui.min.css"
+		]
+	},
+	"html/address_manager.html": {
+		"resources": [
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/mui.min.css"
+		],
+		"refer": [
+			"html/add_address.html"
+		]
+	},
+	"html/add_address.html": {
+		"resources": [
+			"js/mui.picker.js",
+			"js/mui.poppicker.js",
+			"js/city.data.js",
+			"css/mui.poppicker.css",
+			"css/mui.picker.css",
+			"js/city.data-3.js",
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/mui.min.css"
+		]
+	},
+	"html/barcode_scan.html": {
+		"resources": [
+			"js/common.js"
+		]
+	},
+	"html/my_info.html": {
+		"resources": [
+			"js/mui.min.js",
+			"img/qq.jpg",
+			"fonts/mui.ttf",
+			"css/mui.min.css",
+			"js/mui.picker.js",
+			"js/common.js",
+			"css/common.css",
+			"js/mui.poppicker.js",
+			"css/mui.poppicker.css",
+			"css/mui.picker.css",
+			"js/city.data-3.js"
+		],
+		"refer": [
+			"html/choose_sex.html"
+		]
+	},
+	"html/choose_sex.html": {
+		"resources": [
+			"js/common.js",
+			"css/common.css",
+			"css/mui.min.css",
+			"fonts/mui.ttf",
+			"js/mui.min.js",
+			"js/mui.js"
+		]
+	}
+}

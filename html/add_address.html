@@ -1,0 +1,126 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<link href="../css/mui.picker.css" rel="stylesheet" />
+		<link href="../css/mui.poppicker.css" rel="stylesheet" />
+		<script src="../js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init()
+		</script>
+		<style type="text/css">
+			.details {
+				width: 95%;
+				margin: auto;
+				margin-top: 5px;
+				background-color: white;
+				padding: 5px;
+				border-radius: 5px;
+			}
+			
+			.map_mark {
+				width: 95%;
+				margin: auto;
+				margin-top: 10px;
+			}
+			
+			.map {
+				width: 100%;
+				height: 400px;
+				margin: auto;
+				margin-top: 10px;
+				border: solid 1px;
+			}
+			
+			.mark_value {
+				width: 100%;
+				margin-top: 5px;
+			}
+			
+			.mark_value input {
+				width: 80px;
+				height: 30px;
+			}
+		</style>
+		
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<h1 class="mui-title" id="title">添加地址</h1>
+			<a class="mui-icon mui-icon-back mui-pull-left mui-action-back"></a>
+		</header>
+		<div class="mui-content">
+			<div class="details">
+				<form class="mui-input-group" style="width: 95%;margin: auto;margin-top: 5px;">
+					<div class="mui-input-row">
+						<label>称呼：</label>
+						<input id='name' type="text" class="mui-input-clear mui-input" placeholder="例：李先生">
+					</div>
+					<div class="mui-input-row">
+						<label>电话：</label>
+						<input id='phone' type="tel" class="mui-input-clear mui-input" placeholder="请输入电话">
+					</div>
+					<div class="mui-input-row">
+						<label>
+							<a id='showCityPicker3'>选择</a>
+						</label>
+						<input type="text" id="cityResult3" class="mui-input-clear mui-input" placeholder="例：青海省西宁市城北区" />
+					</div>
+					<div class="mui-input-row">
+						<label>街道：</label>
+						<input id='address' type="text" class="mui-input-clear mui-input" placeholder="例：宁大路251号青海大学">
+					</div>
+				</form>
+			</div>
+			<div class="map_mark">
+				<h4>地图标记</h4>
+				<div class="map" id="map">
+
+				</div>
+				<div class="mark_value">
+					经度：<input type="text" name="" id="" /> 纬度：
+					<input type="text" name="" id="" />
+				</div>
+			</div>
+			<button type="button" class="mui-btn mui-btn-blue mui-btn-block" style="width:80% ;margin: auto;margin-top: 5px;margin-bottom: 5px;">
+				保存
+			</button>
+		</div>
+
+	</body>
+	<script src="../js/mui.picker.js"></script>
+	<script src="../js/mui.poppicker.js"></script>
+	<script src="../js/city.data.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../js/city.data-3.js" type="text/javascript" charset="utf-8"></script>
+	<script>
+		mui.plusReady();
+		//地址选择函数
+		(function($, doc) {
+			$.init();
+			$.ready(function() {
+				var cityPicker3 = new $.PopPicker({
+					layer: 3
+				});
+				cityPicker3.setData(cityData3);
+				var showCityPickerButton = doc.getElementById('showCityPicker3');
+				var cityResult3 = doc.getElementById('cityResult3');
+				showCityPickerButton.addEventListener('tap', function(event) {
+					cityPicker3.show(function(items) {
+						cityResult3.value = (items[0] || {}).text + " " + (items[1] || {}).text + " " + (items[2] || {}).text;
+					});
+				}, false);
+			});
+		})(mui, document);
+		//地图标记
+		/*var ptObj = new plus.maps.Map("map");*/
+		mui_map = new plus.maps.Map("map", {
+			zoomControls: true
+		});
+	</script>
+
+</html>

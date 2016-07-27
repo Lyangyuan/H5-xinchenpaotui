@@ -1,0 +1,148 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<script src="../js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init()
+		</script>
+		<style type="text/css">
+			.address_list {
+				width: 95%;
+				margin: auto;
+			}
+			
+			.address {
+				list-style: none;
+				margin-left: -40px;
+			}
+			
+			.address li {
+				margin-top: 10px;
+			}
+			
+			.details {
+				background-color: white;
+				border-radius: 5px;
+				-moz-border-radius: 5px;
+			}
+			
+			.detail {
+				padding: 5px;
+				border-bottom: solid 1px #e4e4e4;
+			}
+			
+			.edits {
+				padding: 5px;
+			}
+			
+			.edits a {
+				font-size: 20px;
+			}
+			
+			.edits table {
+				width: 100%;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<h1 class="mui-title" id="title">地址管理</h1>
+			<a class="mui-icon mui-icon-back mui-pull-left mui-action-back"></a>
+			<a class="mui-icon mui-icon-plus mui-pull-right" id="add_address"></a>
+		</header>
+		<div class="mui-content">
+			<div class="address_list">
+				<ul class="address">
+					<li>
+						<div class="details">
+							<div class="detail">
+								<p>地址：青海省西宁市城北区宁大路251号青海大学</p>
+								<p>联系方式：15709782993</p>
+								<p>联系人：李江博</p>
+							</div>
+							<div class="edits">
+								<table>
+									<tr>
+										<td style="">
+											<div class="mui-input-row mui-radio mui-left">
+												<label>设为默认</label>
+												<input name="radio1" type="radio">
+											</div>
+										</td>
+										<td>
+											<a class="mui-icon mui-icon-compose">
+												编辑
+											</a>
+										</td>
+										<td>
+											<a class="mui-icon mui-icon-trash">
+												删除
+											</a>
+										</td>
+									</tr>
+								</table>
+
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="details">
+							<div class="detail">
+								<p>地址：青海省西宁市城北区宁大路251号青海大学</p>
+								<p>联系方式：15709782993</p>
+								<p>联系人：李江博</p>
+							</div>
+							<div class="edits">
+								<table>
+									<tr>
+										<td>
+											<div class="mui-input-row mui-radio mui-left">
+												<label>设为默认</label>
+												<input name="radio1" type="radio">
+											</div>
+										</td>
+										<td>
+											<a class="mui-icon mui-icon-compose">
+												编辑
+											</a>
+										</td>
+										<td>
+											<a class="mui-icon mui-icon-trash">
+												删除
+											</a>
+										</td>
+									</tr>
+								</table>
+
+							</div>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</body>
+	<script>
+		mui.plusReady();
+		document.getElementById("add_address").addEventListener("tap", function() {
+			mui.openWindow({
+				url: "add_address.html",
+				id: "add_address",
+				style: {
+					top: "45px",
+					bottom: "50px",
+				},
+				show: {
+					aniShow: 'slide-in-right', //页面显示动画
+					duration: 300 //动画持续的时间
+				}
+			})
+		});
+	</script>
+
+</html>

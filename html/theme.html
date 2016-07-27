@@ -1,0 +1,73 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<script src="../js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init()
+		</script>
+		<style>
+			h5 {
+				padding-top: 8px;
+				padding-bottom: 8px;
+				text-indent: 12px;
+			}
+			
+			.mui-table-view.mui-grid-view .mui-table-view-cell .mui-media-body {
+				font-size: 15px;
+				margin-top: 8px;
+				color: #333;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<h1 class="mui-title" id="title">主题</h1>
+			<a class="mui-icon mui-icon-back mui-pull-left mui-action-back"></a>
+		</header>
+
+		<div class="mui-content">
+
+			<ul class="mui-table-view mui-table-view-radio">
+				<li class="mui-table-view-cell" style="background-color:aqua">
+					<a class="mui-navigate-right">
+						清新淡雅
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-selected" style="background-color:white">
+					<a class="mui-navigate-right">
+						简介大方（默认）
+					</a>
+				</li>
+				<li class="mui-table-view-cell" style="background-color:darkorange">
+					<a class="mui-navigate-right">
+						时尚风格
+					</a>
+				</li>
+			</ul>
+
+			<div class="mui-content-padded">
+				<p id="info">
+					当前选中的为：
+				</p>
+			</div>
+
+			<button type="button" class="mui-btn mui-btn-blue mui-btn-block" style="width:80% ;margin: auto;margin-top: 5px;margin-bottom: 5px;">
+				保存
+			</button>
+		</div>
+	</body>
+	<script>
+		mui.plusReady();
+		var info = document.getElementById("info");
+		document.querySelector('.mui-table-view.mui-table-view-radio').addEventListener('selected', function(e) {
+			info.innerHTML = "当前选中的为：" + e.detail.el.innerText;
+		});
+	</script>
+
+</html>

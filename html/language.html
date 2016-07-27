@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<script src="../js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init()
+		</script>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<h1 class="mui-title" id="title">语言选择</h1>
+			<a class="mui-icon mui-icon-back mui-pull-left mui-action-back"></a>
+		</header>
+		<div class="mui-content">
+			<ul class="mui-table-view mui-table-view-radio">
+				<li class="mui-table-view-cell mui-selected">
+					<a class="mui-navigate-right">
+						汉语（默认）
+					</a>
+				</li>
+				<li class="mui-table-view-cell ">
+					<a class="mui-navigate-right">
+						English
+					</a>
+				</li>
+			</ul>
+			<div class="mui-content-padded">
+				<p id="info">
+					当前选中的为：汉语（默认）
+				</p>
+			</div>
+			
+			
+			<button type="button" class="mui-btn mui-btn-blue mui-btn-block" style="width:80% ;margin: auto;margin-top: 5px;">
+				保存
+			</button>
+		</div>
+	</body>
+	<script>
+		var info = document.getElementById("info");
+		document.querySelector('.mui-table-view.mui-table-view-radio').addEventListener('selected', function(e) {
+			info.innerHTML = "当前选中的为：" + e.detail.el.innerText;
+		});
+	</script>
+
+</html>
