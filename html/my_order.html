@@ -11,24 +11,26 @@
 			mui.init()
 		</script>
 		<style type="text/css">
-			
 			.shop_and_ststus {
 				width: 100%;
 				height: 40px;
 				border-bottom: solid 1px #E4E4E4;
 			}
-			.shop{
+			
+			.shop {
 				height: 100%;
 				width: 70%;
 				float: left;
 				line-height: 40px;
 			}
-			.shop_logo{
+			
+			.shop_logo {
 				width: 40px;
 				padding: 3px;
 				float: left;
 			}
-			.status{
+			
+			.status {
 				width: 30%;
 				height: 100%;
 				text-align: center;
@@ -36,38 +38,49 @@
 				line-height: 40px;
 				float: left;
 			}
-			.goods_describe{
+			
+			.goods_describe {
 				width: 100%;
 			}
-			.good_describe{
+			
+			.good_describe {
 				width: 100%;
-				height:100px;
+				height: 100px;
 				border-bottom: solid 1px #E4E4E4;
 			}
-			.good_img{
+			
+			.good_img {
 				width: 30%;
 				height: 100%;
 				padding: 4px;
 				float: left;
 			}
-			.good_name{
+			
+			.good_name {
 				width: 50%;
 				height: 100%;
 				float: left;
 			}
-			.good_price_num{
+			
+			.good_price_num {
 				width: 20%;
 				height: 100%;
 				float: left;
 			}
-			.goods_count{
+			
+			.goods_count {
 				width: 100%;
 				height: 40px;
+				text-align: center;
+				line-height: 40px;
+				border-bottom: solid 1px #E4E4E4;
 			}
-			.order_operation{
+			
+			.order_operation {
 				width: 100%;
 				height: 40px;
-				border: solid 1px;
+				text-align: center;
+				padding-top: 4px;
 			}
 		</style>
 	</head>
@@ -77,32 +90,29 @@
 			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
 			<h1 class="mui-title">我的订单</h1>
 		</header>
-		<header class="mui-bar mui-bar-nav">
-			<h1 class="mui-title">标题</h1>
-		</header>
 		<div class="mui-content">
 			<div id="slider" class="mui-slider mui-fullscreen">
 				<div id="sliderSegmentedControl" class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
 					<div class="mui-scroll">
-						<a class="mui-control-item mui-active" href="#collect_shops">
+						<a class="mui-control-item" href="#all_order">
 							全部
 						</a>
-						<a class="mui-control-item" href="#collect_shops">
-							代付款
+						<a class="mui-control-item" href="#no_pay">
+							未付款
 						</a>
-						<a class="mui-control-item" href="#collect_goods">
+						<a class="mui-control-item" href="#no_transport">
 							待发货
 						</a>
-						<a class="mui-control-item" href="#collect_services">
+						<a class="mui-control-item" href="#no_recive">
 							待收货
 						</a>
-						<a class="mui-control-item" href="#collect_services">
+						<a class="mui-control-item" href="#no_evaluate">
 							待评价
 						</a>
 					</div>
 				</div>
 				<div class="mui-slider-group">
-					<div id="collect_shops" class="mui-slider-item mui-control-content mui-active">
+					<div id="all_order" class="mui-slider-item mui-control-content mui-active">
 						<div id="scroll" class="mui-scroll-wrapper">
 							<div class="mui-scroll">
 								<ul class="mui-table-view mui-table-view-chevron" style="">
@@ -121,57 +131,209 @@
 										<div class="goods_describe">
 											<div class="good_describe">
 												<div class="good_img">
-													<img src="../img/item1.png"/>
+													<img src="../img/item1.png" />
 												</div>
 												<div class="good_name">
 													商品名称商品名称商品名称商品名称
 												</div>
 												<div class="good_price_num">
-													<p>10.0元</p>
-													<p>数量：1</p>
+													<p>&yen;50.0</p>
+													<br />
+													<p>&times;1</p>
+												</div>
+											</div>
+											<div class="good_describe">
+												<div class="good_img">
+													<img src="../img/item2.png" />
+												</div>
+												<div class="good_name">
+													商品名称商品名称商品名称商品名称
+												</div>
+												<div class="good_price_num">
+													<p>&yen;40.0</p>
+													<br />
+													<p>&times;2</p>
 												</div>
 											</div>
 										</div>
 										<div class="goods_count">
-											
+											共&nbsp;3&nbsp;件商品 &nbsp; 合计：&yen;130.0&nbsp; (含运费：&yen;20.0)
 										</div>
 										<div class="order_operation">
-											
+											<button type="button" class="mui-btn">查看物流</button>
+											<button type="button" class="mui-btn">删除订单</button>
 										</div>
 									</li>
 								</ul>
 							</div>
 						</div>
 					</div>
-					<div id="collect_goods" class="mui-slider-item mui-control-content">
+					<div id="no_pay" class="mui-slider-item mui-control-content">
 						<div class="mui-scroll-wrapper">
 							<div class="mui-scroll">
-								<ul class="mui-table-view mui-table-view-chevron">
-									<li class="mui-table-view-cell mui-media">
-										<a class="mui-navigate-right">
-											<img class="mui-media-object mui-pull-left" src="../img/item1.png">
-											<div class="mui-media-body">
-												宝贝1
-												<p class='mui-ellipsis'>宝贝1的特色</p>
+								<ul class="mui-table-view mui-table-view-chevron" style="">
+									<li class="mui-table-view-cell mui-media" style="padding: 0px;">
+										<div class="shop_and_ststus">
+											<div class="shop">
+												<div class="shop_logo">
+													<img src="../img/shop_logo.png" />
+												</div>
+												店铺名称asdadsa
 											</div>
-										</a>
+											<div class="status">
+												待付款
+											</div>
+										</div>
+										<div class="goods_describe">
+											<div class="good_describe">
+												<div class="good_img">
+													<img src="../img/item1.png" />
+												</div>
+												<div class="good_name">
+													商品名称商品名称商品名称商品名称
+												</div>
+												<div class="good_price_num">
+													<p>&yen;50.0</p>
+													<br />
+													<p>&times;1</p>
+												</div>
+											</div>
+										</div>
+										<div class="goods_count">
+											共&nbsp;3&nbsp;件商品 &nbsp; 合计：&yen;130.0&nbsp; (含运费：&yen;20.0)
+										</div>
+										<div class="order_operation">
+											<button type="button" class="mui-btn mui-btn-danger">付款</button>
+											<button type="button" class="mui-btn">取消订单</button>
+										</div>
 									</li>
 								</ul>
 							</div>
 						</div>
 					</div>
-					<div id="collect_services" class="mui-slider-item mui-control-content">
+					<div id="no_transport" class="mui-slider-item mui-control-content">
 						<div class="mui-scroll-wrapper">
 							<div class="mui-scroll">
-								<ul class="mui-table-view mui-table-view-chevron">
-									<li class="mui-table-view-cell mui-media">
-										<a class="mui-navigate-right">
-											<img class="mui-media-object mui-pull-left" src="../img/item1.png">
-											<div class="mui-media-body">
-												服务1
-												<p class='mui-ellipsis'>服务1的特色</p>
+								<ul class="mui-table-view mui-table-view-chevron" style="">
+									<li class="mui-table-view-cell mui-media" style="padding: 0px;">
+										<div class="shop_and_ststus">
+											<div class="shop">
+												<div class="shop_logo">
+													<img src="../img/shop_logo.png" />
+												</div>
+												店铺名称asdadsa
 											</div>
-										</a>
+											<div class="status">
+												待发货
+											</div>
+										</div>
+										<div class="goods_describe">
+											<div class="good_describe">
+												<div class="good_img">
+													<img src="../img/item1.png" />
+												</div>
+												<div class="good_name">
+													商品名称商品名称商品名称商品名称
+												</div>
+												<div class="good_price_num">
+													<p>&yen;50.0</p>
+													<br />
+													<p>&times;1</p>
+												</div>
+											</div>
+										</div>
+										<div class="goods_count">
+											共&nbsp;3&nbsp;件商品 &nbsp; 合计：&yen;130.0&nbsp; (含运费：&yen;20.0)
+										</div>
+										<div class="order_operation">
+											<button type="button" class="mui-btn">退款</button>
+											<button type="button" class="mui-btn">查看物流</button>
+										</div>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div id="no_recive" class="mui-slider-item mui-control-content">
+						<div class="mui-scroll-wrapper">
+							<div class="mui-scroll">
+								<ul class="mui-table-view mui-table-view-chevron" style="">
+									<li class="mui-table-view-cell mui-media" style="padding: 0px;">
+										<div class="shop_and_ststus">
+											<div class="shop">
+												<div class="shop_logo">
+													<img src="../img/shop_logo.png" />
+												</div>
+												店铺名称asdadsa
+											</div>
+											<div class="status">
+												待收货
+											</div>
+										</div>
+										<div class="goods_describe">
+											<div class="good_describe">
+												<div class="good_img">
+													<img src="../img/item1.png" />
+												</div>
+												<div class="good_name">
+													商品名称商品名称商品名称商品名称
+												</div>
+												<div class="good_price_num">
+													<p>&yen;50.0</p>
+													<br />
+													<p>&times;1</p>
+												</div>
+											</div>
+										</div>
+										<div class="goods_count">
+											共&nbsp;3&nbsp;件商品 &nbsp; 合计：&yen;130.0&nbsp; (含运费：&yen;20.0)
+										</div>
+										<div class="order_operation">
+											<button type="button" class="mui-btn">查看物流</button>
+										</div>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div id="no_evaluate" class="mui-slider-item mui-control-content">
+						<div class="mui-scroll-wrapper">
+							<div class="mui-scroll">
+								<ul class="mui-table-view mui-table-view-chevron" style="">
+									<li class="mui-table-view-cell mui-media" style="padding: 0px;">
+										<div class="shop_and_ststus">
+											<div class="shop">
+												<div class="shop_logo">
+													<img src="../img/shop_logo.png" />
+												</div>
+												店铺名称asdadsa
+											</div>
+											<div class="status">
+												待评价
+											</div>
+										</div>
+										<div class="goods_describe">
+											<div class="good_describe">
+												<div class="good_img">
+													<img src="../img/item1.png" />
+												</div>
+												<div class="good_name">
+													商品名称商品名称商品名称商品名称
+												</div>
+												<div class="good_price_num">
+													<p>&yen;50.0</p>
+													<br />
+													<p>&times;1</p>
+												</div>
+											</div>
+										</div>
+										<div class="goods_count">
+											共&nbsp;3&nbsp;件商品 &nbsp; 合计：&yen;130.0&nbsp; (含运费：&yen;20.0)
+										</div>
+										<div class="order_operation">
+											<button type="button" class="mui-btn mui-btn-danger">评价</button>
+											<button type="button" class="mui-btn">查看物流</button>
+										</div>
 									</li>
 								</ul>
 							</div>
