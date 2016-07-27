@@ -1,0 +1,185 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<script src="../js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init()
+		</script>
+		<style type="text/css">
+			
+			.shop_and_ststus {
+				width: 100%;
+				height: 40px;
+				border-bottom: solid 1px #E4E4E4;
+			}
+			.shop{
+				height: 100%;
+				width: 70%;
+				float: left;
+				line-height: 40px;
+			}
+			.shop_logo{
+				width: 40px;
+				padding: 3px;
+				float: left;
+			}
+			.status{
+				width: 30%;
+				height: 100%;
+				text-align: center;
+				color: red;
+				line-height: 40px;
+				float: left;
+			}
+			.goods_describe{
+				width: 100%;
+			}
+			.good_describe{
+				width: 100%;
+				height:100px;
+				border-bottom: solid 1px #E4E4E4;
+			}
+			.good_img{
+				width: 30%;
+				height: 100%;
+				padding: 4px;
+				float: left;
+			}
+			.good_name{
+				width: 50%;
+				height: 100%;
+				float: left;
+			}
+			.good_price_num{
+				width: 20%;
+				height: 100%;
+				float: left;
+			}
+			.goods_count{
+				width: 100%;
+				height: 40px;
+			}
+			.order_operation{
+				width: 100%;
+				height: 40px;
+				border: solid 1px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">我的订单</h1>
+		</header>
+		<header class="mui-bar mui-bar-nav">
+			<h1 class="mui-title">标题</h1>
+		</header>
+		<div class="mui-content">
+			<div id="slider" class="mui-slider mui-fullscreen">
+				<div id="sliderSegmentedControl" class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
+					<div class="mui-scroll">
+						<a class="mui-control-item mui-active" href="#collect_shops">
+							全部
+						</a>
+						<a class="mui-control-item" href="#collect_shops">
+							代付款
+						</a>
+						<a class="mui-control-item" href="#collect_goods">
+							待发货
+						</a>
+						<a class="mui-control-item" href="#collect_services">
+							待收货
+						</a>
+						<a class="mui-control-item" href="#collect_services">
+							待评价
+						</a>
+					</div>
+				</div>
+				<div class="mui-slider-group">
+					<div id="collect_shops" class="mui-slider-item mui-control-content mui-active">
+						<div id="scroll" class="mui-scroll-wrapper">
+							<div class="mui-scroll">
+								<ul class="mui-table-view mui-table-view-chevron" style="">
+									<li class="mui-table-view-cell mui-media" style="padding: 0px;">
+										<div class="shop_and_ststus">
+											<div class="shop">
+												<div class="shop_logo">
+													<img src="../img/shop_logo.png" />
+												</div>
+												店铺名称asdadsa
+											</div>
+											<div class="status">
+												交易完成
+											</div>
+										</div>
+										<div class="goods_describe">
+											<div class="good_describe">
+												<div class="good_img">
+													<img src="../img/item1.png"/>
+												</div>
+												<div class="good_name">
+													商品名称商品名称商品名称商品名称
+												</div>
+												<div class="good_price_num">
+													<p>10.0元</p>
+													<p>数量：1</p>
+												</div>
+											</div>
+										</div>
+										<div class="goods_count">
+											
+										</div>
+										<div class="order_operation">
+											
+										</div>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div id="collect_goods" class="mui-slider-item mui-control-content">
+						<div class="mui-scroll-wrapper">
+							<div class="mui-scroll">
+								<ul class="mui-table-view mui-table-view-chevron">
+									<li class="mui-table-view-cell mui-media">
+										<a class="mui-navigate-right">
+											<img class="mui-media-object mui-pull-left" src="../img/item1.png">
+											<div class="mui-media-body">
+												宝贝1
+												<p class='mui-ellipsis'>宝贝1的特色</p>
+											</div>
+										</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div id="collect_services" class="mui-slider-item mui-control-content">
+						<div class="mui-scroll-wrapper">
+							<div class="mui-scroll">
+								<ul class="mui-table-view mui-table-view-chevron">
+									<li class="mui-table-view-cell mui-media">
+										<a class="mui-navigate-right">
+											<img class="mui-media-object mui-pull-left" src="../img/item1.png">
+											<div class="mui-media-body">
+												服务1
+												<p class='mui-ellipsis'>服务1的特色</p>
+											</div>
+										</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+
+</html>
