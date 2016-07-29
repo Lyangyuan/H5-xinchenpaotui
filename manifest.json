@@ -561,7 +561,25 @@
 			},
 			"html/my_order.html": {
 				"resources": [
-					"img/item1.png"
+					"img/item1.png",
+					"img/shop_logo.png",
+					"img/item2.png",
+					"html/order_detail.html"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"html/order_detail.html": {
+				"resources": [
+					"img/kuaidi.png",
+					"img/kuadi_car.png",
+					"img/shop_logo.png",
+					"img/location.png",
+					"img/item2.png",
+					"js/mui.min.js",
+					"fonts/mui.ttf",
+					"css/mui.min.css",
+					"html/my_order.html"
 				],
 				"refer": [],
 				"priority": 0
