@@ -7,14 +7,67 @@
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<link href="../css/mui.min.css" rel="stylesheet" />
 		<script src="../js/mui.min.js"></script>
+		<script src="../js/common.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript" src="../js/immersed.js"></script>
 		<script type="text/javascript">
 			mui.init()
 		</script>
 		<style type="text/css">
 			.goods_pingjia {
 				width: 100%;
-				height: 200px;
 				background-color: white;
+				padding: 5px;
+			}
+			
+			.pingjia_miaoshu {
+				width: 100%;
+				height: 100px;
+			}
+			
+			.good_img {
+				width: 84px;
+				float: left;
+			}
+			
+			.wenzi {
+				width: 68%;
+				height: 100px;
+				float: left;
+				margin-left: 5px;
+			}
+			
+			.up_photos {
+				width: 100%;
+				height: 100px;
+				border-bottom: solid 1px #E4E4E4;
+			}
+			
+			.photo {
+				width: 30%;
+				height: 90px;
+				float: left;
+				border: dashed 1px;
+				margin-left: 5px;
+				padding: 33px;
+			}
+			
+			.pingjia_class {
+				width: 100%;
+				height: 50px;
+				line-height: 50px;
+			}
+			
+			.haoping {
+				width: 33%;
+				float: left;
+				height: 100%;
+				text-align: center;
+				line-height: 50px;
+			}
+			
+			.pingjia_icon {
+				width: 30px;
+				margin-top: 10px;
 			}
 			
 			.shop_pingjia {
@@ -38,11 +91,13 @@
 				background-color: white;
 				margin-top: 10px;
 			}
-			.xing{
+			
+			.xing {
 				width: 100%;
 				height: auto;
 			}
-			.xing img{
+			
+			.xing img {
 				width: 18%;
 			}
 		</style>
@@ -55,11 +110,71 @@
 		</header>
 		<div class="mui-content">
 			<div class="goods_pingjia">
-
+				<div class="pingjia_miaoshu">
+					<img src="../img/item1.png" class="good_img" />
+					<div class="wenzi">
+						<textarea name="wenzi" rows="3"></textarea>
+					</div>
+				</div>
+				<div class="up_photos">
+					<div class="photo">
+						<a class="mui-icon mui-icon-camera"></a>
+					</div>
+					<div class="photo">
+						<a class="mui-icon mui-icon-camera"></a>
+					</div>
+					<div class="photo">
+						<a class="mui-icon mui-icon-camera"></a>
+					</div>
+				</div>
+				<div class="pingjia_class">
+					<div class="haoping">
+						<a id="haoping" class="pj">
+							<img src="../img/hpl.png" class="pingjia_icon" />
+						</a>
+						好评
+					</div>
+					<div class="haoping">
+						<a id="zhongping" class="pj">
+							<img src="../img/zph.png" class="pingjia_icon" />
+						</a>
+						中评
+					</div>
+					<div class="haoping">
+						<a id="chaping" class="pj">
+							<img src="../img/cph.png" class="pingjia_icon" />
+						</a>
+						差评
+					</div>
+				</div>
 			</div>
 			<div class="shop_pingjia">
 				<h3>店铺评分</h3>
 				<table>
+					<tr>
+						<td style="width: 30%;">
+							<h4>描述相符</h4>
+						</td>
+						<td style="width: 70%;">
+							<div class="xing" id="miaoshu">
+								<a id="star1" class="star">
+									<img src="../img/xinghui.png" />
+								</a>
+								<a id="star2" class="star">
+									<img src="../img/xinghui.png" />
+								</a>
+								<a id="star3" class="star">
+									<img src="../img/xinghui.png" />
+								</a>
+								<a id="star4" class="star">
+									<img src="../img/xinghui.png" />
+								</a>
+								<a id="star5" class="star">
+									<img src="../img/xinghui.png" />
+								</a>
+							</div>
+						</td>
+					</tr>
 					<tr>
 						<td style="width: 30%;">
 							<h4>物流服务</h4>
@@ -67,19 +182,19 @@
 						<td style="width: 70%;">
 							<div class="xing" id="wuliupingfen">
 								<a id="star1" class="star">
-									<img src="../img/xinghui.png"/>
+									<img src="../img/xinghui.png" />
 								</a>
 								<a id="star2" class="star">
-									<img src="../img/xinghui.png"/>
+									<img src="../img/xinghui.png" />
 								</a>
 								<a id="star3" class="star">
-									<img src="../img/xinghui.png"/>
+									<img src="../img/xinghui.png" />
 								</a>
 								<a id="star4" class="star">
-									<img src="../img/xinghui.png"/>
+									<img src="../img/xinghui.png" />
 								</a>
 								<a id="star5" class="star">
-									<img src="../img/xinghui.png"/>
+									<img src="../img/xinghui.png" />
 								</a>
 							</div>
 						</td>
@@ -91,19 +206,19 @@
 						<td style="width: 70%;">
 							<div class="xing" id="fuwutaidu">
 								<a id="star1" class="star">
-									<img src="../img/xinghui.png"/>
+									<img src="../img/xinghui.png" />
 								</a>
 								<a id="star2" class="star">
-									<img src="../img/xinghui.png"/>
+									<img src="../img/xinghui.png" />
 								</a>
 								<a id="star3" class="star">
-									<img src="../img/xinghui.png"/>
+									<img src="../img/xinghui.png" />
 								</a>
 								<a id="star4" class="star">
-									<img src="../img/xinghui.png"/>
+									<img src="../img/xinghui.png" />
 								</a>
 								<a id="star5" class="star">
-									<img src="../img/xinghui.png"/>
+									<img src="../img/xinghui.png" />
 								</a>
 							</div>
 						</td>
@@ -111,21 +226,79 @@
 				</table>
 			</div>
 			<div class="submit_pingjia">
-				<button type="button" class="mui-btn mui-btn-blue mui-btn-block">发表评价</button>
+				<button type="button" class="mui-btn mui-btn-blue mui-btn-block" id="submit_pingjia">发表评价</button>
 			</div>
 		</div>
 	</body>
 	<script type="text/javascript">
-		mui("#fuwutaidu").on("tap","a",function(){
-			var parent = this.parentElement;
-			var current_id = this.id;
-			var n = current_id.split("r")[1];
-			var i;
-			for (i=1;i<=n;i++) {
-				console.log(n);
-				parent.childNodes.item(i).innerHTML = "<img src='../img/xing.png'/>";
-				/*innerHTML = "<img src='../img/xing.png'/>";*/
+		document.addEventListener('plusready', plusReady, false);
+	
+		var miaoshu = 0;
+		var wuliu = 0;
+		var taidu = 0;
+
+		//上传图片
+		mui(".up_photos").on("tap", "a", function() {
+			// 从相册中选择图片
+			var preview_img = document.getElementById("preview_img");
+			plus.gallery.pick(function(path) {
+				preview_img.setAttribute("src", path);
+			}, function(e) {}, {
+				filter: "image"
+			});
+		});
+
+		//评价级别
+		mui(".pingjia_class").on("tap", "a", function() {
+			current_id = this.id;
+			var parent = this.parentElement.parentElement;
+			var as = parent.getElementsByClassName("pj");
+			var current_img = this.getElementsByClassName("pingjia_icon");
+			if(current_id == "haoping") {
+				this.innerHTML = "<img src='../img/hpl.png' class='pingjia_icon' />";
+				as[1].innerHTML = "<img src='../img/zph.png' class='pingjia_icon' />";
+				as[2].innerHTML = "<img src='../img/cph.png' class='pingjia_icon' />";
+			}
+			if(current_id == "zhongping") {
+				this.innerHTML = "<img src='../img/zpl.png' class='pingjia_icon' />";
+				as[0].innerHTML = "<img src='../img/hph.png' class='pingjia_icon' />";
+				as[2].innerHTML = "<img src='../img/cph.png' class='pingjia_icon' />";
+			}
+			if(current_id == "chaping") {
+				this.innerHTML = "<img src='../img/cpl.png' class='pingjia_icon' />";
+				as[1].innerHTML = "<img src='../img/zph.png' class='pingjia_icon' />";
+				as[0].innerHTML = "<img src='../img/hph.png' class='pingjia_icon' />";
 			}
 		});
+
+		//五星评价功能
+		mui(".xing").on("tap", "a", function() {
+			var parent = this.parentElement;
+			var children = parent.getElementsByClassName("star");
+			var current_id = this.id;
+			var n = current_id.split("r")[1];
+			if(parent.id == "wuliupingfen") {
+				wuliu = n;
+			}
+			if(parent.id == "miaoshu") {
+				miaoshu = n;
+			}
+			if(parent.id == "fuwutaidu") {
+				taidu = n;
+			}
+			var i;
+			for(i = 0; i < n; ++i) {
+				children[i].innerHTML = "<img src='../img/xing.png'/>";
+			}
+			for(i = n; i < 5; i++) {
+				children[i].innerHTML = "<img src='../img/xinghui.png'/>";
+			}
+		});
+
+		//提交评论结果
+		document.getElementById("submit_pingjia").addEventListener("tap", function() {
+			alert(miaoshu + "===" + wuliu + "===" + taidu);
+		});
 	</script>
+
 </html>

@@ -162,7 +162,7 @@
 											共&nbsp;3&nbsp;件商品 &nbsp; 合计：&yen;130.0&nbsp; (含运费：&yen;20.0)
 										</div>
 										<div class="order_operation">
-											<button type="button" class="mui-btn">查看物流</button>
+											<button id="check_wuliu" type="button" class="mui-btn">查看物流</button>
 											<button type="button" class="mui-btn">删除订单</button>
 										</div>
 									</li>
@@ -333,7 +333,7 @@
 											共&nbsp;3&nbsp;件商品 &nbsp; 合计：&yen;130.0&nbsp; (含运费：&yen;20.0)
 										</div>
 										<div class="order_operation">
-											<button type="button" class="mui-btn mui-btn-danger">评价</button>
+											<button id="pingjia" type="button" class="mui-btn mui-btn-danger">评价</button>
 											<button type="button" class="mui-btn">查看物流</button>
 										</div>
 									</li>
@@ -345,5 +345,28 @@
 			</div>
 		</div>
 	</body>
+	<script type="text/javascript">
+		mui.plusReady();
+		document.getElementById("pingjia").addEventListener("tap", function() {
+			mui.openWindow({
+				id: 'good_pingjia',
+				url: 'good_pingjia.html',
+				show: {
+					aniShow: 'zoom-fade-out', //页面显示动画
+					duration: 300 //动画持续的时间
+				}
+			});
+		});
+		document.getElementById("check_wuliu").addEventListener("tap", function() {
+			mui.openWindow({
+				id: 'wuliu',
+				url: 'wuliu.html',
+				show: {
+					aniShow: 'zoom-fade-out', //页面显示动画
+					duration: 300 //动画持续的时间
+				}
+			});
+		});
+	</script>
 
 </html>
