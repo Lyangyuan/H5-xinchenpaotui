@@ -6,13 +6,15 @@
 		<title></title>
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<link href="../../css/mui.min.css" rel="stylesheet" />
+		<link href="../../css/mui.picker.css" rel="stylesheet" />
+		<link href="../../css/mui.poppicker.css" rel="stylesheet" />
 		<script src="../../js/mui.min.js"></script>
 		<script type="text/javascript">
 			mui.init()
 		</script>
 		<style type="text/css">
-			.mui-card-header{
-				background-color:#00BFFF;
+			.mui-card-header {
+				background-color: #00BFFF;
 			}
 		</style>
 	</head>
@@ -39,28 +41,42 @@
 									<input type="text" class="mui-input-clear" placeholder="座机或移动电话">
 								</div>
 								<div class="mui-input-row">
-									<label>地址</label>
-									<input type="text" class="mui-input-clear" placeholder="input">
+									<label>
+										<a id='showCityPicker3'>选择地区</a>
+									</label>
+									<input type="text" id="cityResult3" class="mui-input-clear mui-input" placeholder="例：青海省西宁市城北区" />
+								</div>
+								<div class="mui-input-row">
+									<label>街道：</label>
+									<input id='address' type="text" class="mui-input-clear mui-input" placeholder="例：宁大路251号青海大学">
+								</div>
+								<div class="mui-input-row">
+									<label>
+										<a id='showCityPicker3'>地图标记</a>
+									</label>
+									<input type="text" id="cityResult3" class="mui-input-clear mui-input" placeholder="经纬度信息" />
 								</div>
 							</div>
 							<div class="mui-card">
 								<div class="mui-card-header">货物信息</div>
 								<div class="mui-card-content">
 									<div class="mui-input-row">
-										<label>送货时间</label>
-										<input type="text" class="mui-input-clear" placeholder="input">
+										<label>
+											<a id="send_time">送货时间</a>
+										</label>
+										<input type="text" class="mui-input-clear" placeholder="2016-7-8-1-14:30">
 									</div>
 									<div class="mui-input-row">
 										<label>货物名称</label>
-										<input type="text" class="mui-input-clear" placeholder="input">
+										<input type="text" class="mui-input-clear" placeholder="书本">
 									</div>
 									<div class="mui-input-row">
 										<label>货物尺寸</label>
-										<input type="text" class="mui-input-clear" placeholder="input">
+										<input type="text" class="mui-input-clear" placeholder="0.5*0.5*0.5米">
 									</div>
 									<div class="mui-input-row">
 										<label>货物重量</label>
-										<input type="text" class="mui-input-clear" placeholder="input">
+										<input type="text" class="mui-input-clear" placeholder="0.5kg">
 									</div>
 								</div>
 							</div>
@@ -68,15 +84,27 @@
 								<div class="mui-card-header">收货人信息</div>
 								<div class="mui-input-row">
 									<label>姓名</label>
-									<input type="text" class="mui-input-clear" placeholder="input">
+									<input type="text" class="mui-input-clear" placeholder="例：张三">
 								</div>
 								<div class="mui-input-row">
 									<label>电话</label>
-									<input type="text" class="mui-input-clear" placeholder="input">
+									<input type="text" class="mui-input-clear" placeholder="座机或移动电话">
 								</div>
 								<div class="mui-input-row">
-									<label>地址</label>
-									<input type="text" class="mui-input-clear" placeholder="input">
+									<label>
+										<a id='showCityPicker3'>选择地区</a>
+									</label>
+									<input type="text" id="cityResult3" class="mui-input-clear mui-input" placeholder="例：青海省西宁市城北区" />
+								</div>
+								<div class="mui-input-row">
+									<label>街道：</label>
+									<input id='address' type="text" class="mui-input-clear mui-input" placeholder="例：宁大路251号青海大学">
+								</div>
+								<div class="mui-input-row">
+									<label>
+										<a id='showCityPicker3'>地图标记</a>
+									</label>
+									<input type="text" id="cityResult3" class="mui-input-clear mui-input" placeholder="经纬度信息" />
 								</div>
 							</div>
 						</form>
@@ -86,5 +114,40 @@
 			</div>
 		</div>
 	</body>
+	<script src="../../js/mui.picker.js"></script>
+	<script src="../../js/mui.poppicker.js"></script>
+	<script src="../../js/city.data.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../../js/city.data-3.js" type="text/javascript" charset="utf-8"></script>
+	<script>
+		mui.plusReady();
+		
+		//选择送货时间
+		document.getElementById("send_time").addEventListener("tap",function(){
+			
+		});
+		
+		//地址选择函数
+		(function($, doc) {
+			$.init();
+			$.ready(function() {
+				var cityPicker3 = new $.PopPicker({
+					layer: 3
+				});
+				cityPicker3.setData(cityData3);
+				var showCityPickerButton = doc.getElementById('showCityPicker3');
+				var cityResult3 = doc.getElementById('cityResult3');
+				showCityPickerButton.addEventListener('tap', function(event) {
+					cityPicker3.show(function(items) {
+						cityResult3.value = (items[0] || {}).text + " " + (items[1] || {}).text + " " + (items[2] || {}).text;
+					});
+				}, false);
+			});
+		})(mui, document);
+		//地图标记
+		/*var ptObj = new plus.maps.Map("map");*/
+		/*mui_map = new plus.maps.Map("map", {
+			zoomControls: true
+		});*/
+	</script>
 
 </html>
