@@ -56,21 +56,23 @@
 				padding-top: 5px;
 				padding-left: 5px;
 			}
-			.search_left{
+			
+			.search_left {
 				width: 85%;
 				height: 35px;
 				float: left;
 			}
-			.search_left input{
+			
+			.search_left input {
 				height: 35px;
 				border-radius: 10px;
 				-moz-border-radius: 10px;
 			}
-			.search_right{
+			
+			.search_right {
 				width: 10%;
 				height: 35px;
 				float: left;
-				
 			}
 		</style>
 	</head>
@@ -85,7 +87,7 @@
 				</div>
 				<div id="search_right">
 					<a id="click_search">
-						<img src="../img/search_icon.png"/ style="width: 35px;margin-left: 5px;">
+						<img src="../img/search_icon.png" / style="width: 35px;margin-left: 5px;">
 					</a>
 				</div>
 			</div>
@@ -136,13 +138,13 @@
 				<div class="service" style="margin-top:5px ;">
 					<ul class="mui-table-view mui-grid-view">
 						<li class="mui-table-view-cell mui-media mui-col-xs-4">
-							<a href="#" id="paotui" class="paotui">
+							<a id="paotui" class="paotui">
 								<img class="mui-media-object" src="../img/tui.png">
 								<div class="mui-media-body">跑腿网</div>
 							</a>
 						</li>
 						<li class="mui-table-view-cell mui-media mui-col-xs-4">
-							<a href="#">
+							<a id="sudi">
 								<img class="mui-media-object" src="../img/sudi.png">
 								<div class="mui-media-body">同城速递</div>
 							</a>
@@ -230,6 +232,16 @@
 								duration: 300 //动画持续的时间
 							}
 						});
+					});
+				});
+				document.getElementById("sudi").addEventListener("tap", function() {
+					mui.openWindow({
+						url: "sudi/sudi_index.html",
+						id: "sudi_index",
+						show: {
+							aniShow: 'zoom-fade-out', //页面显示动画
+							duration: 300 //动画持续的时间
+						}
 					});
 				});
 			</script>

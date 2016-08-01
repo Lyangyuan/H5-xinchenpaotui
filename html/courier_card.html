@@ -1,0 +1,168 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<script src="../js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init()
+		</script>
+		<style type="text/css">
+			.mui-content {
+				background-color: white;
+			}
+			
+			.courier_info {
+				width: 100px;
+				border: solid 1px;
+				color: #e4e4e4;
+				border-radius: 50px;
+			}
+			
+			.mui-card table {
+				width: 100%;
+			}
+			
+			.courier_counts {
+				padding: 5px;
+			}
+			
+			.courier_counts table {
+				width: 100%;
+				text-align: center;
+				margin: auto;
+			}
+			
+			.courier_counts td {
+				height: 40px;
+			}
+			
+			.mui-btn {
+				width: 150px;
+			}
+			.courier_times table{
+				width: 90%;
+				margin: auto;
+				border-bottom: solid 1px #e4e4e4;
+				text-align: center;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">快递员名片</h1>
+		</header>
+		<div class="mui-content">
+			<div class="mui-card">
+				<table>
+					<tr>
+						<td style="width: 45%;text-align: center;">
+							<a id="check_courier_card">
+								<img src="../img/qq.jpg" class="courier_info" />
+							</a>
+						</td>
+						<td>
+							<h4>快递员:李江博</h4>
+							<h5>电话：15709782993</h5>
+						</td>
+					</tr>
+				</table>
+			</div>
+			<div class="courier_times">
+				<table>
+					<tr>
+						<td style="border-right: solid 1px #e4e4e4;">
+							<h3>2.5小时</h3>
+							<p>本次派送时间</p>
+						</td>
+						<td>
+							<h3>3次</h3>
+							<p>为我服务</p>
+						</td>
+					</tr>
+				</table>
+			</div>
+			<div class="courier_counts">
+				<h5>收到的好评</h5>
+				<table>
+					<tr>
+						<td>
+							<button type="button" class="mui-btn mui-btn-success">
+								送前预约 <span class="mui-badge mui-badge-success">12</span>
+							</button>
+						</td>
+						<td>
+							<button type="button" class="mui-btn mui-btn-success">
+								派送速度快 <span class="mui-badge mui-badge-success">12</span>
+							</button>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<button type="button" class="mui-btn mui-btn-success">
+								服务态度好 <span class="mui-badge mui-badge-success">12</span>
+							</button>
+						</td>
+						<td>
+							<button type="button" class="mui-btn mui-btn-success">
+								送货上门 <span class="mui-badge mui-badge-success">12</span>
+							</button>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<button type="button" class="mui-btn mui-btn-success">
+								包装完好 <span class="mui-badge mui-badge-success">12</span>
+							</button>
+						</td>
+						<td>
+							<button type="button" class="mui-btn mui-btn-success">
+								着装规范 <span class="mui-badge mui-badge-success">12</span>
+							</button>
+						</td>
+					</tr>
+				</table>
+				<h5>收到的差评</h5>
+				<table>
+					<tr>
+						<td>
+							<button type="button" class="mui-btn mui-btn-warning">
+								送前不预约 <span class="mui-badge mui-badge-success">12</span>
+							</button>
+						</td>
+						<td>
+							<button type="button" class="mui-btn mui-btn-warning">
+								派送速度慢 <span class="mui-badge mui-badge-success">12</span>
+							</button>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<button type="button" class="mui-btn mui-btn-warning">
+								服务态度恶劣 <span class="mui-badge mui-badge-success">12</span>
+							</button>
+						</td>
+						<td>
+							<button type="button" class="mui-btn mui-btn-warning">
+								不送货上门 <span class="mui-badge mui-badge-success">12</span>
+							</button>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<button type="button" class="mui-btn mui-btn-warning">
+								包装破损 <span class="mui-badge mui-badge-success">12</span>
+							</button>
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</body>
+
+</html>

@@ -349,10 +349,15 @@
 			"img/item1.png",
 			"img/shop_logo.png",
 			"img/item2.png",
-			"html/order_detail.html"
+			"html/order_detail.html",
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/mui.min.css"
 		],
 		"refer": [
-			"html/order_detail.html"
+			"html/order_detail.html",
+			"html/wuliu.html",
+			"html/good_pingjia.html"
 		]
 	},
 	"html/order_detail.html": {
@@ -369,6 +374,55 @@
 		],
 		"refer": [
 			"html/my_order.html"
+		]
+	},
+	"html/wuliu.html": {
+		"resources": [
+			"img/map_track.png",
+			"img/kdypj_icon.png",
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/mui.min.css",
+			"img/personal_info_icon.png"
+		],
+		"refer": [
+			"html/pingjia_courier.html"
+		]
+	},
+	"html/pingjia_courier.html": {
+		"resources": [
+			"img/chaping_icon.png",
+			"img/kdypj_icon.png",
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/mui.min.css",
+			"img/personal_info_icon.png",
+			"img/qq.jpg"
+		],
+		"refer": [
+			"html/courier_card.html"
+		]
+	},
+	"html/good_pingjia.html": {
+		"resources": [
+			"img/zph.png",
+			"js/common.js",
+			"img/xinghui.png",
+			"img/cph.png",
+			"js/immersed.js",
+			"img/hpl.png",
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/mui.min.css",
+			"img/item1.png"
+		]
+	},
+	"html/courier_card.html": {
+		"resources": [
+			"js/mui.min.js",
+			"img/qq.jpg",
+			"fonts/mui.ttf",
+			"css/mui.min.css"
 		]
 	}
 }

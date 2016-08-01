@@ -11,68 +11,177 @@
 			mui.init()
 		</script>
 		<style type="text/css">
-			.mui-content{
+			.mui-content {
 				background-color: white;
 			}
-			.courier_info{
-				width: 100%;
-				height: 100px;
-				border:solid 1px;
-				text-align: center;
-			}
-			.courier_info img{
-				width: 60px;
-				border:solid 1px;
-				color:#e4e4e4;
-				border-radius:30px;
-				float: left;
-			}
-			.courier{
-				width: 50%;
-				float: left;
-			}
-			.pingjia_icon{
-				width: 100%;
-				padding:10px;
-				text-align: center;
-			}
-			.pingjia_icon img{
+			
+			.courier_info {
 				width: 100px;
+				border: solid 1px;
+				color: #e4e4e4;
+				border-radius: 50px;
+			}
+			
+			.mui-card table {
+				width: 100%;
+			}
+			
+			.mui-segmented-control img {
+				width: 60px;
+			}
+			
+			.leave_suggest {
+				margin-top: 10px;
+				padding: 5px;
 			}
 		</style>
 	</head>
 
 	<body>
 		<header class="mui-bar mui-bar-nav">
-		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
-		    <h1 class="mui-title">评价快递员</h1>
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">评价快递员</h1>
 		</header>
 		<div class="mui-content">
-		    <div class="courier_info">
-		    	<img src="../img/personal_info_icon.png"/>
-		    	<div class="courier">
-		    		<h4>快递员:李江博</h4>
-		    		<h5>电话：15709782993</h5>
-		    	</div>
-		    </div>
-		    <div class="pingjia_icon mui-segmented-control">
-		    	<a href="#item1" class="mui-control-item mui-active">
-		    		<img src="../img/kdypj_icon.png"/>
-		    	</a>
-		    	<a href="#item2" class="mui-control-item">
-		    		<img src="../img/chaping_icon.png"/>
-		    	</a>
-		    </div>
-		    <div>
-		    	<div id="item1" class="mui-control-content mui-active">
-		    		aaaaaaaa
-		    	</div>
-		    	<div id="item2" class="mui-control-content">
-		    		sssssssss
-		    	</div>
-		    	
-		    </div>
+			<div class="mui-card">
+				<table>
+					<tr>
+						<td style="width: 45%;text-align: center;">
+							<a id="check_courier_card">
+								<img src="../img/qq.jpg" class="courier_info" />
+							</a>
+							<p>点击头像查看名片</p>
+						</td>
+						<td>
+							<h4>快递员:李江博</h4>
+							<h5>电话：15709782993</h5>
+						</td>
+					</tr>
+				</table>
+			</div>
+
+			<div class="mui-segmented-control">
+				<a href="#item1" class="mui-control-item mui-active">
+					<img src="../img/kdypj_icon.png" />
+				</a>
+				<a href="#item2" class="mui-control-item">
+					<img src="../img/chaping_icon.png" />
+				</a>
+			</div>
+			<div>
+				<div id="item1" class="mui-control-content mui-active">
+					<form class="mui-input-group">
+						<table>
+							<tr>
+								<td>
+									<div class="mui-input-row mui-checkbox mui-left">
+										<label>服务态度好</label>
+										<input name="checkbox" value="Item 1" type="checkbox">
+									</div>
+								</td>
+								<td>
+									<div class="mui-input-row mui-checkbox mui-left">
+										<label>派送速度快</label>
+										<input name="checkbox" value="Item 1" type="checkbox">
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<div class="mui-input-row mui-checkbox mui-left">
+										<label>着装规范整齐</label>
+										<input name="checkbox" value="Item 1" type="checkbox">
+									</div>
+								</td>
+								<td>
+									<div class="mui-input-row mui-checkbox mui-left">
+										<label>外包装完整</label>
+										<input name="checkbox" value="Item 1" type="checkbox">
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<div class="mui-input-row mui-checkbox mui-left">
+										<label>送货上门</label>
+										<input name="checkbox" value="Item 1" type="checkbox">
+									</div>
+								</td>
+								<td>
+									<div class="mui-input-row mui-checkbox mui-left">
+										<label>送前预约</label>
+										<input name="checkbox" value="Item 1" type="checkbox">
+									</div>
+								</td>
+							</tr>
+						</table>
+					</form>
+				</div>
+				<div id="item2" class="mui-control-content">
+					<form class="mui-input-group">
+						<table>
+							<tr>
+								<td>
+									<div class="mui-input-row mui-checkbox mui-left">
+										<label>服务态度恶劣</label>
+										<input name="checkbox" value="Item 1" type="checkbox">
+									</div>
+								</td>
+								<td>
+									<div class="mui-input-row mui-checkbox mui-left">
+										<label>派送不及时</label>
+										<input name="checkbox" value="Item 1" type="checkbox">
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<div class="mui-input-row mui-checkbox mui-left">
+										<label>送前不预约</label>
+										<input name="checkbox" value="Item 1" type="checkbox">
+									</div>
+								</td>
+								<td>
+									<div class="mui-input-row mui-checkbox mui-left">
+										<label>外包装破损</label>
+										<input name="checkbox" value="Item 1" type="checkbox">
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<div class="mui-input-row mui-checkbox mui-left">
+										<label>不送货上门</label>
+										<input name="checkbox" value="Item 1" type="checkbox">
+									</div>
+								</td>
+								<td>
+								</td>
+							</tr>
+						</table>
+					</form>
+				</div>
+				<div class="leave_suggest">
+					<div class="mui-input-row">
+						<textarea id="textarea" rows="5" placeholder="留下您的建议"></textarea>
+					</div>
+				</div>
+				<button type="button" class="mui-btn mui-btn-blue mui-btn-block">提交评价</button>
+			</div>
 		</div>
 	</body>
+	<script type="text/javascript">
+		mui.plusReady();
+		document.getElementById("check_courier_card").addEventListener("tap", function() {
+			mui.openWindow({
+				id:"courier_card",
+				url:"courier_card.html",
+				show:{
+					aniShow:"zoom-fade-out",
+					duration: 300
+				}
+			})
+		});
+	</script>
 
 </html>

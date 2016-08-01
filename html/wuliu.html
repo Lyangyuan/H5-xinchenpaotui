@@ -11,51 +11,58 @@
 			mui.init()
 		</script>
 		<style type="text/css">
-			.courier_simple_info{
+			.courier_simple_info {
 				width: 100%;
 				height: 100px;
 				background-color: white;
 			}
-			.wuliu_tracking{
+			
+			.wuliu_tracking {
 				width: 100%;
 				height: auto;
 				margin-top: 10px;
 				background-color: white;
-				padding:5px;
-				text-align:center;
+				padding: 5px;
+				text-align: center;
 			}
-			.courier_icon{
+			
+			.courier_icon {
 				width: 20%;
 				height: 100%;
-				float:left;
-				text-align:center;
+				float: left;
+				text-align: center;
 			}
-			.courier_icon img{
+			
+			.courier_icon img {
 				width: 60px;
 				margin-top: 20px;
 				color: #e4e4e4;
 				border: solid 1px;
 				border-radius: 30px;
 			}
-			.courier_info{
-				padding-top:5px;
+			
+			.courier_info {
+				padding-top: 5px;
 				width: 60%;
-				height:100%;
-				float:left;
+				height: 100%;
+				float: left;
 			}
-			.courier_pingjia{
+			
+			.courier_pingjia {
 				width: 20%;
-				height:100%;
-				float:left;
+				height: 100%;
+				float: left;
 				text-align: center;
 			}
-			.courier_pingjia img{
+			
+			.courier_pingjia img {
 				width: 60px;
 				margin-top: 5px;
 			}
-			.wuliu_tracking img{
+			
+			.wuliu_tracking img {
 				width: 95%;
-				height:350px;
+				height: 350px;
 				border: solid 1px;
 			}
 		</style>
@@ -63,32 +70,45 @@
 
 	<body>
 		<header class="mui-bar mui-bar-nav">
-		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
-		    <h1 class="mui-title">物流详情</h1>
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">物流详情</h1>
 		</header>
 		<div class="mui-content">
-		    <div class="courier_simple_info">
-		    	<div class="courier_icon">
-		    		<img src="../img/personal_info_icon.png"/>
-		    	</div>
-		    	<div class="courier_info">
-		    		<h4>配送员：李江博</h4>
-		    		<p>快递单号:20160730153422</p>
-		    		<p>电话号码:15709782993</p>
-		    	</div>
-		    	<div class="courier_pingjia">
-		    		<a>
-		    			<img src="../img/kdypj_icon.png"/>
-		    			<p>给个评价</p>
-		    		</a> 
-		    	</div>
-		    </div>
-		    <div class="wuliu_tracking">
-		    	<h4>物流跟踪</h4>
-		    	<hr />
-		    	<img src="../img/map_track.png"/>
-		    </div>
+			<div class="courier_simple_info">
+				<div class="courier_icon">
+					<img src="../img/personal_info_icon.png" />
+				</div>
+				<div class="courier_info">
+					<h4>配送员：李江博</h4>
+					<p>快递单号:20160730153422</p>
+					<p>电话号码:15709782993</p>
+				</div>
+				<div class="courier_pingjia">
+					<a id="courier_pingjia">
+						<img src="../img/kdypj_icon.png" />
+						<p>给个评价</p>
+					</a>
+				</div>
+			</div>
+			<div class="wuliu_tracking">
+				<h4>物流跟踪</h4>
+				<hr />
+				<img src="../img/map_track.png" />
+			</div>
 		</div>
 	</body>
+	<script type="text/javascript">
+		mui.plusReady();
+		document.getElementById("courier_pingjia").addEventListener("tap", function() {
+			mui.openWindow({
+				url:"pingjia_courier.html",
+				id:"pingjia_courier",
+				show:{
+					aniShow:"zoom-fade-out",
+					duration: 300
+				}
+			});
+		});
+	</script>
 
 </html>
