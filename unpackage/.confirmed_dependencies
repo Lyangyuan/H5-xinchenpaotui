@@ -153,7 +153,9 @@
 			"img/search_icon.png"
 		],
 		"refer": [
-			"html/paotui_index.html"
+			"html/paotui_index.html",
+			"html/paotui/paotui_index.html",
+			"html/paotui/paotui_index_frame.html"
 		]
 	},
 	"html/set_main.html": {
@@ -341,7 +343,14 @@
 			"js/mui.min.js",
 			"fonts/mui.ttf",
 			"img/about_icon.png",
-			"css/mui.min.css"
+			"css/mui.min.css",
+			"img/fwzz_icon4.png",
+			"img/fwzz_icon2.png",
+			"img/fwzz_icon5.png",
+			"img/fwzz_icon3.png",
+			"img/fwzz_icon6.png",
+			"img/fwzz_icon1.png",
+			"img/pzbz_icon.png"
 		]
 	},
 	"html/my_order.html": {
@@ -422,6 +431,41 @@
 			"js/mui.min.js",
 			"img/qq.jpg",
 			"fonts/mui.ttf",
+			"css/mui.min.css"
+		]
+	},
+	"html/paotui/paotui_index.html": {
+		"resources": [
+			"img/srdz.jpg",
+			"img/zglr.jpg",
+			"img/dj.jpg",
+			"img/jskh.jpg",
+			"img/dslw.jpg",
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/mui.min.css",
+			"img/buy.png",
+			"img/qswj.jpg",
+			"img/pdzz.jpg"
+		]
+	},
+	"html/paotui/paotui_index_frame.html": {
+		"resources": [
+			"html/paotui/paotui_index.html",
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/mui.min.css"
+		],
+		"refer": [
+			"html/paotui/paotui_index.html",
+			"html/paotui/about_paotui.html",
+			"html/paotui/service_lead.html",
+			"html/paotui/user_knows.html"
+		]
+	},
+	"html/paotui/service_lead.html": {
+		"resources": [
+			"js/mui.min.js",
 			"css/mui.min.css"
 		]
 	}
