@@ -1,0 +1,83 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../../css/mui.min.css" rel="stylesheet" />
+		<script src="../../js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init()
+		</script>
+		<style type="text/css">
+			.mui-card-header {
+				background-color: #00BFFF;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">在线支付</h1>
+		</header>
+		<div class="mui-content">
+			<div class="mui-card">
+				<div class="mui-card-header">
+					订单信息
+				</div>
+				<div class="mui-card-content">
+					<form class="mui-input-group">
+						<div class="mui-input-row">
+							<label>姓名</label>
+							<input type="text" class="mui-input-clear" placeholder="李先生">
+						</div>
+						<div class="mui-input-row">
+							<label>电话</label>
+							<input type="text" class="mui-input-clear" placeholder="15709782993">
+						</div>
+						<div class="mui-input-row">
+							<label>服务类型</label>
+							<input type="text" class="mui-input-clear" placeholder="代驾">
+						</div>
+						<div class="mui-input-row">
+							<label>事由</label>
+							<input type="text" class="mui-input-clear" placeholder="酒后">
+						</div>
+						<div class="mui-input-row">
+							<label>时间</label>
+							<input type="text" class="mui-input-clear" placeholder="2016-7-8-1-14:30">
+						</div>
+						<div class="mui-input-row">
+							<label>起点</label>
+							<input type="text" class="mui-input-clear" placeholder="宁大路251号青海大学">
+						</div>
+						<div class="mui-input-row">
+							<label>终点</label>
+							<input type="text" class="mui-input-clear" placeholder="宁大路251号青海大学">
+						</div>
+						<div class="mui-input-row mui-checkbox mui-left" >
+							<label>星辰跑腿代驾协议</label>
+							<input name="checkbox" value="Item 1" type="checkbox" id="read_protocl">
+						</div>
+					</form>
+				</div>
+			</div>
+			<button id="pay_button" type="button" class="mui-btn mui-btn-grey mui-btn-block">付款</button>
+		</div>
+	</body>
+	<script type="text/javascript">
+		mui.plusReady();
+		document.getElementById("read_protocl").addEventListener("change", function() {
+			var value = this.checked ? "true" : "false";
+			var pay_btn = mui("#pay_button");
+			if(value) {
+				this.previousElementSibling.innerText  = "我已阅读星辰跑腿代驾协议";
+			}else{
+				this.previousElementSibling.innerText  = "星辰跑腿代驾协议";
+			}
+		});
+	</script>
+
+</html>

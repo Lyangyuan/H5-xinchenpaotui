@@ -37,7 +37,7 @@
 						<img src="../../img/pdzz.jpg" />
 						<h4>排队占座</h4>
 						<p>
-							<a>服务详情>></a>
+							<a id="service_detail">服务详情>></a>
 						</p>
 						<button type="button" class="mui-btn mui-btn-blue">立即下单</button>
 					</td>
@@ -107,5 +107,17 @@
 			</table>
 		</div>
 	</body>
+	<script type="text/javascript">
+		document.getElementById("service_detail").addEventListener("tap", function() {
+			mui.openWindow({
+				id: "service_detail",
+				url: "service_detail.html",
+				show: {
+					aniShow: 'zoom-fade-out', //页面显示动画
+					duration: 300 //动画持续的时间
+				}
+			});
+		});
+	</script>
 
 </html>

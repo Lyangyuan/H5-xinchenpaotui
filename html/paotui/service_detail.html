@@ -13,9 +13,77 @@
 		<style type="text/css">
 			.mui-content {
 				background-color: white;
-				padding: 10px;
+				padding: 5px;
 			}
 			
+			.img_name_price {
+				width: 100%;
+				height: 150px;
+				border-bottom: solid 1px #e4e4e4;
+			}
+			
+			.service_img {
+				width: 40%;
+				height: 150px;
+				float: left;
+			}
+			
+			.service_img img {
+				width: 100%;
+			}
+			
+			.order_contact {
+				width: 100%;
+				height: 40px;
+				margin-top: 10px;
+				border-bottom: solid 1px #e4e4e4;
+				text-align: center;
+			}
+			
+			.order_contact button {
+				width: 150px;
+			}
+			
+			.details {
+				width: 100%;
+				height: auto;
+				margin-top: 5px;
+			}
+			
+			.mui-control-content table {
+				width: 90%;
+				margin: auto;
+				margin-top: 5px;
+			}
+			
+			.mui-control-content {
+				padding: 10px;
+				height: 350px;
+			}
+			.mui-table-view-cell{
+				border-bottom:solid 1px #e4e4e4 ;
+			}
+			.guest_info{
+				width: 100%;
+				height: 45px;
+			}
+			.guest_info img{
+				width: 42px;
+				border: solid 1px #e4e4e4;
+				border-radius:21px ;
+				float:left;
+			}
+			.guest_info h4{
+				line-height: 40px;
+			}
+			.pingjia_text{
+				width: 100%;
+				height: 45px;
+			}
+			.pingjia_time{
+				width: 100%;
+				height: 30px;
+			}
 		</style>
 	</head>
 
@@ -25,8 +93,115 @@
 			<h1 class="mui-title">服务详情</h1>
 		</header>
 		<div class="mui-content">
-			
+			<div class="img_name_price">
+				<div class="service_img">
+					<img src="../../img/dj.jpg" />
+				</div>
+				<h3>代驾服务</h3>
+				<p>价格：根据服务里程确定收费价格</p>
+			</div>
+			<div class="order_contact">
+				<button id="make_order" type="button" class="mui-btn mui-btn-blue mui-btn-outlined">立即下单</button>
+				<button type="button" class="mui-btn mui-btn-blue mui-btn-outlined">联系客服</button>
+			</div>
+			<div class="details">
+				<div>
+					<div id="segmentedControl" class="mui-segmented-control">
+						<a class="mui-control-item mui-active" href="#item1">
+							评价
+						</a>
+						<a class="mui-control-item" href="#item2">
+							服务详情
+						</a>
+						<a class="mui-control-item" href="#item3">
+							价格标准
+						</a>
+					</div>
+				</div>
+				<div>
+					<div id="item1" class="mui-control-content mui-active">
+						<div id="scroll" class="mui-scroll-wrapper">
+							<div class="mui-scroll">
+								<ul class="mui-table-view">
+									<li class="mui-table-view-cell">
+										<div class="guest_info">
+											<img src="../../img/qq.jpg"/>
+											<h4>用户账号</h4>
+										</div>
+										<div class="pingjia_text">
+											<p>评价内容评价内容评价内容评价内容评价内容评价内容评价内容评价内容评价内容评价内容</p>
+										</div>
+										<div class="pingjia_time">
+											2016-08-05 11:26
+										</div>
+									</li>
+									<li class="mui-table-view-cell">
+										<div class="guest_info">
+											<img src="../../img/qq.jpg"/>
+											<h4>用户账号</h4>
+										</div>
+										<div class="pingjia_text">
+											<p>评价内容评价内容评价内容评价内容评价内容评价内容评价内容评价内容评价内容评价内容</p>
+										</div>
+										<div class="pingjia_time">
+											2016-08-05 11:26
+										</div>
+									</li>
+									<li class="mui-table-view-cell">
+										<div class="guest_info">
+											<img src="../../img/qq.jpg"/>
+											<h4>用户账号</h4>
+										</div>
+										<div class="pingjia_text">
+											<p>评价内容评价内容评价内容评价内容评价内容评价内容评价内容评价内容评价内容评价内容</p>
+										</div>
+										<div class="pingjia_time">
+											2016-08-05 11:26
+										</div>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div id="item2" class="mui-control-content">
+						<h3>服务详情</h3>
+						<p>服务详情内容服务详情内容服务详情内容服务详情内容服务详情内容</p>
+						
+					</div>
+					<div id="item3" class="mui-control-content">
+						<table border="">
+							<tr>
+								<th>里程数</th>
+								<th>价格</th>
+							</tr>
+							<tr>
+								<td>小于5公里</td>
+								<td>￥50.0</td>
+							</tr>
+							<tr>
+								<td>大于5公里</td>
+								<td>￥50.0+多出公里数*5</td>
+							</tr>
+						</table>
+					</div>
+				</div>
+			</div>
 		</div>
 	</body>
+	<script type="text/javascript">
+		mui('#scroll').scroll({
+			indicators: true //是否显示滚动条
+		});
+		document.getElementById("make_order").addEventListener("tap",function(){
+			mui.openWindow({
+				url:"make_order.html",
+				id:"make_order",
+				show: {
+					aniShow: 'zoom-fade-out', //页面显示动画
+					duration: 300 //动画持续的时间
+				}
+			});
+		});
+	</script>
 
 </html>

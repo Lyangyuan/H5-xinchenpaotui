@@ -446,7 +446,11 @@
 			"css/mui.min.css",
 			"img/buy.png",
 			"img/qswj.jpg",
-			"img/pdzz.jpg"
+			"img/pdzz.jpg",
+			"html/paotui/service_detail.html"
+		],
+		"refer": [
+			"html/paotui/service_detail.html"
 		]
 	},
 	"html/paotui/paotui_index_frame.html": {
@@ -466,6 +470,30 @@
 	"html/paotui/service_lead.html": {
 		"resources": [
 			"js/mui.min.js",
+			"css/mui.min.css"
+		]
+	},
+	"html/paotui/service_detail.html": {
+		"resources": [
+			"img/dj.jpg",
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/mui.min.css",
+			"img/qq.jpg"
+		],
+		"refer": [
+			"html/paotui/make_order.html"
+		]
+	},
+	"html/paotui/make_order.html": {
+		"resources": [
+			"js/mui.picker.js",
+			"js/mui.poppicker.js",
+			"css/mui.poppicker.css",
+			"css/mui.picker.css",
+			"js/city.data-3.js",
+			"js/mui.min.js",
+			"fonts/mui.ttf",
 			"css/mui.min.css"
 		]
 	}
