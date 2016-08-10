@@ -47,32 +47,7 @@
 			.search {
 				width: 90%;
 				margin: auto;
-				margin-top: 3px;
-				margin-bottom: 3px;
-				height: 45px;
-				border-radius: 10px;
-				-moz-border-radius: 10px;
-				background: #1288fc;
-				padding-top: 5px;
-				padding-left: 5px;
-			}
-			
-			.search_left {
-				width: 85%;
-				height: 35px;
-				float: left;
-			}
-			
-			.search_left input {
-				height: 35px;
-				border-radius: 10px;
-				-moz-border-radius: 10px;
-			}
-			
-			.search_right {
-				width: 10%;
-				height: 35px;
-				float: left;
+				margin-top:5px ;
 			}
 		</style>
 	</head>
@@ -82,14 +57,7 @@
 		<div class="mui-content">
 
 			<div class="search">
-				<div class="search_left">
-					<input type="text" id="search_text" />
-				</div>
-				<div id="search_right">
-					<a id="click_search">
-						<img src="../img/search_icon.png" / style="width: 35px;margin-left: 5px;">
-					</a>
-				</div>
+				<input type="text" placeholder="请输入搜索内容"/>
 			</div>
 
 			<div class="slider">
@@ -150,7 +118,7 @@
 							</a>
 						</li>
 						<li class="mui-table-view-cell mui-media mui-col-xs-4">
-							<a href="#"><img class="mui-media-object" src="../img/food.png">
+							<a id="meishi"><img class="mui-media-object" src="../img/food.png">
 								<div class="mui-media-body">美食外卖</div>
 							</a>
 						</li>
@@ -237,6 +205,16 @@
 					mui.openWindow({
 						url: "sudi/sudi_index.html",
 						id: "sudi_index",
+						show: {
+							aniShow: 'zoom-fade-out', //页面显示动画
+							duration: 300 //动画持续的时间
+						}
+					});
+				});
+				document.getElementById("meishi").addEventListener("tap", function() {
+					mui.openWindow({
+						url: "meishi/meishi_index.html",
+						id: "meishi",
 						show: {
 							aniShow: 'zoom-fade-out', //页面显示动画
 							duration: 300 //动画持续的时间

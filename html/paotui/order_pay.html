@@ -57,9 +57,36 @@
 							<label>终点</label>
 							<input type="text" class="mui-input-clear" placeholder="宁大路251号青海大学">
 						</div>
-						<div class="mui-input-row mui-checkbox mui-left" >
-							<label>星辰跑腿代驾协议</label>
+						<div class="mui-input-row mui-checkbox mui-left">
+							<label><a id="read_prot">我已阅读并同意星辰跑腿代驾协议</a></label>
 							<input name="checkbox" value="Item 1" type="checkbox" id="read_protocl">
+						</div>
+					</form>
+				</div>
+			</div>
+			<div class="mui-card">
+				<div class="mui-card-header">
+					价格
+				</div>
+				<div class="mui-card-content">
+					<center>
+						<h1 style="color: red;">￥55.00</h1>
+					</center>
+				</div>
+			</div>
+			<div class="mui-card">
+				<div class="mui-card-header">
+					选择付款方式
+				</div>
+				<div class="mui-card-content">
+					<form class="mui-input-group">
+						<div class="mui-input-row mui-radio mui-left">
+							<label>支付宝</label>
+							<input name="radio1" type="radio">
+						</div>
+						<div class="mui-input-row mui-radio mui-left">
+							<label>微信</label>
+							<input name="radio1" type="radio" checked>
 						</div>
 					</form>
 				</div>
@@ -69,14 +96,15 @@
 	</body>
 	<script type="text/javascript">
 		mui.plusReady();
-		document.getElementById("read_protocl").addEventListener("change", function() {
-			var value = this.checked ? "true" : "false";
-			var pay_btn = mui("#pay_button");
-			if(value) {
-				this.previousElementSibling.innerText  = "我已阅读星辰跑腿代驾协议";
-			}else{
-				this.previousElementSibling.innerText  = "星辰跑腿代驾协议";
-			}
+		document.getElementById("read_prot").addEventListener("tap",function(){
+			mui.openWindow({
+				id:"protocl",
+				url:"protocl.html",
+				show:{
+					aniShow:"zoom-fade-out",
+					duration:300
+				}
+			});
 		});
 	</script>
 

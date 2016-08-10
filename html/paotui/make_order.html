@@ -96,7 +96,7 @@
 							</label>
 							<input type="text" id="cityResult3" class="mui-input-clear mui-input" placeholder="经纬度信息" />
 						</div>
-						<button type="button" class="mui-btn mui-btn-blue">提交订单</button>
+						<button id="submit_order" type="button" class="mui-btn mui-btn-blue">提交订单</button>
 						<button type="reset" class="mui-btn mui-btn-blue">重置</button>
 					</form>
 				</div>
@@ -109,6 +109,17 @@
 	<script src="../../js/city.data-3.js" type="text/javascript" charset="utf-8"></script>
 	<script>
 		mui.plusReady();
+
+		document.getElementById("submit_order").addEventListener("tap",function(){
+			mui.openWindow({
+				id:"order_pay",
+				url:"order_pay.html",
+				show: {
+					aniShow: 'zoom-fade-out', //页面显示动画
+					duration: 300 //动画持续的时间
+				}
+			})
+		});
 
 		//地址选择函数
 		(function($, doc) {

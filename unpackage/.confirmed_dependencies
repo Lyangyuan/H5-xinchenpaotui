@@ -155,7 +155,8 @@
 		"refer": [
 			"html/paotui_index.html",
 			"html/paotui/paotui_index.html",
-			"html/paotui/paotui_index_frame.html"
+			"html/paotui/paotui_index_frame.html",
+			"html/sudi/sudi_index.html"
 		]
 	},
 	"html/set_main.html": {
@@ -423,7 +424,8 @@
 			"js/mui.min.js",
 			"fonts/mui.ttf",
 			"css/mui.min.css",
-			"img/item1.png"
+			"img/item1.png",
+			"img/xing.png"
 		]
 	},
 	"html/courier_card.html": {
@@ -464,7 +466,8 @@
 			"html/paotui/paotui_index.html",
 			"html/paotui/about_paotui.html",
 			"html/paotui/service_lead.html",
-			"html/paotui/user_knows.html"
+			"html/paotui/user_knows.html",
+			"html/paotui/my_service.html"
 		]
 	},
 	"html/paotui/service_lead.html": {
@@ -495,6 +498,39 @@
 			"js/mui.min.js",
 			"fonts/mui.ttf",
 			"css/mui.min.css"
+		],
+		"refer": [
+			"html/paotui/order_pay.html"
+		]
+	},
+	"html/sudi/sudi_index.html": {
+		"resources": [
+			"js/mui.picker.js",
+			"js/mui.min.js",
+			"js/mui.poppicker.js",
+			"fonts/mui.ttf",
+			"css/mui.min.css",
+			"css/mui.poppicker.css",
+			"css/mui.picker.css",
+			"js/city.data-3.js"
+		]
+	},
+	"html/paotui/my_service.html": {
+		"resources": [
+			"fonts/mui.ttf",
+			"img/zglr.jpg",
+			"img/dj.jpg",
+			"js/mui.min.js",
+			"css/mui.min.css",
+			"img/jskh.jpg"
+		],
+		"refer": [
+			"html/paotui/pingjia_service.html"
+		]
+	},
+	"html/paotui/pingjia_service.html": {
+		"resources": [
+			"img/xing.png"
 		]
 	}
 }

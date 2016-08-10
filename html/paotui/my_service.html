@@ -10,12 +10,151 @@
 		<script type="text/javascript">
 			mui.init()
 		</script>
+		<style type="text/css">
+			.mui-content {
+				background-color: white;
+			}
+			
+			.mui-control-content {
+				padding: 10px;
+			}
+			
+			.mui-table-view-vell table {
+				width: 100%;
+				border-bottom: solid 1px #e4e4e4;
+			}
+			
+			.mui-table-view-vell h3 {
+				color: red;
+			}
+		</style>
 	</head>
 
 	<body>
 		<div class="mui-content">
-		    我的服务
+			<div style="padding: 10px 10px;">
+				<div id="segmentedControl" class="mui-segmented-control">
+					<a class="mui-control-item mui-active" href="#item1">
+						未付款
+					</a>
+					<a class="mui-control-item" href="#item2">
+						已付款
+					</a>
+					<a class="mui-control-item" href="#item3">
+						已服务
+					</a>
+				</div>
+			</div>
+			<div>
+				<div id="item1" class="mui-control-content mui-active">
+					<ul class="mui-table-view">
+						<li class="mui-table-view-vell">
+							<table>
+								<tr height="70px">
+									<td width="70px" style="padding: 5px;">
+										<img src="../../img/dj.jpg" width="60px" />
+									</td>
+									<td>
+										<h4>代驾服务</h4>
+										<h3>￥50.00</h3>
+									</td>
+									<td width="90px;">
+										<button type="button" class="mui-btn mui-btn-blue mui-btn-outlined">前往付款</button>
+										<button type="button" class="mui-btn mui-btn-danger mui-btn-outlined">取消服务</button>
+									</td>
+								</tr>
+							</table>
+						</li>
+						<li class="mui-table-view-vell">
+							<table>
+								<tr height="70px">
+									<td width="70px" style="padding: 5px;">
+										<img src="../../img/jskh.jpg" width="60px" />
+									</td>
+									<td>
+										<h4>接送客户</h4>
+										<h3>￥150.00</h3>
+									</td>
+									<td width="90px;">
+										<button type="button" class="mui-btn mui-btn-blue mui-btn-outlined">前往付款</button>
+										<button type="button" class="mui-btn mui-btn-danger mui-btn-outlined">取消服务</button>
+									</td>
+								</tr>
+							</table>
+						</li>
+						<li class="mui-table-view-vell">
+							<table>
+								<tr height="70px">
+									<td width="70px" style="padding: 5px;">
+										<img src="../../img/zglr.jpg" width="60px" />
+									</td>
+									<td>
+										<h4>照顾老人</h4>
+										<h3>￥200.00</h3>
+									</td>
+									<td width="90px;">
+										<button type="button" class="mui-btn mui-btn-blue mui-btn-outlined">前往付款</button>
+										<button type="button" class="mui-btn mui-btn-danger mui-btn-outlined">取消服务</button>
+									</td>
+								</tr>
+							</table>
+						</li>
+					</ul>
+				</div>
+				<div id="item2" class="mui-control-content ">
+					<ul class="mui-table-view">
+						<li class="mui-table-view-vell">
+							<table>
+								<tr height="70px">
+									<td width="70px" style="padding: 5px;">
+										<img src="../../img/dj.jpg" width="60px" />
+									</td>
+									<td>
+										<h4>代驾服务</h4>
+									</td>
+									<td width="90px;">
+										<button type="button" class="mui-btn mui-btn-blue mui-btn-outlined">联系服务人员</button>
+										<button type="button" class="mui-btn mui-btn-danger mui-btn-outlined">确认服务完成</button>
+									</td>
+								</tr>
+							</table>
+						</li>
+					</ul>
+				</div>
+				<div id="item3" class="mui-control-content">
+					<ul class="mui-table-view">
+						<li class="mui-table-view-vell">
+							<table>
+								<tr height="70px">
+									<td width="70px" style="padding: 5px;">
+										<img src="../../img/dj.jpg" width="60px" />
+									</td>
+									<td>
+										<h4>代驾服务</h4>
+									</td>
+									<td width="90px;">
+										<button id="pingjia" type="button" class="mui-btn mui-btn-blue mui-btn-outlined">评价服务</button>
+									</td>
+								</tr>
+							</table>
+						</li>
+					</ul>
+				</div>
+			</div>
 		</div>
 	</body>
+	<script type="text/javascript">
+		mui.plusReady();
+		document.getElementById("pingjia").addEventListener("tap",function(){
+			mui.openWindow({
+				id:"pingjia_service",
+				url:"pingjia_service.html",
+				show:{
+					aniShow:"zoom-fade-out",
+					duration:300
+				}
+			});
+		});
+	</script>
 
 </html>
