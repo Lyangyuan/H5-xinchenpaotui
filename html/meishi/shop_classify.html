@@ -11,22 +11,7 @@
 			mui.init()
 		</script>
 		<style type="text/css">
-			.search {
-				width: 90%;
-				margin: auto;
-				margin-top: 5px;
-			}
-			
-			.meishi_fenlei img {
-				width: 50px;
-			}
-			
-			.mui-slider {
-				width: 100%;
-				height: 150px;
-			}
-			
-			.fj_tj {
+			.style4 {
 				width: 100%;
 			}
 			
@@ -54,98 +39,113 @@
 
 	<body>
 		<header class="mui-bar mui-bar-nav">
-			<a class="mui-action-back mui-icon mui-icon-home mui-icon-left-nav mui-pull-left"></a>
-			<h1 class="mui-title">美食外卖</h1>
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">火锅烧烤</h1>
 		</header>
-		<div class="mui-content">
-			<div class="search">
-				<input type="text" placeholder="请输入商家或美食名称" />
-			</div>
-			<div class="mui-slider" id="slider">
-				<div class="mui-slider-group mui-slider-loop">
-					<div class="mui-slider-item mui-slider-item-duplicate">
-						<a href="">
-							<img src="../../img/ms_lb4.jpg" />
-						</a>
-					</div>
-					<div class="mui-slider-item">
-						<a href="">
-							<img src="../../img/ms_lb1.jpg" />
-						</a>
-					</div>
-					<div class="mui-slider-item">
-						<a href="">
-							<img src="../../img/ms_lb2.jpg" />
-						</a>
-					</div>
-					<div class="mui-slider-item">
-						<a href="">
-							<img src="../../img/ms_lb3.jpg" />
-						</a>
-					</div>
-					<div class="mui-slider-item">
-						<a href="">
-							<img src="../../img/ms_lb4.jpg" />
-						</a>
-					</div>
-					<div class="mui-slider-item mui-slider-item-duplicate">
-						<a href="">
-							<img src="../../img/ms_lb1.jpg" />
-						</a>
-					</div>
 
-				</div>
-			</div>
-			<div class="meishi_fenlei" id="meishi_fenlei">
-				<ul class="mui-table-view mui-grid-view mui-grid">
-					<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
-						<a href="#">
-							<img src="../../img/ms_hg.png" />
-							<div class="mui-media-body">火锅烧烤</div>
+		<nav class="mui-bar mui-bar-tab">
+			<a href="#classify" class="mui-tab-item mui-active">
+				<span class="mui-tab-label">火锅烧烤</span>
+			</a>
+			<a href="#sort" class="mui-tab-item">
+				<span class="mui-tab-label">综合排序</span>
+			</a>
+			<a href="#filter" class="mui-tab-item">
+				<span class="mui-tab-label">筛选</span>
+			</a>
+		</nav>
+		<div class="mui-content">
+			<div id="classify" class="mui-popover mui-popover-action mui-popover-bottom">
+				<ul class="mui-table-view">
+					<li class="mui-table-view-cell ">
+						<a class="mui-navigate-right">
+							<span class="mui-badge">15</span> 火锅烧烤
 						</a>
 					</li>
-					<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
-						<a href="#">
-							<img src="../../img/ms_dg.png" />
-							<div class="mui-media-body">生日蛋糕</div>
+					<li class="mui-table-view-cell mui-active">
+						<a class="mui-navigate-right">
+							<span class="mui-badge ">5</span> 生日蛋糕
 						</a>
 					</li>
-					<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
-						<a href="#">
-							<img src="../../img/ms_kc.png" />
-							<div class="mui-media-body">小吃快餐</div>
+					<li class="mui-table-view-cell">
+						<a class="mui-navigate-right">
+							<span class="mui-badge">5</span> 小吃快餐
 						</a>
 					</li>
-					<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
-						<a href="#">
-							<img src="../../img/ms_xc.png" />
-							<div class="mui-media-body">西餐</div>
+					<li class="mui-table-view-cell">
+						<a class="mui-navigate-right">
+							<span class="mui-badge">5</span> 西餐
 						</a>
 					</li>
-					<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
-						<a href="#">
-							<img src="../../img/ms_cc.png" />
-							<div class="mui-media-body">小炒</div>
+					<li class="mui-table-view-cell">
+						<a class="mui-navigate-right">
+							<span class="mui-badge">5</span> 小炒
 						</a>
 					</li>
-					<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
-						<a href="#">
-							<img src="../../img/food.png" />
-							<div class="mui-media-body">日韩料理</div>
+					<li class="mui-table-view-cell">
+						<a class="mui-navigate-right">
+							<span class="mui-badge">5</span> 日韩料理
 						</a>
 					</li>
 				</ul>
 			</div>
-			<div class="fj_tj">
-				<table width="100%">
-					<tr>
-						<td>附近商家</td>
-						<td style="text-align: right;">
-							西宁市城北区宁张路
-							<a class="mui-icon mui-icon-location"></a>
-						</td>
-					</tr>
-				</table>
+
+			<div id="sort" class="mui-popover mui-popover-action mui-popover-bottom">
+				<ul class="mui-table-view">
+					<li class="mui-table-view-cell ">
+						<a class="mui-navigate-right">
+							综合排序
+						</a>
+					</li>
+					<li class="mui-table-view-cell mui-active">
+						<a class="mui-navigate-right">
+							销量最高
+						</a>
+					</li>
+					<li class="mui-table-view-cell">
+						<a class="mui-navigate-right">
+							速度最快
+						</a>
+					</li>
+					<li class="mui-table-view-cell">
+						<a class="mui-navigate-right">
+							距离最近
+						</a>
+					</li>
+					<li class="mui-table-view-cell">
+						<a class="mui-navigate-right">
+							评分最高
+						</a>
+					</li>
+					<li class="mui-table-view-cell">
+						<a class="mui-navigate-right">
+							起送价最低
+						</a>
+					</li>
+				</ul>
+			</div>
+			
+			<div id="filter" class="mui-popover mui-popover-action mui-popover-bottom">
+				<ul class="mui-table-view">
+					<li class="mui-table-view-cell ">
+						<a class="mui-navigate-right">
+							新商家
+						</a>
+					</li>
+					<li class="mui-table-view-cell mui-active">
+						<a class="mui-navigate-right">
+							免费配送
+						</a>
+					</li>
+					<li class="mui-table-view-cell">
+						<a class="mui-navigate-right">
+							品牌
+						</a>
+					</li>
+				</ul>
+			</div>
+
+			<div class="style4">
 				<table class="shop_list">
 					<tr>
 						<td>
@@ -263,25 +263,37 @@
 		</div>
 	</body>
 	<script type="text/javascript">
+		mui.plusReady();
+
+		mui('body').on('shown', '.mui-popover', function(e) {
+			//console.log('shown', e.detail.id);//detail为当前popover元素
+		});
+		mui('body').on('hidden', '.mui-popover', function(e) {
+			//console.log('hidden', e.detail.id);//detail为当前popover元素
+		});
+		mui('body').on('tap', '.mui-popover-action li>a', function() {
+			var a = this,
+				parent;
+			//根据点击按钮，反推当前是哪个actionsheet
+			for(parent = a.parentNode; parent != document.body; parent = parent.parentNode) {
+				if(parent.classList.contains('mui-popover-action')) {
+					break;
+				}
+			}
+			//关闭actionsheet
+			mui('#' + parent.id).popover('toggle');
+
+		})
+
 		document.getElementById("sichuan").addEventListener("tap", function() {
 			mui.openWindow({
-				id:"shop_page",
-				url:"shop_page.html",
-				show:{
-					aniShow:"zoom-fade-out",
-					duration:300
+				id: "shop_page",
+				url: "shop_page.html",
+				show: {
+					aniShow: "zoom-fade-out",
+					duration: 300
 				}
 			})
-		});
-		mui("#meishi_fenlei").on("tap","a",function(){
-			mui.openWindow({
-				id:"shop_classify",
-				url:"shop_classify.html",
-				show:{
-					aniShow:"zoom-fade-out",
-					duration:300
-				}
-			});
 		});
 	</script>
 

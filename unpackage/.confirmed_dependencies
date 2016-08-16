@@ -35,7 +35,10 @@
 			"img/weibo.jpg",
 			"html/main.html",
 			"html/registe.html",
-			"html/forgetpass.html"
+			"html/forgetpass.html",
+			"js/app.js",
+			"js/mui.enterfocus.js",
+			"fonts/mui.ttf"
 		],
 		"refer": [
 			"html/registe.html",
@@ -156,7 +159,9 @@
 			"html/paotui_index.html",
 			"html/paotui/paotui_index.html",
 			"html/paotui/paotui_index_frame.html",
-			"html/sudi/sudi_index.html"
+			"html/sudi/sudi_index.html",
+			"html/meishi/meishi_index.html",
+			"html/gouwu/gouwu_index.html"
 		]
 	},
 	"html/set_main.html": {
@@ -425,7 +430,10 @@
 			"fonts/mui.ttf",
 			"css/mui.min.css",
 			"img/item1.png",
-			"img/xing.png"
+			"img/xing.png",
+			"img/cpl.png",
+			"img/hph.png",
+			"img/zpl.png"
 		]
 	},
 	"html/courier_card.html": {
@@ -513,6 +521,9 @@
 			"css/mui.poppicker.css",
 			"css/mui.picker.css",
 			"js/city.data-3.js"
+		],
+		"refer": [
+			"html/sudi/sudi_second.html"
 		]
 	},
 	"html/paotui/my_service.html": {
@@ -531,6 +542,189 @@
 	"html/paotui/pingjia_service.html": {
 		"resources": [
 			"img/xing.png"
+		]
+	},
+	"html/meishi/shop_classify.html": {
+		"refer": [
+			"html/meishi/shop_page.html"
+		],
+		"resources": [
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/mui.min.css",
+			"img/lun4.jpg",
+			"img/shop_index.jpg"
+		]
+	},
+	"html/meishi/meishi_index.html": {
+		"refer": [
+			"html/meishi/shop_classify.html",
+			"html/meishi/shop_page.html"
+		],
+		"resources": [
+			"fonts/mui.ttf",
+			"img/lun1.jpg",
+			"js/mui.min.js",
+			"img/lun3.jpg",
+			"img/lun2.jpg",
+			"css/mui.min.css",
+			"img/lun4.jpg",
+			"img/food.png",
+			"img/ms_lb2.jpg",
+			"img/ms_lb1.jpg",
+			"img/ms_lb3.jpg",
+			"img/ms_lb4.jpg",
+			"img/ms_xc.png",
+			"img/ms_kc.png",
+			"img/ms_dg.png",
+			"img/shop_index.jpg",
+			"img/ms_cc.png",
+			"img/ms_hg.png"
+		]
+	},
+	"html/meishi/shop_page.html": {
+		"resources": [
+			"img/location.png",
+			"img/tel.png",
+			"img/pay.png",
+			"img/food_shop_back.png",
+			"img/qq.jpg",
+			"img/kuadi_car.png",
+			"img/time.png",
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/mui.min.css",
+			"html/meishi/shop_foods_list.html"
+		],
+		"refer": [
+			"html/meishi/shop_foods_list.html",
+			"html/meishi/shop_pingjia.html",
+			"html/meishi/shop_info.html"
+		]
+	},
+	"html/meishi/shop_foods_list.html": {
+		"resources": [
+			"img/food_exm.jpg",
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/mui.min.css"
+		],
+		"refer": [
+			"html/meishi/food_detail_page.html"
+		]
+	},
+	"html/meishi/shop_info.html": {
+		"resources": [
+			"img/location.png",
+			"img/tel.png",
+			"img/pay.png",
+			"img/food_shop_back.png",
+			"img/kuadi_car.png",
+			"img/time.png",
+			"js/mui.min.js",
+			"img/food_exm.jpg",
+			"fonts/mui.ttf",
+			"css/mui.min.css"
+		]
+	},
+	"html/meishi/shop_pingjia.html": {
+		"resources": [
+			"img/qq.jpg",
+			"js/mui.min.js",
+			"css/mui.min.css"
+		]
+	},
+	"html/meishi/food_detail_page.html": {
+		"resources": [
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/mui.min.css",
+			"js/echarts-all.js",
+			"img/lun1.jpg",
+			"img/lun3.jpg",
+			"img/lun2.jpg",
+			"img/lun4.jpg",
+			"img/tds2.jpg",
+			"img/car.png",
+			"img/tds3.jpg",
+			"img/tds4.jpg",
+			"img/tds1.jpg"
+		]
+	},
+	"html/paotui/order_pay.html": {
+		"refer": [
+			"html/paotui/protocl.html"
+		]
+	},
+	"html/gouwu/gouwu_index.html": {
+		"resources": [
+			"img/gw1.jpg",
+			"img/gw4.jpg",
+			"img/gw2.jpg",
+			"img/gw3.jpg",
+			"img/fz_shop.jpeg",
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/mui.min.css",
+			"img/food.png",
+			"img/life.png",
+			"img/yifu.png",
+			"img/shucai.png",
+			"img/chaoshi.png"
+		],
+		"refer": [
+			"html/gouwu/gouwu_classify.html",
+			"html/gouwu/gouwu_shop_page.html"
+		]
+	},
+	"html/gouwu/gouwu_classify.html": {
+		"refer": [
+			"html/gouwu/gouwu_shop_page.html"
+		]
+	},
+	"html/gouwu/gouwu_goods_list.html": {
+		"resources": [
+			"img/wt.jpg"
+		],
+		"refer": [
+			"html/gouwu/good_detail.html"
+		]
+	},
+	"html/gouwu/gouwu_shop_page.html": {
+		"resources": [
+			"html/gouwu/gouwu_goods_list.html",
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/mui.min.css"
+		],
+		"refer": [
+			"html/gouwu/gouwu_goods_list.html",
+			"html/gouwu/gouwu_shop_pingjia.html",
+			"html/gouwu/gouwu_shop_info.html"
+		]
+	},
+	"html/gouwu/gouwu_shop_info.html": {
+		"resources": [
+			"img/location.png",
+			"img/tel.png",
+			"img/pay.png",
+			"img/food_shop_back.png",
+			"img/kuadi_car.png",
+			"img/time.png"
+		]
+	},
+	"html/gouwu/good_detail.html": {
+		"resources": [
+			"img/wt3.jpg",
+			"js/echarts-all.js",
+			"img/wt1.jpg",
+			"img/car.png",
+			"img/wt4.jpg"
+		]
+	},
+	"html/sudi/sudi_second.html": {
+		"resources": [
+			"img/phoneback_icon.png"
 		]
 	}
 }

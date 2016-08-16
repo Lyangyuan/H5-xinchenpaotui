@@ -99,7 +99,7 @@
         },
         "NativeObj":{
         	"description": "原生对象"
-        }
+        },"OAuth":{}
 	},
 	"plus": {
 		"splashscreen": {
@@ -108,7 +108,7 @@
 		},
 		"runmode": "liberate",/*应用的首次启动运行模式，可取liberate或normal，liberate模式在第一次启动时将解压应用资源（Android平台File API才可正常访问_www目录）*/
 		"signature": "Sk9JTiBVUyBtYWlsdG86aHIyMDEzQGRjbG91ZC5pbw==",/*可选，保留给应用签名，暂不使用*/
-		"distribute": {
+		"distribute": {"plugins":{"oauth":{"qq":{"appid":""},"sina":{"appkey":"","appsecret":"","redirect_uri":""},"weixin":{"appid":"","appsecret":""}}},
 			"apple": {
 				"appid": "",/*iOS应用标识，苹果开发网站申请的appid，如io.dcloud.HelloH5*/
 				"mobileprovision": "",/*iOS应用打包配置文件*/
@@ -223,7 +223,9 @@
 					"img/weibo.jpg",
 					"html/main.html",
 					"html/registe.html",
-					"html/forgetpass.html"
+					"html/forgetpass.html",
+					"js/app.js",
+					"js/mui.enterfocus.js"
 				],
 				"refer": [],
 				"priority": 0
@@ -341,7 +343,9 @@
 					"html/paotui_index.html",
 					"html/paotui/paotui_index.html",
 					"html/paotui/paotui_index_frame.html",
-					"html/sudi/sudi_index.html"
+					"html/sudi/sudi_index.html",
+					"html/meishi/meishi_index.html",
+					"html/gouwu/gouwu_index.html"
 				],
 				"priority": 0
 			},
@@ -641,7 +645,10 @@
 					"fonts/mui.ttf",
 					"css/mui.min.css",
 					"img/item1.png",
-					"img/xing.png"
+					"img/xing.png",
+					"img/cpl.png",
+					"img/hph.png",
+					"img/zpl.png"
 				],
 				"refer": [],
 				"priority": 0
@@ -737,7 +744,9 @@
 					"css/mui.picker.css",
 					"js/city.data-3.js"
 				],
-				"refer": [],
+				"refer": [
+					"html/sudi/sudi_second.html"
+				],
 				"priority": 0
 			},
 			"html/paotui/my_service.html": {
@@ -757,6 +766,210 @@
 			"html/paotui/pingjia_service.html": {
 				"resources": [
 					"img/xing.png"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"html/meishi/shop_classify.html": {
+				"resources": [
+					"js/mui.min.js",
+					"fonts/mui.ttf",
+					"css/mui.min.css",
+					"img/lun4.jpg",
+					"img/shop_index.jpg"
+				],
+				"refer": [
+					"html/meishi/shop_page.html"
+				],
+				"priority": 0
+			},
+			"html/meishi/meishi_index.html": {
+				"resources": [
+					"fonts/mui.ttf",
+					"img/lun1.jpg",
+					"js/mui.min.js",
+					"img/lun3.jpg",
+					"img/lun2.jpg",
+					"css/mui.min.css",
+					"img/lun4.jpg",
+					"img/food.png",
+					"img/ms_lb2.jpg",
+					"img/ms_lb1.jpg",
+					"img/ms_lb3.jpg",
+					"img/ms_lb4.jpg",
+					"img/ms_xc.png",
+					"img/ms_kc.png",
+					"img/ms_dg.png",
+					"img/shop_index.jpg",
+					"img/ms_cc.png",
+					"img/ms_hg.png"
+				],
+				"refer": [
+					"html/meishi/shop_classify.html",
+					"html/meishi/shop_page.html"
+				],
+				"priority": 0
+			},
+			"html/meishi/shop_page.html": {
+				"resources": [
+					"img/location.png",
+					"img/tel.png",
+					"img/pay.png",
+					"img/food_shop_back.png",
+					"img/qq.jpg",
+					"img/kuadi_car.png",
+					"img/time.png",
+					"js/mui.min.js",
+					"fonts/mui.ttf",
+					"css/mui.min.css",
+					"html/meishi/shop_foods_list.html"
+				],
+				"refer": [
+					"html/meishi/shop_pingjia.html",
+					"html/meishi/shop_info.html"
+				],
+				"priority": 0
+			},
+			"html/meishi/shop_foods_list.html": {
+				"resources": [
+					"img/food_exm.jpg",
+					"js/mui.min.js",
+					"fonts/mui.ttf",
+					"css/mui.min.css"
+				],
+				"refer": [
+					"html/meishi/food_detail_page.html"
+				],
+				"priority": 0
+			},
+			"html/meishi/shop_info.html": {
+				"resources": [
+					"img/location.png",
+					"img/tel.png",
+					"img/pay.png",
+					"img/food_shop_back.png",
+					"img/kuadi_car.png",
+					"img/time.png",
+					"js/mui.min.js",
+					"img/food_exm.jpg",
+					"fonts/mui.ttf",
+					"css/mui.min.css"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"html/meishi/shop_pingjia.html": {
+				"resources": [
+					"img/qq.jpg",
+					"js/mui.min.js",
+					"css/mui.min.css"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"html/meishi/food_detail_page.html": {
+				"resources": [
+					"js/mui.min.js",
+					"fonts/mui.ttf",
+					"css/mui.min.css",
+					"js/echarts-all.js",
+					"img/lun1.jpg",
+					"img/lun3.jpg",
+					"img/lun2.jpg",
+					"img/lun4.jpg",
+					"img/tds2.jpg",
+					"img/car.png",
+					"img/tds3.jpg",
+					"img/tds4.jpg",
+					"img/tds1.jpg"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"html/paotui/order_pay.html": {
+				"resources": [],
+				"refer": [
+					"html/paotui/protocl.html"
+				],
+				"priority": 0
+			},
+			"html/gouwu/gouwu_index.html": {
+				"resources": [
+					"img/gw1.jpg",
+					"img/gw4.jpg",
+					"img/gw2.jpg",
+					"img/gw3.jpg",
+					"img/fz_shop.jpeg",
+					"js/mui.min.js",
+					"fonts/mui.ttf",
+					"css/mui.min.css",
+					"img/food.png",
+					"img/life.png",
+					"img/yifu.png",
+					"img/shucai.png",
+					"img/chaoshi.png"
+				],
+				"refer": [
+					"html/gouwu/gouwu_classify.html",
+					"html/gouwu/gouwu_shop_page.html"
+				],
+				"priority": 0
+			},
+			"html/gouwu/gouwu_classify.html": {
+				"resources": [],
+				"refer": [
+					"html/gouwu/gouwu_shop_page.html"
+				],
+				"priority": 0
+			},
+			"html/gouwu/gouwu_goods_list.html": {
+				"resources": [
+					"img/wt.jpg"
+				],
+				"refer": [
+					"html/gouwu/good_detail.html"
+				],
+				"priority": 0
+			},
+			"html/gouwu/gouwu_shop_page.html": {
+				"resources": [
+					"html/gouwu/gouwu_goods_list.html",
+					"js/mui.min.js",
+					"fonts/mui.ttf",
+					"css/mui.min.css"
+				],
+				"refer": [
+					"html/gouwu/gouwu_shop_pingjia.html",
+					"html/gouwu/gouwu_shop_info.html"
+				],
+				"priority": 0
+			},
+			"html/gouwu/gouwu_shop_info.html": {
+				"resources": [
+					"img/location.png",
+					"img/tel.png",
+					"img/pay.png",
+					"img/food_shop_back.png",
+					"img/kuadi_car.png",
+					"img/time.png"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"html/gouwu/good_detail.html": {
+				"resources": [
+					"img/wt3.jpg",
+					"js/echarts-all.js",
+					"img/wt1.jpg",
+					"img/car.png",
+					"img/wt4.jpg"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"html/sudi/sudi_second.html": {
+				"resources": [
+					"img/phoneback_icon.png"
 				],
 				"refer": [],
 				"priority": 0

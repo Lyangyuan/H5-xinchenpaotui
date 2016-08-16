@@ -108,7 +108,7 @@
 								</div>
 							</div>
 						</form>
-						<button type="button" class="mui-btn mui-btn-blue mui-btn-block">提交订单</button>
+						<button id="submit" type="button" class="mui-btn mui-btn-blue mui-btn-block">提交订单</button>
 					</div>
 				</div>
 			</div>
@@ -121,10 +121,21 @@
 	<script>
 		mui.plusReady();
 
-		//选择送货时间
-		document.getElementById("send_time").addEventListener("tap", function() {
-
+		document.getElementById("submit").addEventListener("tap", function() {
+			mui.openWindow({
+				id: 'sudi_second',
+				url: 'sudi_second.html',
+				show: {
+					aniShow: 'zoom-fade-out', //页面显示动画
+					duration: 300 //动画持续的时间
+				}
+			});
 		});
+
+		//选择送货时间
+		/*document.getElementById("send_time").addEventListener("tap", function() {
+
+		});*/
 
 		//地址选择函数
 		(function($, doc) {
