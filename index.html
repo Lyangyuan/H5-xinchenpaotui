@@ -159,7 +159,9 @@
 				"http://localhost:8080/paotui/LoginServlet",
 				jQuery("#login-form").serialize(),
 				function(data, statusText, xhr) {
-					mui.toast(data.get());
+					jQuery.each(data,function(i,n){
+						mui.toast(n.result);
+					})
 				},
 				"json"
 			);
