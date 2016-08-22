@@ -138,17 +138,51 @@
 	<script type="text/javascript">
 		mui.plusReady();
 		jQuery.noConflict();
-
+		/**************************************************************************/
+		//检测表单数据是否为空
 		function checkinfo(account, password) {
 			if(account.val().length == 0 || password.val().length == 0) {
 				return "账号或密码不能为空";
 			}
 		}
 
+		/**************************************************************************/
+		//注册按钮事件
+		var reg = jQuery("#reg");
+		reg.on("tap", function() {
+			mui.openWindow({
+				id: "registe",
+				url: "html/registe.html",
+				show: {
+					aniShow: 'pop-in'
+				},
+				waiting: {
+					autoShow: false
+				}
+			});
+		});
+
+		/**************************************************************************/
+		//忘记密码按钮事件
+		var reg = jQuery("#forgetPassword");
+		reg.on("tap", function() {
+			mui.openWindow({
+				id: "forgetpass",
+				url: "html/forgetpass.html",
+				show: {
+					aniShow: 'pop-in'
+				},
+				waiting: {
+					autoShow: false
+				}
+			});
+		});
+
+		/**************************************************************************/
+		//用户登录
 		var btnLogin = jQuery("#login");
 		var account = jQuery("#account");
 		var password = jQuery("#password");
-
 		btnLogin.on("tap", function() {
 			var err = checkinfo(account, password);
 			if(err != null) {
@@ -159,8 +193,24 @@
 				"http://localhost:8080/paotui/LoginServlet",
 				jQuery("#login-form").serialize(),
 				function(data, statusText, xhr) {
-					jQuery.each(data,function(i,n){
-						mui.toast(n.result);
+					jQuery.each(data, function(i, n) {
+						if(n.result == "200") {
+							mui.openWindow({
+								id: "main",
+								url: "html/main.html",
+								show: {
+									aniShow: 'pop-in'
+								},
+								waiting: {
+									autoShow: false
+								}
+							});
+							return;
+						}
+						if(n.result == "300") {
+							mui.toast("用户名或密码错误");
+							return;
+						}
 					})
 				},
 				"json"
