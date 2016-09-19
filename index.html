@@ -90,6 +90,12 @@
 			.oauth-area .oauth-btn.disabled {
 				background-color: #ddd;
 			}
+			
+			.confirm_form {
+				width: 95%;
+				height: 40px;
+				margin: auto;
+			}
 		</style>
 	</head>
 
@@ -101,13 +107,19 @@
 		<div class="mui-content">
 			<form id='login-form' class="mui-input-group">
 				<div class="mui-input-row">
-					<label>账号</label>
-					<input value="11" name="account" id='account' type="text" class="mui-input-clear mui-input" placeholder="请输入账号">
+					<label style="font-size: 15px;line-height:20px ;">手机号</label>
+					<input name="phone_number" id='phone_number' type="text" class="mui-input-clear mui-input" placeholder="请输入账号">
 				</div>
-				<div class="mui-input-row">
-					<label>密码</label>
-					<input value="22" name="password" id='password' type="password" class="mui-input-clear mui-input" placeholder="请输入密码">
-				</div>
+				<table class="confirm_form">
+					<tr>
+						<td>
+							<button id="get_code_by_phone" type="button" class="mui-badge-blue">获取验证码</button>
+						</td>
+						<td>
+							<input name="code" id="code" type="text" class="mui-input-clear mui-input" placeholder="请输验证码" />
+						</td>
+					</tr>
+				</table>
 			</form>
 
 			<form class="mui-input-group">
@@ -123,11 +135,6 @@
 
 			<div class="mui-content-padded">
 				<button id="login" class="mui-btn mui-btn-block mui-btn-primary">登录</button>
-				<div class="link-area">
-					<a id='reg'>注册账号</a>
-					<span class="spliter">|</span>
-					<a id='forgetPassword'>忘记密码</a>
-				</div>
 			</div>
 			<div class="mui-content-padded oauth-area">
 
@@ -140,78 +147,107 @@
 		jQuery.noConflict();
 		/**************************************************************************/
 		//检测表单数据是否为空
-		function checkinfo(account, password) {
-			if(account.val().length == 0 || password.val().length == 0) {
-				return "账号或密码不能为空";
+		function checkinfo(phone, code) {
+			if(phone.length == 0) {
+				return "请输入手机号码！";
+			}
+			if(code.length == 0){
+				return "请输入验证码！";
+			}
+		}
+
+		//校验手机号码格式
+		function check_phone(phone) {
+			if(phone.length == 0) {
+				return '请输入手机号码！';
+			}
+			if(phone.length != 11) {
+				return "请输入有效的号码格式";
+			}
+			var myreg = /^1\d{10}$/;
+			if(!myreg.test(phone)) {
+				return '请输入有效的手机号码！';
+			}
+			return null;
+		}
+
+		//60秒倒计时函数  11111111111   mui-badge-blue
+		var wait = 60;
+		get_code_time = function(btn) {
+			if(wait == 0) {
+				btn.on('tap',get_phone_code);
+				btn.text("获取验证码");
+				wait = 60;
+			} else {
+				btn.off("tap");
+				btn.text("(" + wait + ")秒后重新获取");
+				wait--;
+				setTimeout(function() {
+					get_code_time(btn)
+				}, 1000)
 			}
 		}
 
 		/**************************************************************************/
-		//注册按钮事件
-		var reg = jQuery("#reg");
-		reg.on("tap", function() {
-			mui.openWindow({
-				id: "registe",
-				url: "html/registe.html",
-				show: {
-					aniShow: 'pop-in'
-				},
-				waiting: {
-					autoShow: false
-				}
-			});
-		});
-
-		/**************************************************************************/
-		//忘记密码按钮事件
-		var reg = jQuery("#forgetPassword");
-		reg.on("tap", function() {
-			mui.openWindow({
-				id: "forgetpass",
-				url: "html/forgetpass.html",
-				show: {
-					aniShow: 'pop-in'
-				},
-				waiting: {
-					autoShow: false
-				}
-			});
-		});
+		//获取验证码
+		get_phone_code = function () {
+			var phone_number = jQuery("#phone_number").val();
+			var erro = check_phone(phone_number);
+			if(erro == null) {
+				jQuery.post(
+					"http://192.168.0.117:8081/app/user_manage.php?act=phone_code", {
+						'phone_number': phone_number
+					},
+					function(data, statusText, xhr) {
+						if(data['code'] == 200) {
+							mui.toast("验证码已发送至您的手机,15分钟内有效");
+							get_code_time(jQuery("#get_code_by_phone"));
+						} else {
+							mui.toast("获取失败");
+						}
+					},
+					"json"
+				);
+			} else {
+				mui.toast(erro);
+			}
+		}
+		jQuery("#get_code_by_phone").on("tap", get_phone_code);
 
 		/**************************************************************************/
 		//用户登录
-		var btnLogin = jQuery("#login");
-		var account = jQuery("#account");
-		var password = jQuery("#password");
-		btnLogin.on("tap", function() {
-			var err = checkinfo(account, password);
+		jQuery("#login").on("tap", function() {
+			var phone = jQuery("#phone_number").val();
+			var code = jQuery("#code").val();
+			
+			var err = checkinfo(phone, code);
 			if(err != null) {
 				mui.toast(err);
 				return;
 			}
+			
 			jQuery.post(
-				"http://localhost:8080/paotui/LoginServlet",
-				jQuery("#login-form").serialize(),
+				"http://192.168.0.117:8081/app/user_manage.php?act=login",
+				{
+					'phone':phone,
+					'code':code
+				},
 				function(data, statusText, xhr) {
-					jQuery.each(data, function(i, n) {
-						if(n.result == "200") {
-							mui.openWindow({
-								id: "main",
-								url: "html/main.html",
-								show: {
-									aniShow: 'pop-in'
-								},
-								waiting: {
-									autoShow: false
-								}
-							});
-							return;
-						}
-						if(n.result == "300") {
-							mui.toast("用户名或密码错误");
-							return;
-						}
-					})
+					if(data['code'] == '200') {
+						mui.openWindow({
+							id: "main",
+							url: "html/main.html",
+							show: {
+								aniShow: 'pop-in'
+							},
+							waiting: {
+								autoShow: false
+							}
+						});
+						return;
+					} else {
+						mui.toast(data['info']);
+					}
 				},
 				"json"
 			);

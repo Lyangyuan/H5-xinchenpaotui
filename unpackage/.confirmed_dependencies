@@ -5,7 +5,8 @@
 			"css/mui.min.css",
 			"js/mui.min.js",
 			"fonts/mui.ttf",
-			"index.html"
+			"index.html",
+			"js/jquery.js"
 		],
 		"refer": [
 			"index.html"
@@ -18,7 +19,8 @@
 			"css/mui.min.css",
 			"js/mui.min.js",
 			"index.html",
-			"fonts/mui.ttf"
+			"fonts/mui.ttf",
+			"js/jquery.js"
 		],
 		"refer": [
 			"index.html"
@@ -38,7 +40,8 @@
 			"html/forgetpass.html",
 			"js/app.js",
 			"js/mui.enterfocus.js",
-			"fonts/mui.ttf"
+			"fonts/mui.ttf",
+			"js/jquery.js"
 		],
 		"refer": [
 			"html/registe.html",

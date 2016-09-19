@@ -196,7 +196,8 @@
 					"css/mui.min.css",
 					"fonts/mui.ttf",
 					"js/mui.min.js",
-					"index.html"
+					"index.html",
+					"js/jquery.js"
 				],
 				"priority": 0,
 				"refer": []
@@ -207,7 +208,8 @@
 					"css/mui.min.css",
 					"fonts/mui.ttf",
 					"js/mui.min.js",
-					"index.html"
+					"index.html",
+					"js/jquery.js"
 				],
 				"priority": 1,
 				"refer": []
@@ -225,7 +227,8 @@
 					"html/registe.html",
 					"html/forgetpass.html",
 					"js/app.js",
-					"js/mui.enterfocus.js"
+					"js/mui.enterfocus.js",
+					"js/jquery.js"
 				],
 				"refer": [],
 				"priority": 0
