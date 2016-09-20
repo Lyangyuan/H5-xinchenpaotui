@@ -7,8 +7,17 @@
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<link href="../css/mui.min.css" rel="stylesheet" />
 		<script src="../js/mui.min.js"></script>
+		<script type="text/javascript" src="../js/app.js"></script>
+		<script type="text/javascript" src="../js/jquery.js"></script>
 		<script type="text/javascript">
-			mui.init()
+			mui.init();
+			jQuery(document).ready(function(){
+				var settings = app.getSettings();
+				var state = app.getState();
+				
+				var nick_name = jQuery("#u_nickname");
+				nick_name.text(state.account);
+			});
 		</script>
 		<style type="text/css">
 			.top_img {
@@ -49,7 +58,7 @@
 						<img src="../img/qq.jpg" style="width: 100px;" />
 					</div>
 					<div class="user_name">
-						<h3 style="font-size: 20px;">用户昵称</h3>
+						<h3 id="u_nickname" style="font-size: 20px;">用户昵称</h3>
 					</div>
 				</div>
 			</div>
@@ -158,5 +167,21 @@
 				}
 			});
 		});
+
+		mui.oldBack = mui.back;
+		var backButtonPress = 0;
+		mui.back = function(event) {
+			backButtonPress++;
+			if(backButtonPress > 1) {
+				plus.runtime.quit();
+			} else {
+				plus.nativeUI.toast('再按一次退出应用');
+			}
+			setTimeout(function() {
+				backButtonPress = 0;
+			}, 1000);
+			return false;
+		};
 	</script>
+
 </html>

@@ -1,7 +1,7 @@
 {
 	"@platforms": ["android", "iPhone", "iPad"],
 	"id": "H5499F5F7",/*应用的标识，创建应用时自动生成，勿手动修改*/
-	"name": "app1",/*应用名称，程序桌面图标名称*/
+	"name": "星辰跑腿",/*应用名称，程序桌面图标名称*/
 	"version": {
 		"name": "1.0.0",/*应用版本名称*/
 		"code": "83"
@@ -228,7 +228,10 @@
 					"html/forgetpass.html",
 					"js/app.js",
 					"js/mui.enterfocus.js",
-					"js/jquery.js"
+					"js/jquery.js",
+					"img/sinaweibo.png",
+					"img/qq.png",
+					"img/weixin.png"
 				],
 				"refer": [],
 				"priority": 0
@@ -302,7 +305,9 @@
 					"img/top_back_img.png",
 					"img/personal_info_icon.png",
 					"img/oder_icon.png",
-					"img/qq.jpg"
+					"img/qq.jpg",
+					"js/app.js",
+					"js/jquery.js"
 				],
 				"refer": [
 					"html/set_main.html",
@@ -364,7 +369,9 @@
 					"fonts/mui.ttf",
 					"img/about_icon.png",
 					"css/mui.min.css",
-					"html/set_list.html"
+					"html/set_list.html",
+					"js/jquery.js",
+					"js/app.js"
 				],
 				"refer": [
 					"html/zihao.html",

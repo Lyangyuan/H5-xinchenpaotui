@@ -8,6 +8,7 @@
 		<title>登录页面</title>
 		<script src="js/mui.min.js"></script>
 		<script type="text/javascript" src="js/jquery.js"></script>
+		<script type="text/javascript" src="js/app.js"></script>
 		<link href="css/mui.min.css" rel="stylesheet" />
 		<script src="js/mui.enterfocus.js"></script>
 		<script type="text/javascript" charset="utf-8">
@@ -126,7 +127,7 @@
 				<ul class="mui-table-view mui-table-view-chevron">
 					<li class="mui-table-view-cell">
 						自动登录
-						<div id="autoLogin" class="mui-switch mui-active">
+						<div id="autoLogin" class="mui-switch">
 							<div class="mui-switch-handle"></div>
 						</div>
 					</li>
@@ -143,100 +144,28 @@
 		</div>
 	</body>
 	<script type="text/javascript">
-		mui.plusReady();
-		jQuery.noConflict();
-		/**************************************************************************/
-		//检测表单数据是否为空
-		function checkinfo(phone, code) {
-			if(phone.length == 0) {
-				return "请输入手机号码！";
-			}
-			if(code.length == 0){
-				return "请输入验证码！";
-			}
-		}
+		(function(doc) {
+			jQuery.noConflict();
 
-		//校验手机号码格式
-		function check_phone(phone) {
-			if(phone.length == 0) {
-				return '请输入手机号码！';
-			}
-			if(phone.length != 11) {
-				return "请输入有效的号码格式";
-			}
-			var myreg = /^1\d{10}$/;
-			if(!myreg.test(phone)) {
-				return '请输入有效的手机号码！';
-			}
-			return null;
-		}
+			mui.init({
+				statusBarBackground: '#f7f7f7'
+			});
 
-		//60秒倒计时函数  11111111111   mui-badge-blue
-		var wait = 60;
-		get_code_time = function(btn) {
-			if(wait == 0) {
-				btn.on('tap',get_phone_code);
-				btn.text("获取验证码");
-				wait = 60;
-			} else {
-				btn.off("tap");
-				btn.text("(" + wait + ")秒后重新获取");
-				wait--;
-				setTimeout(function() {
-					get_code_time(btn)
-				}, 1000)
-			}
-		}
+			mui.plusReady(function() {
+				var settings = app.getSettings();
+				var state = app.getState();
 
-		/**************************************************************************/
-		//获取验证码
-		get_phone_code = function () {
-			var phone_number = jQuery("#phone_number").val();
-			var erro = check_phone(phone_number);
-			if(erro == null) {
-				jQuery.post(
-					"http://192.168.0.117:8081/app/user_manage.php?act=phone_code", {
-						'phone_number': phone_number
-					},
-					function(data, statusText, xhr) {
-						if(data['code'] == 200) {
-							mui.toast("验证码已发送至您的手机,15分钟内有效");
-							get_code_time(jQuery("#get_code_by_phone"));
-						} else {
-							mui.toast("获取失败");
-						}
-					},
-					"json"
-				);
-			} else {
-				mui.toast(erro);
-			}
-		}
-		jQuery("#get_code_by_phone").on("tap", get_phone_code);
+				//预加载主页面
+				var mainPage = mui.preload({
+					"id": 'main',
+					"url": 'html/main.html'
+				});
 
-		/**************************************************************************/
-		//用户登录
-		jQuery("#login").on("tap", function() {
-			var phone = jQuery("#phone_number").val();
-			var code = jQuery("#code").val();
-			
-			var err = checkinfo(phone, code);
-			if(err != null) {
-				mui.toast(err);
-				return;
-			}
-			
-			jQuery.post(
-				"http://192.168.0.117:8081/app/user_manage.php?act=login",
-				{
-					'phone':phone,
-					'code':code
-				},
-				function(data, statusText, xhr) {
-					if(data['code'] == '200') {
+				var toMain = function() {
+					mui.fire(mainPage, 'show', null); //触发页面事件
+					setTimeout(function() {
 						mui.openWindow({
-							id: "main",
-							url: "html/main.html",
+							id: 'main',
 							show: {
 								aniShow: 'pop-in'
 							},
@@ -244,14 +173,198 @@
 								autoShow: false
 							}
 						});
-						return;
-					} else {
-						mui.toast(data['info']);
+					}, 0);
+				};
+
+				//自动登陆
+				if(settings.autoLogin && state.token) {
+					toMain();
+				} else { //第三方登陆
+					app.setState(null);
+					var authBtns = ['qihoo', 'weixin', 'sinaweibo', 'qq']; //配置业务支持的第三方登录
+					var auths = {};
+					var oauthArea = doc.querySelector('.oauth-area');
+					plus.oauth.getServices(function(services) {
+						for(var i in services) {
+							var service = services[i];
+							auths[service.id] = service;
+							if(~authBtns.indexOf(service.id)) {
+								var isInstalled = app.isInstalled(service.id);
+								var btn = document.createElement('div');
+								//如果微信未安装，则为不启用状态
+								btn.setAttribute('class', 'oauth-btn' + (!isInstalled && service.id === 'weixin' ? (' disabled') : ''));
+								btn.authId = service.id;
+								btn.style.backgroundImage = 'url("img/' + service.id + '.png")'
+								oauthArea.appendChild(btn);
+							}
+						}
+						mui(oauthArea).on('tap', '.oauth-btn', function() {
+							if(this.classList.contains('disabled')) {
+								plus.nativeUI.toast('您尚未安装微信客户端');
+								return;
+							}
+							var auth = auths[this.authId];
+							var waiting = plus.nativeUI.showWaiting();
+							auth.login(function() {
+								waiting.close();
+								plus.nativeUI.toast("登录认证成功");
+								auth.getUserInfo(function() {
+									var name = auth.userInfo.nickname || auth.userInfo.name;
+									var gender = auth.userInfo.gender;
+									var openid = auth.authResult.openid;
+									
+									plus.nativeUI.toast("获取用户信息成功:" + name + "-" + gender + "-" + openid);
+									jQuery.post(
+										"http://192.168.0.117:8081/app/user_manage.php?act=third-login", {
+											'name': name,
+											'openId': openid,
+											'sex': gender
+										});
+
+									app.createState(name, function() {
+										toMain();
+									});
+								}, function(e) {
+									plus.nativeUI.toast("获取用户信息失败：" + e.message);
+								});
+							}, function(e) {
+								waiting.close();
+								plus.nativeUI.toast("登录认证失败：" + e.message);
+							});
+						});
+					}, function(e) {
+						oauthArea.style.display = 'none';
+						plus.nativeUI.toast("获取登录认证失败：" + e.message);
+					});
+				}
+
+				//111111   11111111112
+				/**************************************************************************/
+				//检测表单数据是否为空
+				function checkinfo(phone, code) {
+					if(phone.length == 0) {
+						return "请输入手机号码";
 					}
-				},
-				"json"
-			);
-		});
+					if(code.length == 0) {
+						return "请输入验证码";
+					}
+					return null;
+				}
+
+				//校验手机号码格式
+				function check_phone(phone) {
+					if(phone.length == 0) {
+						return '请输入手机号码！';
+					}
+					if(phone.length != 11) {
+						return "请输入有效的号码格式";
+					}
+					var myreg = /^1\d{10}$/;
+					if(!myreg.test(phone)) {
+						return '请输入有效的手机号码！';
+					}
+					return null;
+				}
+
+				//60秒倒计时函数 
+				var wait = 60;
+				get_code_time = function(btn) {
+					if(wait == 0) {
+						btn.on('tap', get_phone_code);
+						btn.text("获取验证码");
+						wait = 60;
+					} else {
+						btn.off("tap");
+						btn.text("(" + wait + ")秒后重新获取");
+						wait--;
+						setTimeout(function() {
+							get_code_time(btn)
+						}, 1000)
+					}
+				}
+
+				/**************************************************************************/
+				//获取验证码
+				get_phone_code = function() {
+					var phone_number = jQuery("#phone_number").val();
+					var erro = check_phone(phone_number);
+					if(erro == null) {
+						jQuery.post(
+							"http://192.168.0.117:8081/app/user_manage.php?act=phone_code", {
+								'phone_number': phone_number
+							},
+							function(data, statusText, xhr) {
+								if(data['code'] == 200) {
+									mui.toast("验证码已发送至您的手机,15分钟内有效");
+									get_code_time(jQuery("#get_code_by_phone"));
+								} else {
+									mui.toast("获取失败");
+								}
+							},
+							"json"
+						);
+					} else {
+						mui.toast(erro);
+					}
+				}
+				jQuery("#get_code_by_phone").on("tap", get_phone_code);
+
+				/**************************************************************************/
+				//用户登录
+				jQuery("#login").on("tap", function() {
+					var phone = jQuery("#phone_number").val();
+					var code = jQuery("#code").val();
+
+					var err = checkinfo(phone, code);
+					if(err != null) {
+						mui.toast(err);
+						return;
+					}
+					jQuery.post(
+						"http://192.168.0.117:8081/app/user_manage.php?act=login", {
+							'phone': phone,
+							'code': code
+						},
+						function(data, statusText, xhr) {
+							if(data['code'] == '200') {
+								app.createState(phone, function() {
+									toMain();
+								});
+							} else {
+								mui.toast(data['info']);
+							}
+						},
+						"json"
+					);
+				});
+
+				//自动登陆按钮
+				var autoLoginButton = jQuery("#autoLogin");
+				autoLoginButton.classList[settings.autoLogin ? 'add' : 'remove']('mui-active')
+				autoLoginButton.addEventListener('toggle', function(event) {
+					setTimeout(function() {
+						var isActive = event.detail.isActive;
+						settings.autoLogin = isActive;
+						setSettings(settings);
+					}, 50);
+				}, false);
+
+				var backButtonPress = 0;
+				mui.back = function(event) {
+					backButtonPress++;
+					if(backButtonPress > 1) {
+						plus.runtime.quit();
+					} else {
+						plus.toast('再按一次退出应用');
+					}
+					setTimeout(function() {
+						backButtonPress = 0;
+					}, 1000);
+					return false;
+				};
+
+			});
+		}(document));
 	</script>
 
 </html>

@@ -7,6 +7,8 @@
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<link href="../css/mui.min.css" rel="stylesheet" />
 		<script src="../js/mui.min.js"></script>
+		<script type="text/javascript" src="../js/jquery.js"></script>
+		<script type="text/javascript" src="../js/app.js"></script>
 		<script type="text/javascript">
 			mui.init();
 		</script>
@@ -81,113 +83,121 @@
 				</li>
 			</ul>
 
-			<button type="button" class="mui-btn mui-btn-danger mui-btn-block" style="width:80% ;margin: auto;margin-top: 5px;">
-				退出登录
+			<button id="logout" type="button" class="mui-btn mui-btn-danger mui-btn-block" style="width:80% ;margin: auto;margin-top: 5px;">
+				注销
 			</button>
 		</div>
 
 	</body>
 	<script type="text/javascript">
-		mui.plusReady();
+		jQuery.noConflict();
+		mui.plusReady(function() {
+			jQuery("#zihao").on("tap", function() {
+				mui.openWindow({
+					url: "zihao.html",
+					id: "zihao",
+					style: {
+						top: "45px",
+						bottom: "50px",
+					},
+					show: {
+						aniShow: 'slide-in-right', //页面显示动画
+						duration: 300 //动画持续的时间
+					}
+				})
+			});
+			jQuery("#language").on("tap", function() {
+				mui.openWindow({
+					url: "language.html",
+					id: "language",
+					style: {
+						top: "45px",
+						bottom: "50px",
+					},
+					show: {
+						aniShow: 'slide-in-right', //页面显示动画
+						duration: 300 //动画持续的时间
+					}
+				})
+			});
+			jQuery("#theme").on("tap", function() {
+				mui.openWindow({
+					url: "theme.html",
+					id: "theme",
+					style: {
+						top: "45px",
+						bottom: "50px",
+					},
+					show: {
+						aniShow: 'slide-in-right', //页面显示动画
+						duration: 300 //动画持续的时间
+					}
+				})
+			});
+			jQuery("#suggest").on("tap", function() {
+				mui.openWindow({
+					url: "suggest.html",
+					id: "suggest",
+					style: {
+						top: "45px",
+						bottom: "50px",
+					},
+					show: {
+						aniShow: 'slide-in-right', //页面显示动画
+						duration: 300 //动画持续的时间
+					}
+				})
+			});
+			jQuery("#update").on("tap", function() {
+				mui.openWindow({
+					url: "update.html",
+					id: "update",
+					style: {
+						top: "45px",
+						bottom: "50px",
+					},
+					show: {
+						aniShow: 'slide-in-right', //页面显示动画
+						duration: 300 //动画持续的时间
+					}
+				})
+			});
+			jQuery("#about").on("tap", function() {
+				mui.openWindow({
+					url: "about_this_softwarea.html",
+					id: "about",
+					style: {
+						top: "45px",
+						bottom: "50px",
+					},
+					show: {
+						aniShow: 'slide-in-right', //页面显示动画
+						duration: 300 //动画持续的时间
+					}
+				})
+			});
+			jQuery("#saoyisao").on("tap", function() {
+				mui.openWindow({
+					url: "barcode_scan.html",
+					id: "barcode_scan",
+					style: {
+						top: "45px",
+						bottom: "50px",
+					},
+					show: {
+						aniShow: 'slide-in-right', //页面显示动画
+						duration: 300 //动画持续的时间
+					}
+				})
+			});
+			
+			//注销
+			jQuery("#logout").on('tap',function(){
+				app.setState(null);
+				plus.runtime.quit();
+			});
+		});
 
-		document.getElementById("zihao").addEventListener("tap", function() {
-			mui.openWindow({
-				url: "zihao.html",
-				id: "zihao",
-				style: {
-					top: "45px",
-					bottom: "50px",
-				},
-				show: {
-					aniShow: 'slide-in-right', //页面显示动画
-					duration: 300 //动画持续的时间
-				}
-			})
-		});
-		document.getElementById("language").addEventListener("tap", function() {
-			mui.openWindow({
-				url: "language.html",
-				id: "language",
-				style: {
-					top: "45px",
-					bottom: "50px",
-				},
-				show: {
-					aniShow: 'slide-in-right', //页面显示动画
-					duration: 300 //动画持续的时间
-				}
-			})
-		});
-		document.getElementById("theme").addEventListener("tap", function() {
-			mui.openWindow({
-				url: "theme.html",
-				id: "theme",
-				style: {
-					top: "45px",
-					bottom: "50px",
-				},
-				show: {
-					aniShow: 'slide-in-right', //页面显示动画
-					duration: 300 //动画持续的时间
-				}
-			})
-		});
-		document.getElementById("suggest").addEventListener("tap", function() {
-			mui.openWindow({
-				url: "suggest.html",
-				id: "suggest",
-				style: {
-					top: "45px",
-					bottom: "50px",
-				},
-				show: {
-					aniShow: 'slide-in-right', //页面显示动画
-					duration: 300 //动画持续的时间
-				}
-			})
-		});
-		document.getElementById("update").addEventListener("tap", function() {
-			mui.openWindow({
-				url: "update.html",
-				id: "update",
-				style: {
-					top: "45px",
-					bottom: "50px",
-				},
-				show: {
-					aniShow: 'slide-in-right', //页面显示动画
-					duration: 300 //动画持续的时间
-				}
-			})
-		});
-		document.getElementById("about").addEventListener("tap", function() {
-			mui.openWindow({
-				url: "about_this_softwarea.html",
-				id: "about",
-				style: {
-					top: "45px",
-					bottom: "50px",
-				},
-				show: {
-					aniShow: 'slide-in-right', //页面显示动画
-					duration: 300 //动画持续的时间
-				}
-			})
-		});
-		document.getElementById("saoyisao").addEventListener("tap", function() {
-			mui.openWindow({
-				url: "barcode_scan.html",
-				id: "barcode_scan",
-				style: {
-					top: "45px",
-					bottom: "50px",
-				},
-				show: {
-					aniShow: 'slide-in-right', //页面显示动画
-					duration: 300 //动画持续的时间
-				}
-			})
-		});
 	</script>
 
 </html>

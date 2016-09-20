@@ -41,7 +41,10 @@
 			"js/app.js",
 			"js/mui.enterfocus.js",
 			"fonts/mui.ttf",
-			"js/jquery.js"
+			"js/jquery.js",
+			"img/sinaweibo.png",
+			"img/qq.png",
+			"img/weixin.png"
 		],
 		"refer": [
 			"html/registe.html",
@@ -120,7 +123,9 @@
 			"img/top_back_img.png",
 			"img/personal_info_icon.png",
 			"img/oder_icon.png",
-			"img/qq.jpg"
+			"img/qq.jpg",
+			"js/app.js",
+			"js/jquery.js"
 		],
 		"refer": [
 			"html/main_frame.html",
@@ -179,7 +184,9 @@
 			"fonts/mui.ttf",
 			"img/about_icon.png",
 			"css/mui.min.css",
-			"html/set_list.html"
+			"html/set_list.html",
+			"js/jquery.js",
+			"js/app.js"
 		],
 		"refer": [
 			"html/zihao.html",
