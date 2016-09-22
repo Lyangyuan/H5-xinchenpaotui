@@ -179,11 +179,11 @@
 					}
 				},
 				"android": {
-					"mdpi": "C:/Users/Administrator/Desktop/240_282.png", /*普通屏启动图片，分辨率：240x282*/
-					"ldpi": "C:/Users/Administrator/Desktop/320_442.png", /*大屏启动图片，分辨率：320x442*/
-					"hdpi": "C:/Users/Administrator/Desktop/480_762.png", /*高分屏启动图片，分辨率：480x762*/
-					"xhdpi": "C:/Users/Administrator/Desktop/720_1242.png", /*720P高分屏启动图片，分辨率：720x1242*/
-					"xxhdpi": "C:/Users/Administrator/Desktop/1080_1882.png"
+					"mdpi": "C:/Users/Administrator/Desktop/paotuiwang/240_282.png", /*普通屏启动图片，分辨率：240x282*/
+					"ldpi": "C:/Users/Administrator/Desktop/paotuiwang/320_442.png", /*大屏启动图片，分辨率：320x442*/
+					"hdpi": "C:/Users/Administrator/Desktop/paotuiwang/480_762.png", /*高分屏启动图片，分辨率：480x762*/
+					"xhdpi": "C:/Users/Administrator/Desktop/paotuiwang/720_1242.png", /*720P高分屏启动图片，分辨率：720x1242*/
+					"xxhdpi": "C:/Users/Administrator/Desktop/paotuiwang/1080_1882.png"
 				}
 			}
 		}
@@ -231,7 +231,10 @@
 					"js/jquery.js",
 					"img/sinaweibo.png",
 					"img/qq.png",
-					"img/weixin.png"
+					"img/weixin.png",
+					"css/common.css",
+					"js/immersed.js",
+					null
 				],
 				"refer": [],
 				"priority": 0
@@ -245,7 +248,10 @@
 					"js/mui.min.js",
 					"css/mui.min.css",
 					"img/car.png",
-					"html/main_index.html"
+					"html/main_index.html",
+					"js/bootstrap.min.js",
+					"css/bootstrap.min.css",
+					"js/jquery.js"
 				],
 				"refer": [
 					"html/personal.html",
@@ -307,7 +313,8 @@
 					"img/oder_icon.png",
 					"img/qq.jpg",
 					"js/app.js",
-					"js/jquery.js"
+					"js/jquery.js",
+					null
 				],
 				"refer": [
 					"html/set_main.html",
@@ -345,7 +352,8 @@
 					"img/buy.png",
 					"img/food.png",
 					"img/sudi.png",
-					"img/search_icon.png"
+					"img/search_icon.png",
+					"html/main.html"
 				],
 				"refer": [
 					"html/paotui_index.html",
@@ -454,7 +462,9 @@
 				"resources": [
 					"js/mui.min.js",
 					"fonts/mui.ttf",
-					"css/mui.min.css"
+					"css/mui.min.css",
+					"js/app.js",
+					"js/jquery.js"
 				],
 				"refer": [
 					"html/add_address.html"
@@ -471,7 +481,9 @@
 					"js/city.data-3.js",
 					"js/mui.min.js",
 					"fonts/mui.ttf",
-					"css/mui.min.css"
+					"css/mui.min.css",
+					"js/jquery.js",
+					"js/app.js"
 				],
 				"refer": [],
 				"priority": 0
@@ -496,7 +508,9 @@
 					"js/mui.poppicker.js",
 					"css/mui.poppicker.css",
 					"css/mui.picker.css",
-					"js/city.data-3.js"
+					"js/city.data-3.js",
+					"js/app.js",
+					"js/jquery.js"
 				],
 				"refer": [
 					"html/choose_sex.html",

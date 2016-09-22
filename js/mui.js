@@ -2209,7 +2209,8 @@ Function.prototype.bind = Function.prototype.bind || function(to) {
 		if (!$.os.plus) {
 			//TODO 先临时这么处理：手机上顶层跳，PC上parent跳
 			if ($.os.ios || $.os.android) {
-				window.top.location.href = url;
+				//window.top.location.href = url;
+				window.parent.location.href = url;
 			} else {
 				window.parent.location.href = url;
 			}

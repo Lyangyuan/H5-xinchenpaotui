@@ -178,7 +178,20 @@
 
 				//自动登陆
 				if(settings.autoLogin && state.token) {
-					toMain();
+					jQuery.post(
+						'http://192.168.0.117:8081/app/user_manage.php?act=auto-login', {
+							'openid': state.account,
+							'token': state.token
+						},
+						function(data, statusText, xhr) {
+							if(data['code'] == 200) {
+								toMain();
+							}else{
+								mui.toast('身份不合法');
+							}
+						},
+						'json'
+					);
 				} else { //第三方登陆
 					app.setState(null);
 					var authBtns = ['qihoo', 'weixin', 'sinaweibo', 'qq']; //配置业务支持的第三方登录
@@ -209,21 +222,63 @@
 								waiting.close();
 								plus.nativeUI.toast("登录认证成功");
 								auth.getUserInfo(function() {
-									var name = auth.userInfo.nickname || auth.userInfo.name;
-									var gender = auth.userInfo.gender;
-									var openid = auth.authResult.openid;
-									
-									plus.nativeUI.toast("获取用户信息成功:" + name + "-" + gender + "-" + openid);
-									jQuery.post(
-										"http://192.168.0.117:8081/app/user_manage.php?act=third-login", {
+									var name = null;
+									var sex = null;
+									var openid = null;
+									var address = null;
+									var headImgUrl = null;
+
+									var description = auth.description;
+									if(description == 'QQ') {
+										name = auth.userInfo.nickname;
+										sex = auth.userInfo.gender;
+										headImgUrl = auth.userInfo.figureurl_2;
+										openid = auth.authResult.openid;
+										address = auth.userInfo.province + "/" + auth.userInfo.city;
+									}
+									if(description == '微信') {
+										name = auth.userInfo.nickname;
+										sex = auth.userInfo.sex;
+										if(sex == '1') {
+											sex = '男';
+										} else {
+											sex = '女';
+										}
+										address = auth.userInfo.province + " " + auth.userInfo.city;
+										headImgUrl = auth.userInfo.headimgurl;
+										openid = auth.authResult.openid;
+									}
+									if(description == '新浪微博') {
+										name = auth.userInfo.screen_name;
+										address = auth.userInfo.location;
+										openid = auth.userInfo.id;
+										headImgUrl = auth.userInfo.profile_image_url;
+										sex = auth.userInfo.gender;
+										if(sex == 'm') {
+											sex = '男';
+										} else {
+											sex = '女';
+										}
+									}
+
+									jQuery.get(
+										'http://192.168.0.117:8081/app/user_manage.php?act=third-login', {
 											'name': name,
 											'openId': openid,
-											'sex': gender
-										});
+											'sex': sex,
+											'address': address,
+											'login_type': description,
+											'headImgUrl': headImgUrl
+										},
+										function(data, statusText, xhr) {
+											var info = new Array(name, sex, address, headImgUrl, description, null, openid, data['token']);
+											app.createState(info, function() {
+												toMain();
+											});
+										},
+										'json'
+									);
 
-									app.createState(name, function() {
-										toMain();
-									});
 								}, function(e) {
 									plus.nativeUI.toast("获取用户信息失败：" + e.message);
 								});
@@ -238,7 +293,17 @@
 					});
 				}
 
-				//111111   11111111112
+				//自动登陆按钮
+				var autoLoginButton = doc.getElementById("autoLogin");
+				autoLoginButton.classList[settings.autoLogin ? 'add' : 'remove']('mui-active')
+				autoLoginButton.addEventListener('toggle', function(event) {
+					setTimeout(function() {
+						var isActive = event.detail.isActive;
+						settings.autoLogin = isActive;
+						app.setSettings(settings);
+					}, 50);
+				}, false);
+
 				/**************************************************************************/
 				//检测表单数据是否为空
 				function checkinfo(phone, code) {
@@ -247,21 +312,6 @@
 					}
 					if(code.length == 0) {
 						return "请输入验证码";
-					}
-					return null;
-				}
-
-				//校验手机号码格式
-				function check_phone(phone) {
-					if(phone.length == 0) {
-						return '请输入手机号码！';
-					}
-					if(phone.length != 11) {
-						return "请输入有效的号码格式";
-					}
-					var myreg = /^1\d{10}$/;
-					if(!myreg.test(phone)) {
-						return '请输入有效的手机号码！';
 					}
 					return null;
 				}
@@ -287,7 +337,7 @@
 				//获取验证码
 				get_phone_code = function() {
 					var phone_number = jQuery("#phone_number").val();
-					var erro = check_phone(phone_number);
+					var erro = app.check_phone(phone_number);
 					if(erro == null) {
 						jQuery.post(
 							"http://192.168.0.117:8081/app/user_manage.php?act=phone_code", {
@@ -327,7 +377,8 @@
 						},
 						function(data, statusText, xhr) {
 							if(data['code'] == '200') {
-								app.createState(phone, function() {
+								var info = new Array(null, null, null, null, null, phone);
+								app.createState(info, function() {
 									toMain();
 								});
 							} else {
@@ -338,24 +389,13 @@
 					);
 				});
 
-				//自动登陆按钮
-				var autoLoginButton = jQuery("#autoLogin");
-				autoLoginButton.classList[settings.autoLogin ? 'add' : 'remove']('mui-active')
-				autoLoginButton.addEventListener('toggle', function(event) {
-					setTimeout(function() {
-						var isActive = event.detail.isActive;
-						settings.autoLogin = isActive;
-						setSettings(settings);
-					}, 50);
-				}, false);
-
 				var backButtonPress = 0;
 				mui.back = function(event) {
 					backButtonPress++;
 					if(backButtonPress > 1) {
 						plus.runtime.quit();
 					} else {
-						plus.toast('再按一次退出应用');
+						mui.toast('再按一次退出应用');
 					}
 					setTimeout(function() {
 						backButtonPress = 0;

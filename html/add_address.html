@@ -9,6 +9,8 @@
 		<link href="../css/mui.picker.css" rel="stylesheet" />
 		<link href="../css/mui.poppicker.css" rel="stylesheet" />
 		<script src="../js/mui.min.js"></script>
+		<script src="../js/jquery.js"></script>
+		<script src="../js/app.js"></script>
 		<script type="text/javascript">
 			mui.init()
 		</script>
@@ -42,7 +44,7 @@
 			}
 			
 			.mark_value input {
-				width: 80px;
+				width: 200px;
 				height: 30px;
 			}
 		</style>
@@ -66,61 +68,102 @@
 						<input id='phone' type="tel" class="mui-input-clear mui-input" placeholder="请输入电话">
 					</div>
 					<div class="mui-input-row">
-						<label>
-							<a id='showCityPicker3'>选择</a>
-						</label>
-						<input type="text" id="cityResult3" class="mui-input-clear mui-input" placeholder="例：青海省西宁市城北区" />
-					</div>
-					<div class="mui-input-row">
-						<label>街道：</label>
-						<input id='address' type="text" class="mui-input-clear mui-input" placeholder="例：宁大路251号青海大学">
+						<label>地址：</label>
+						<input id='address' value="西宁市城中区中心广场" type="text" class="mui-input-clear mui-input">
 					</div>
 				</form>
 			</div>
 			<div class="map_mark">
 				<h4>地图标记</h4>
-				<div class="map" id="map">
+				<div id="container" style="height:250px;border: solid 1px;"></div>
 
-				</div>
 				<div class="mark_value">
-					经度：<input type="text" name="" id="" /> 纬度：
-					<input type="text" name="" id="" />
+					经度：<input type="text" value="101.780" name="lng" id="lng" readonly/> </br>
+					纬度：<input type="text" value="36.629" name="lat" id="lat" readonly/>
 				</div>
 			</div>
-			<button type="button" class="mui-btn mui-btn-blue mui-btn-block" style="width:80% ;margin: auto;margin-top: 5px;margin-bottom: 5px;">
+			<button type="button" id="save_address" class="mui-btn mui-btn-blue mui-btn-block" style="width:80% ;margin: auto;margin-top: 5px;margin-bottom: 5px;">
 				保存
 			</button>
 		</div>
 
 	</body>
-	<script src="../js/mui.picker.js"></script>
-	<script src="../js/mui.poppicker.js"></script>
-	<script src="../js/city.data.js" type="text/javascript" charset="utf-8"></script>
-	<script src="../js/city.data-3.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=63QxOWxZP9odYeFGZo99lfdzwXNGf2Na"></script>
 	<script>
 		mui.plusReady();
 		//地址选择函数
 		(function($, doc) {
 			$.init();
-			$.ready(function() {
-				var cityPicker3 = new $.PopPicker({
-					layer: 3
+			
+			var state = app.getState();
+			
+			var lngObj = jQuery("#lng");
+			var latObj = jQuery("#lat");
+			var addressObj = jQuery("#address");
+			var phoneObj = jQuery("#phone");
+			var nameObj = jQuery("#name");
+			
+			var map = new BMap.Map("container"); // 创建地图实例  
+			var point = new BMap.Point(101.780, 36.629); // 创建点坐标  西宁
+			map.centerAndZoom(point, 15);
+
+			map.addControl(new BMap.NavigationControl()); //缩放按钮控件
+
+			var marker = new BMap.Marker(point); // 创建标注  
+
+			//拖拽标注点并获取位置
+			marker.enableDragging();
+			marker.addEventListener("dragend", function(e) {
+				lngObj.val(e.point.lng);
+				latObj.val(e.point.lat);
+
+				// 创建地理编码实例
+				var myGeo = new BMap.Geocoder();
+				// 根据坐标得到地址描述
+				myGeo.getLocation(new BMap.Point(e.point.lng, e.point.lat), function(result) {
+					if(result) {
+						addressObj.val(result.address);
+					}
 				});
-				cityPicker3.setData(cityData3);
-				var showCityPickerButton = doc.getElementById('showCityPicker3');
-				var cityResult3 = doc.getElementById('cityResult3');
-				showCityPickerButton.addEventListener('tap', function(event) {
-					cityPicker3.show(function(items) {
-						cityResult3.value = (items[0] || {}).text + " " + (items[1] || {}).text + " " + (items[2] || {}).text;
-					});
-				}, false);
-			});
+			})
+
+			map.addOverlay(marker); // 将标注添加到地图中
+			
+			jQuery("#save_address").on('tap',function(){
+				var erro = app.check_phone(phoneObj.val());
+				if(erro != null){
+					mui.toast(erro);
+					return ;
+				}
+				jQuery.post(
+					'http://192.168.0.117:8081/app/u_addr_manage.php?act=save_address',
+					{
+						'name':nameObj.val(),
+						'phone':phoneObj.val(),
+						'address':addressObj.val(),
+						'lng':lngObj.val(),
+						'lat':latObj.val(),
+						'u_id':state.account,
+						'token':state.token
+					},
+					function(data, statusText, xhr){
+						if(data['code'] == 200){
+							mui.toast('添加成功');
+							nameObj.val("");
+							phoneObj.val("");
+						}
+						if(data['code'] == 300){
+							mui.toast('添加失败');
+						}
+						if(data['code'] == 400){
+							mui.toast('身份不合法');
+						}
+					},
+					'json'
+				);
+			})
+			
 		})(mui, document);
-		//地图标记
-		/*var ptObj = new plus.maps.Map("map");*/
-		/*mui_map = new plus.maps.Map("map", {
-			zoomControls: true
-		});*/
 	</script>
 
 </html>

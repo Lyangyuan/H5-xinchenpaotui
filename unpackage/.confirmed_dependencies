@@ -44,7 +44,9 @@
 			"js/jquery.js",
 			"img/sinaweibo.png",
 			"img/qq.png",
-			"img/weixin.png"
+			"img/weixin.png",
+			"css/common.css",
+			"js/immersed.js"
 		],
 		"refer": [
 			"html/registe.html",
@@ -62,7 +64,10 @@
 			"js/mui.min.js",
 			"css/mui.min.css",
 			"img/car.png",
-			"html/main_index.html"
+			"html/main_index.html",
+			"js/bootstrap.min.js",
+			"css/bootstrap.min.css",
+			"js/jquery.js"
 		],
 		"refer": [
 			"html/main_frame.html",
@@ -161,7 +166,8 @@
 			"img/buy.png",
 			"img/food.png",
 			"img/sudi.png",
-			"img/search_icon.png"
+			"img/search_icon.png",
+			"html/main.html"
 		],
 		"refer": [
 			"html/paotui_index.html",
@@ -169,7 +175,8 @@
 			"html/paotui/paotui_index_frame.html",
 			"html/sudi/sudi_index.html",
 			"html/meishi/meishi_index.html",
-			"html/gouwu/gouwu_index.html"
+			"html/gouwu/gouwu_index.html",
+			"html/main.html"
 		]
 	},
 	"html/set_main.html": {
@@ -258,7 +265,9 @@
 		"resources": [
 			"js/mui.min.js",
 			"fonts/mui.ttf",
-			"css/mui.min.css"
+			"css/mui.min.css",
+			"js/app.js",
+			"js/jquery.js"
 		],
 		"refer": [
 			"html/add_address.html"
@@ -274,7 +283,9 @@
 			"js/city.data-3.js",
 			"js/mui.min.js",
 			"fonts/mui.ttf",
-			"css/mui.min.css"
+			"css/mui.min.css",
+			"js/jquery.js",
+			"js/app.js"
 		]
 	},
 	"html/barcode_scan.html": {
@@ -295,7 +306,9 @@
 			"js/mui.poppicker.js",
 			"css/mui.poppicker.css",
 			"css/mui.picker.css",
-			"js/city.data-3.js"
+			"js/city.data-3.js",
+			"js/app.js",
+			"js/jquery.js"
 		],
 		"refer": [
 			"html/choose_sex.html",

@@ -7,6 +7,8 @@
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<link href="../css/mui.min.css" rel="stylesheet" />
 		<script src="../js/mui.min.js"></script>
+		<script src="../js/app.js"></script>
+		<script src="../js/jquery.js"></script>
 		<script type="text/javascript">
 			mui.init()
 		</script>
@@ -58,77 +60,30 @@
 		</header>
 		<div class="mui-content">
 			<div class="address_list">
-				<ul class="address">
-					<li>
-						<div class="details">
-							<div class="detail">
-								<p>地址：青海省西宁市城北区宁大路251号青海大学</p>
-								<p>联系方式：15709782993</p>
-								<p>联系人：李江博</p>
-							</div>
-							<div class="edits">
-								<table>
-									<tr>
-										<td style="">
-											<div class="mui-input-row mui-radio mui-left">
-												<label>设为默认</label>
-												<input name="radio1" type="radio">
-											</div>
-										</td>
-										<td>
-											<a class="mui-icon mui-icon-compose">
-												编辑
-											</a>
-										</td>
-										<td>
-											<a class="mui-icon mui-icon-trash">
-												删除
-											</a>
-										</td>
-									</tr>
-								</table>
-
-							</div>
-						</div>
-					</li>
-					<li>
-						<div class="details">
-							<div class="detail">
-								<p>地址：青海省西宁市城北区宁大路251号青海大学</p>
-								<p>联系方式：15709782993</p>
-								<p>联系人：李江博</p>
-							</div>
-							<div class="edits">
-								<table>
-									<tr>
-										<td>
-											<div class="mui-input-row mui-radio mui-left">
-												<label>设为默认</label>
-												<input name="radio1" type="radio">
-											</div>
-										</td>
-										<td>
-											<a class="mui-icon mui-icon-compose">
-												编辑
-											</a>
-										</td>
-										<td>
-											<a class="mui-icon mui-icon-trash">
-												删除
-											</a>
-										</td>
-									</tr>
-								</table>
-
-							</div>
-						</div>
-					</li>
+				<ul class="address" id="address_list">
 				</ul>
 			</div>
 		</div>
 	</body>
 	<script>
-		mui.plusReady();
+		mui.plusReady(function(){
+			var state = app.getState();
+			var addr_ul = jQuery("#address_list");
+			//获取地址列表
+			jQuery.post(
+				'http://192.168.0.117:8081/app/u_addr_manage.php?act=get_user_addr_list',
+				{
+					'u_id':state.account,
+					'token':state.token
+				},
+				function(data,stateCode,xhr){
+					addr_ul.append(data);
+				},
+				'html'
+			)
+		});
+		
+		//添加地址
 		document.getElementById("add_address").addEventListener("tap", function() {
 			mui.openWindow({
 				url: "add_address.html",
