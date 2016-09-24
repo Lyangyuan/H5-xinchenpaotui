@@ -8,9 +8,9 @@
 		<title>登录页面</title>
 		<script src="js/mui.min.js"></script>
 		<script type="text/javascript" src="js/jquery.js"></script>
+		<script type="text/javascript" src="js/config.js"></script>
 		<script type="text/javascript" src="js/app.js"></script>
 		<link href="css/mui.min.css" rel="stylesheet" />
-		<script src="js/mui.enterfocus.js"></script>
 		<script type="text/javascript" charset="utf-8">
 			mui.init();
 		</script>
@@ -147,7 +147,7 @@
 	<script type="text/javascript">
 		(function(doc) {
 			jQuery.noConflict();
-
+			
 			mui.init({
 				statusBarBackground: '#f7f7f7'
 			});
@@ -180,7 +180,8 @@
 				//自动登陆
 				if(settings.autoLogin && state.token) {
 					jQuery.post(
-						'http://192.168.0.117:8081/app/user_manage.php?act=auto-login', {
+						config['requestURL']+'/user_manage.php?act=auto-login', 
+						{
 							'openid': state.account,
 							'token': state.token
 						},
@@ -263,7 +264,7 @@
 									}
 
 									jQuery.get(
-										'http://192.168.0.117:8081/app/user_manage.php?act=third-login', {
+										config['requestURL']+'/user_manage.php?act=third-login', {
 											'name': name,
 											'openId': openid,
 											'sex': sex,
@@ -341,7 +342,7 @@
 					var erro = app.check_phone(phone_number);
 					if(erro == null) {
 						jQuery.post(
-							"http://192.168.0.117:8081/app/user_manage.php?act=phone_code", {
+							config['requestURL']+"/user_manage.php?act=phone_code", {
 								'phone_number': phone_number
 							},
 							function(data, statusText, xhr) {
@@ -372,7 +373,7 @@
 						return;
 					}
 					jQuery.post(
-						"http://192.168.0.117:8081/app/user_manage.php?act=login", {
+						config['requestURL']+"/user_manage.php?act=login", {
 							'phone': phone,
 							'code': code
 						},

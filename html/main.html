@@ -8,9 +8,6 @@
 		<link href="../css/mui.min.css" rel="stylesheet" />
 		<script src="../js/mui.js"></script>
 		<script src="../js/jquery.js"></script>
-		<script type="text/javascript">
-			mui.init()
-		</script>
 		<style>
 			#topPopover {
 				position: fixed;
@@ -52,15 +49,15 @@
 		</div>
 
 		<nav class="mui-bar mui-bar-tab" id="nav">
-			<a class="mui-tab-item mui-active" id="index">
+			<a class="mui-tab-item mui-active" id="main_index.html">
 				<span class="mui-icon mui-icon-home"></span>
 				<span class="mui-tab-label">首页</span>
 			</a>
-			<a class="mui-tab-item" id="buycar">
+			<a class="mui-tab-item" id="buycar.html">
 				<span class="mui-icon mui-icon-camera"></span>
 				<span class="mui-tab-label">购物车</span>
 			</a>
-			<a class="mui-tab-item" id="personal">
+			<a class="mui-tab-item" id="personal.html">
 				<span class="mui-icon mui-icon-contact"></span>
 				<span class="mui-tab-label">个人</span>
 			</a>
@@ -80,10 +77,13 @@
 
 
 			mui.plusReady(function() {
-				document.getElementById("index").addEventListener('tap', function() {
+				
+				jQuery(".mui-tab-item").on('tap',function(){
+					var id = this.id;
+					var title=jQuery(this).children(".mui-tab-label").text();
+					jQuery("#title").text(title);
 					mui.openWindow({
-						id: 'main_index2',
-						url: 'main_index.html',
+						url: id,
 						styles: {
 							top: "45px",
 							bottom: "50px" //新页面底部位置
@@ -92,38 +92,6 @@
 							aniShow: 'pop-in' //页面显示动画
 						}
 					});
-					title_ele = document.getElementById("title");
-					title_ele.innerHTML = "首页";
-				});
-				document.getElementById("buycar").addEventListener('tap', function() {
-					mui.openWindow({
-						url: "buycar.html",
-						id: "buycar",
-						styles: {
-							top: "45px",
-							bottom: "50px" //新页面底部位置
-						},
-						show: {
-							aniShow: 'pop-in' //页面显示动画
-						}
-					});
-					title_ele = document.getElementById("title");
-					title_ele.innerHTML = "购物车";
-				});
-				document.getElementById("personal").addEventListener('tap', function() {
-					mui.openWindow({
-						url: "personal.html",
-						id: "personal",
-						styles: {
-							top: "45px",
-							bottom: "50px" //新页面底部位置
-						},
-						show: {
-							aniShow: 'pop-in' //页面显示动画
-						}
-					});
-					title_ele = document.getElementById("title");
-					title_ele.innerHTML = "个人中心";
 				});
 			});
 
@@ -143,5 +111,4 @@
 			};
 		</script>
 	</body>
-
 </html>

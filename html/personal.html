@@ -8,6 +8,7 @@
 		<link href="../css/mui.min.css" rel="stylesheet" />
 		<script src="../js/mui.min.js"></script>
 		<script type="text/javascript" src="../js/app.js"></script>
+		<script type="text/javascript" src="../js/config.js"></script>
 		<script type="text/javascript" src="../js/jquery.js"></script>
 		<script type="text/javascript">
 			mui.init();
@@ -68,7 +69,7 @@
 			<div class="person_items">
 				<ul class="mui-table-view mui-table-view-chevron">
 					<li class="mui-table-view-cell mui-media">
-						<a class="mui-navigate-right" id="my_order">
+						<a class="mui-navigate-right" id="my_order.html">
 							<img class="mui-media-object mui-pull-left" src="../img/oder_icon.png">
 							<div class="mui-media-body" style="line-height: 45px;">
 								我的订单
@@ -76,7 +77,7 @@
 						</a>
 					</li>
 					<li class="mui-table-view-cell mui-media">
-						<a class="mui-navigate-right" id="address_manager">
+						<a class="mui-navigate-right" id="address_manager.html">
 							<img class="mui-media-object mui-pull-left" src="../img/location.png">
 							<div class="mui-media-body" style="line-height: 45px;">
 								地址管理
@@ -87,7 +88,7 @@
 
 				<ul class="mui-table-view mui-table-view-chevron" style="margin-top: 5px;">
 					<li class="mui-table-view-cell mui-media">
-						<a class="mui-navigate-right" id="myinfo">
+						<a class="mui-navigate-right" id="my_info.html">
 							<img class="mui-media-object mui-pull-left" src="../img/personal_info_icon.png">
 							<div class="mui-media-body" style="line-height: 45px;">
 								我的信息
@@ -95,7 +96,7 @@
 						</a>
 					</li>
 					<li class="mui-table-view-cell mui-media">
-						<a class="mui-navigate-right" id="my_collect">
+						<a class="mui-navigate-right" id="my_collect.html">
 							<img class="mui-media-object mui-pull-left" src="../img/shoucang_icon.png">
 							<div class="mui-media-body" style="line-height: 45px;">
 								我的收藏
@@ -106,7 +107,7 @@
 
 				<ul class="mui-table-view mui-table-view-chevron" style="margin-top: 5px;">
 					<li class="mui-table-view-cell mui-media">
-						<a class="mui-navigate-right" id="set">
+						<a class="mui-navigate-right" id="set_main.html">
 							<img class="mui-media-object mui-pull-left" src="../img/set_icon.png">
 							<div class="mui-media-body" style="line-height: 45px;">
 								设置
@@ -119,52 +120,18 @@
 	</body>
 	<script type="text/javascript">
 		mui.plusReady();
-		document.getElementById("set").addEventListener("tap", function() {
+		
+		jQuery('.mui-navigate-right').on('tap',function(){
+			var id = this.id
 			mui.openWindow({
-				id: "set_main",
-				url: "set_main.html",
+				id: id,
+				url: id,
 				show: {
 					aniShow: 'slide-in-right', //页面显示动画
 				}
 			});
 		});
-		document.getElementById("address_manager").addEventListener("tap", function() {
-			mui.openWindow({
-				id: "address_manager",
-				url: "address_manager.html",
-				show: {
-					aniShow: 'slide-in-right', //页面显示动画
-				}
-			});
-		});
-		document.getElementById("myinfo").addEventListener("tap", function() {
-			mui.openWindow({
-				id: "myinfo",
-				url: "my_info.html",
-				show: {
-					aniShow: 'slide-in-right', //页面显示动画
-				}
-			});
-		});
-		document.getElementById("my_collect").addEventListener("tap", function() {
-			mui.openWindow({
-				id: "my_collect",
-				url: "my_collect.html",
-				show: {
-					aniShow: 'slide-in-right', //页面显示动画
-				}
-			});
-		});
-		document.getElementById("my_order").addEventListener("tap", function() {
-			mui.openWindow({
-				id: "my_order",
-				url: "my_order.html",
-				show: {
-					aniShow: 'slide-in-right', //页面显示动画
-				}
-			});
-		});
-
+		
 		mui.oldBack = mui.back;
 		var backButtonPress = 0;
 		mui.back = function(event) {

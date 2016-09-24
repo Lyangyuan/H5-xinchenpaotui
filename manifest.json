@@ -234,7 +234,8 @@
 					"img/weixin.png",
 					"css/common.css",
 					"js/immersed.js",
-					null
+					null,
+					"js/config.js"
 				],
 				"refer": [],
 				"priority": 0
@@ -314,7 +315,8 @@
 					"img/qq.jpg",
 					"js/app.js",
 					"js/jquery.js",
-					null
+					null,
+					"js/config.js"
 				],
 				"refer": [
 					"html/set_main.html",
@@ -353,7 +355,8 @@
 					"img/food.png",
 					"img/sudi.png",
 					"img/search_icon.png",
-					"html/main.html"
+					"html/main.html",
+					"js/jquery.js"
 				],
 				"refer": [
 					"html/paotui_index.html",
@@ -389,7 +392,8 @@
 					"html/update.html",
 					"html/new_file.html",
 					"html/barcode_scan.html",
-					"html/about_this_softwarea.html"
+					"html/about_this_softwarea.html",
+					"index.html"
 				],
 				"priority": 0
 			},
@@ -464,7 +468,8 @@
 					"fonts/mui.ttf",
 					"css/mui.min.css",
 					"js/app.js",
-					"js/jquery.js"
+					"js/jquery.js",
+					"js/config.js"
 				],
 				"refer": [
 					"html/add_address.html",
@@ -1021,6 +1026,13 @@
 					"js/mui.min.js",
 					"fonts/mui.ttf",
 					"css/mui.min.css"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"html/gouwu/gouwu_shop_pingjia.html": {
+				"resources": [
+					"img/qq.jpg"
 				],
 				"refer": [],
 				"priority": 0

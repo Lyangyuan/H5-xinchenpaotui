@@ -6,10 +6,9 @@
 		<title></title>
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<link href="../css/mui.min.css" rel="stylesheet" />
-		<link href="../css/mui.picker.css" rel="stylesheet" />
-		<link href="../css/mui.poppicker.css" rel="stylesheet" />
 		<script src="../js/mui.min.js"></script>
 		<script src="../js/jquery.js"></script>
+		<script src="../js/config.js"></script>
 		<script src="../js/app.js"></script>
 		<script type="text/javascript">
 			mui.init()
@@ -136,7 +135,7 @@
 					return ;
 				}
 				jQuery.post(
-					'http://192.168.0.117:8081/app/u_addr_manage.php?act=save_address',
+					config['requestURL']+'/u_addr_manage.php?act=save_address',
 					{
 						'name':nameObj.val(),
 						'phone':phoneObj.val(),

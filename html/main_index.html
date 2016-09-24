@@ -7,6 +7,7 @@
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<link href="../css/mui.min.css" rel="stylesheet" />
 		<script src="../js/mui.min.js"></script>
+		<script src="../js/jquery.js"></script>
 		<script type="text/javascript">
 			mui.init()
 		</script>
@@ -47,7 +48,7 @@
 			.search {
 				width: 90%;
 				margin: auto;
-				margin-top:5px ;
+				margin-top: 5px;
 			}
 		</style>
 	</head>
@@ -57,7 +58,7 @@
 		<div class="mui-content">
 
 			<div class="search">
-				<input type="text" placeholder="请输入搜索内容"/>
+				<input type="text" placeholder="请输入搜索内容" />
 			</div>
 
 			<div class="slider">
@@ -106,35 +107,38 @@
 				<div class="service" style="margin-top:5px ;">
 					<ul class="mui-table-view mui-grid-view">
 						<li class="mui-table-view-cell mui-media mui-col-xs-4">
-							<a id="paotui" class="paotui">
+							<a id="paotui/paotui_index_frame.html" class="model">
 								<img class="mui-media-object" src="../img/tui.png">
 								<div class="mui-media-body">跑腿网</div>
 							</a>
 						</li>
 						<li class="mui-table-view-cell mui-media mui-col-xs-4">
-							<a id="sudi">
+							<a id="sudi/sudi_index.html" class="model">
 								<img class="mui-media-object" src="../img/sudi.png">
 								<div class="mui-media-body">同城速递</div>
 							</a>
 						</li>
 						<li class="mui-table-view-cell mui-media mui-col-xs-4">
-							<a id="meishi"><img class="mui-media-object" src="../img/food.png">
+							<a id="meishi/meishi_index.html" class="model">
+								<img class="mui-media-object" src="../img/food.png">
 								<div class="mui-media-body">美食外卖</div>
 							</a>
 						</li>
 						<li class="mui-table-view-cell mui-media mui-col-xs-4">
-							<a href="#" id="gouwu">
+							<a id="gouwu/gouwu_index.html" class="model">
 								<img class="mui-media-object" src="../img/buy.png">
 								<div class="mui-media-body">同城购物</div>
 							</a>
 						</li>
 						<li class="mui-table-view-cell mui-media mui-col-xs-4">
-							<a href="#"><img class="mui-media-object" src="../img/jingying.png">
+							<a class="model">
+								<img class="mui-media-object" src="../img/jingying.png">
 								<div class="mui-media-body">行业精英</div>
 							</a>
 						</li>
 						<li class="mui-table-view-cell mui-media mui-col-xs-4">
-							<a href="#"><img class="mui-media-object" src="../img/ping.png">
+							<a class="model">
+								<img class="mui-media-object" src="../img/ping.png">
 								<div class="mui-media-body">同城招聘</div>
 							</a>
 						</li>
@@ -192,40 +196,12 @@
 			<script src="../js/mui.min.js"></script>
 			<script>
 				mui.plusReady();
-				document.getElementById("paotui").addEventListener("tap", function() {
+
+				jQuery(".model").on('tap', function() {
+					var id = this.id;
 					mui.openWindow({
-						url: "paotui/paotui_index_frame.html",
-						id: "paotui_index_frame",
-						show: {
-							aniShow: 'zoom-fade-out', //页面显示动画
-							duration: 300 //动画持续的时间
-						}
-					});
-				});
-				document.getElementById("sudi").addEventListener("tap", function() {
-					mui.openWindow({
-						url: "sudi/sudi_index.html",
-						id: "sudi_index",
-						show: {
-							aniShow: 'zoom-fade-out', //页面显示动画
-							duration: 300 //动画持续的时间
-						}
-					});
-				});
-				document.getElementById("meishi").addEventListener("tap", function() {
-					mui.openWindow({
-						url: "meishi/meishi_index.html",
-						id: "meishi",
-						show: {
-							aniShow: 'zoom-fade-out', //页面显示动画
-							duration: 300 //动画持续的时间
-						}
-					});
-				});
-				document.getElementById("gouwu").addEventListener("tap", function() {
-					mui.openWindow({
-						url: "gouwu/gouwu_index.html",
-						id: "gouwu_index",
+						url: id,
+						id: id,
 						show: {
 							aniShow: 'zoom-fade-out', //页面显示动画
 							duration: 300 //动画持续的时间

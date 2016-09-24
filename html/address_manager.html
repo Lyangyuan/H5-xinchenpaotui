@@ -9,6 +9,7 @@
 		<script src="../js/mui.min.js"></script>
 		<script src="../js/app.js"></script>
 		<script src="../js/jquery.js"></script>
+		<script src="../js/config.js"></script>
 		<script type="text/javascript">
 			mui.init()
 		</script>
@@ -51,7 +52,7 @@
 			}
 		</style>
 	</head>
-
+	
 	<body>
 		<header class="mui-bar mui-bar-nav">
 			<h1 class="mui-title" id="title">地址管理</h1>
@@ -77,7 +78,7 @@
 		//获取地址列表函数
 		function getAddrList() {
 			jQuery.post(
-				'http://192.168.0.117:8081/app/u_addr_manage.php?act=get_user_addr_list', {
+				config['requestURL']+'/u_addr_manage.php?act=get_user_addr_list', {
 					'u_id': state.account,
 					'token': state.token
 				},
@@ -91,7 +92,7 @@
 		//删除地址
 		function deleteAddr(id) {
 			jQuery.post(
-				'http://192.168.0.117:8081/app/u_addr_manage.php?act=deleteAddr', {
+				config['requestURL']+'/u_addr_manage.php?act=deleteAddr', {
 					'u_id': state.account,
 					'token': state.token,
 					'id': id

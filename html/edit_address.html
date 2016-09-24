@@ -8,6 +8,7 @@
 		<script src="../js/mui.min.js"></script>
 		<script src="../js/jquery.js"></script>
 		<script src="../js/app.js"></script>
+		<script src="../js/config.js"></script>
 		<script type="text/javascript">
 			mui.init()
 		</script>
@@ -100,7 +101,7 @@
 			var webView = plus.webview.getWebviewById("edit_address");
 			addr_id = webView.addrid;
 			jQuery.post(
-				'http://192.168.0.117:8081/app/u_addr_manage.php?act=get_address_by_id', {
+				config['requestURL']+'/u_addr_manage.php?act=get_address_by_id', {
 					'id': addr_id,
 					'u_id': state.account,
 					'token': state.token
@@ -149,7 +150,7 @@
 				return;
 			}
 			jQuery.post(
-				'http://192.168.0.117:8081/app/u_addr_manage.php?act=edit_address', {
+				config['requestURL']+'/u_addr_manage.php?act=edit_address', {
 					'name': nameObj.val(),
 					'phone': phoneObj.val(),
 					'address': addressObj.val(),

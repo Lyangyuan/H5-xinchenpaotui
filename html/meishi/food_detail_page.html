@@ -154,12 +154,9 @@
 			};
 			return chartOption;
 		};
-		var byId = function(id) {
-			return document.getElementById(id);
-		};
 		var pieChart = echarts.init(byId('pieChart'));
 		pieChart.setOption(getOption());
-		byId("echarts").addEventListener('tap', function() {
+		jQuery("#echarts").addEventListener('tap', function() {
 			var url = this.getAttribute('data-url');
 			plus.runtime.openURL(url);
 		}, false);
