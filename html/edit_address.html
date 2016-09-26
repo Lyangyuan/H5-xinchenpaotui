@@ -97,11 +97,15 @@
 		var nameObj = jQuery("#name");
 		var addr_id;
 
+		var p = {
+			point: "101.78309,36.629927"
+		};
+
 		mui.plusReady(function() {
 			var webView = plus.webview.getWebviewById("edit_address");
 			addr_id = webView.addrid;
 			jQuery.post(
-				config['requestURL']+'/u_addr_manage.php?act=get_address_by_id', {
+				config['requestURL'] + '/u_addr_manage.php?act=get_address_by_id', {
 					'id': addr_id,
 					'u_id': state.account,
 					'token': state.token
@@ -112,36 +116,39 @@
 					nameObj.val(data[0]['u_name']);
 					lngObj.val(data[0]['u_addr_lng']);
 					latObj.val(data[0]['u_addr_lat']);
+					map();
 				},
 				'json'
 			);
+
 		});
 
-		var map = new BMap.Map("container"); // 创建地图实例  
-		var point = new BMap.Point(101.780, 36.629); // 创建点坐标  西宁
-		map.centerAndZoom(point, 15);
+		function map() {
+			var map = new BMap.Map("container"); // 创建地图实例  
+			var point = new BMap.Point(101.780, 36.629); // 创建点坐标  西宁
+			map.centerAndZoom(point, 15);
 
-		map.addControl(new BMap.NavigationControl()); //缩放按钮控件
-		
-		var marker = new BMap.Marker(point); // 创建标注  
-		
-		//拖拽标注点并获取位置
-		marker.enableDragging();
-		marker.addEventListener("dragend", function(e) {
-			lngObj.val(e.point.lng);
-			latObj.val(e.point.lat);
+			map.addControl(new BMap.NavigationControl()); //缩放按钮控件
 
-			// 创建地理编码实例
-			var myGeo = new BMap.Geocoder();
-			// 根据坐标得到地址描述
-			myGeo.getLocation(new BMap.Point(e.point.lng, e.point.lat), function(result) {
-				if(result) {
-					addressObj.val(result.address);
-				}
-			});
-		})
+			var addr_point = new BMap.Point(lngObj.val(), latObj.val());
+			var marker = new BMap.Marker(addr_point); // 创建标注  
+			//拖拽标注点并获取位置
+			marker.enableDragging();
+			marker.addEventListener("dragend", function(e) {
+				lngObj.val(e.point.lng);
+				latObj.val(e.point.lat);
+				// 创建地理编码实例
+				var myGeo = new BMap.Geocoder();
+				// 根据坐标得到地址描述
+				myGeo.getLocation(new BMap.Point(e.point.lng, e.point.lat), function(result) {
+					if(result) {
+						addressObj.val(result.address);
+					}
+				});
+			})
 
-		map.addOverlay(marker); // 将标注添加到地图中
+			map.addOverlay(marker); // 将标注添加到地图中
+		}
 
 		jQuery("#save_address").on('tap', function() {
 			var erro = app.check_phone(phoneObj.val());
@@ -150,7 +157,7 @@
 				return;
 			}
 			jQuery.post(
-				config['requestURL']+'/u_addr_manage.php?act=edit_address', {
+				config['requestURL'] + '/u_addr_manage.php?act=edit_address', {
 					'name': nameObj.val(),
 					'phone': phoneObj.val(),
 					'address': addressObj.val(),

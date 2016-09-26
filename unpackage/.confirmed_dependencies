@@ -291,7 +291,8 @@
 			"fonts/mui.ttf",
 			"css/mui.min.css",
 			"js/jquery.js",
-			"js/app.js"
+			"js/app.js",
+			"js/config.js"
 		]
 	},
 	"html/barcode_scan.html": {
@@ -769,7 +770,8 @@
 			"css/mui.min.css",
 			"css/mui.poppicker.css",
 			"css/mui.picker.css",
-			"js/jquery.js"
+			"js/jquery.js",
+			"js/config.js"
 		]
 	},
 	"html/paotui/protocl.html": {
