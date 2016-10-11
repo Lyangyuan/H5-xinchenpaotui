@@ -678,7 +678,8 @@
 			"img/car.png",
 			"img/tds3.jpg",
 			"img/tds4.jpg",
-			"img/tds1.jpg"
+			"img/tds1.jpg",
+			"js/jquery.js"
 		]
 	},
 	"html/paotui/order_pay.html": {
